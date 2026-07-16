@@ -819,9 +819,9 @@
             </div>
             
             <div class="bg-white rounded-[40px] border border-gray-100 shadow-[0_20px_60px_rgba(0,0,0,0.06)] overflow-hidden reveal delay-100 flex flex-col lg:flex-row items-stretch">
-                <!-- Map Placeholder -->
+                <!-- Map Image -->
                 <div class="lg:w-[55%] min-h-[300px] lg:min-h-full bg-gray-50 relative border-b lg:border-b-0 lg:border-r border-gray-100 overflow-hidden">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3213.4693828819322!2d127.37426477581779!3d36.34940792237916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654be6b76a2447%3A0x4a1661c4dc427ef4!2z64yA7KCE7Lu07ZOo7YSw7ZWZ7JuQLVNCU-yVhOy5tOuNsOuvuOy7tO2TqO2EsOyVhO2KuO2VmeybkA!5e0!3m2!1sko!2skr!4v1778489462560!5m2!1sko!2skr" class="absolute inset-0 w-full h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <img src="https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Map/Map_Img.png" alt="SBS아카데미컴퓨터아트학원 대전점 위치 지도" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
                 </div>
                 <!-- Info -->
                 <div class="lg:w-[45%] p-12 lg:p-16 flex flex-col justify-center">
@@ -1216,7 +1216,6 @@
         // 과목별 실제 이미지 데이터 매핑
         const subjectImages = {
             'AI프롬프트엔지니어링1-2': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Prompt_Engineering/AI_Prompt_Engineering1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Prompt_Engineering/AI_Prompt_Engineering2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Prompt_Engineering/AI_Prompt_Engineering3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Prompt_Engineering/AI_Prompt_Engineering4.jpg',
@@ -1224,28 +1223,24 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Prompt_Engineering/AI_Prompt_Engineering6.jpg'
             ],
             'GTQ': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/GTQ/GTQ1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/GTQ/GTQ2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/GTQ/GTQ3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/GTQ/GTQ4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/GTQ/GTQ5.jpg'
             ],
             '그래픽아트웍': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Graphic_artwork/Graphic_artwork1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Graphic_artwork/Graphic_artwork2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Graphic_artwork/Graphic_artwork3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Graphic_artwork/Graphic_artwork4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Graphic_artwork/Graphic_artwork5.jpg'
             ],
             'GTQ/GTQi': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/GTQi/GTQi1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/GTQi/GTQi2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/GTQi/GTQi3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/GTQi/GTQi4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/GTQi/GTQi5.jpg'
             ],
             '디지털드로잉1-6': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Digital_Drawing/Digital_Drawing1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Digital_Drawing/Digital_Drawing3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Digital_Drawing/Digital_Drawing4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Digital_Drawing/Digital_Drawing5.jpg',
@@ -1261,7 +1256,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Digital_Drawing/Digital_Drawing15.jpg'
             ],
             '해부학': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Anatomy/Anatomy1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Anatomy/Anatomy2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Anatomy/Anatomy3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Anatomy/Anatomy4.jpg',
@@ -1269,93 +1263,79 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Anatomy/Anatomy6.jpg'
             ],
             '일러스트': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/illustration/illustration1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/illustration/illustration2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/illustration/illustration3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/illustration/illustration4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/illustration/illustration5.jpg'
             ],
             '인디자인': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/InDesign/InDesign1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/InDesign/InDesign2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/InDesign/InDesign3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/InDesign/InDesign4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/InDesign/InDesign5.jpg'
             ],
             '인스타툰(금요특강)': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Instagram_Toon/Instagram_Toon1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Instagram_Toon/Instagram_Toon2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Instagram_Toon/Instagram_Toon3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Instagram_Toon/Instagram_Toon4.jpg'
             ],
             '인포그래픽': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Infographic/Infographic1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Infographic/Infographic2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Infographic/Infographic3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Infographic/Infographic4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Infographic/Infographic5.jpg'
             ],
             'AI 에이전트 기초/심화': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Agent/AI_Agent1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Agent/AI_Agent2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Agent/AI_Agent3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Agent/AI_Agent4.jpg',
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Agents_Deep/AI_Agents_Deepening1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Agents_Deep/AI_Agents_Deepening2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Agents_Deep/AI_Agents_Deepening3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Agents_Deep/AI_Agents_Deepening4.jpg'
             ],
             'AI크리에이터 편집': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Edit_AI_Creator/Edit_AI_Creator1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Edit_AI_Creator/Edit_AI_Creator2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Edit_AI_Creator/Edit_AI_Creator3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Edit_AI_Creator/Edit_AI_Creator4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Edit_AI_Creator/Edit_AI_Creator5.jpg'
             ],
             'AI크리에이터 CG마야': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/CGAI_Creator_CGMaya/CGAI_Creator_CGMaya1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/CGAI_Creator_CGMaya/CGAI_Creator_CGMaya2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/CGAI_Creator_CGMaya/CGAI_Creator_CGMaya3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/CGAI_Creator_CGMaya/CGAI_Creator_CGMaya4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/CGAI_Creator_CGMaya/CGAI_Creator_CGMaya5.jpg'
             ],
             'AI크리에이터 바이브코딩': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/VibeAI/VibeAI_Creator_Vibe%20Coding1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/VibeAI/VibeAI_Creator_Vibe%20Coding2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/VibeAI/VibeAI_Creator_Vibe%20Coding3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/VibeAI/VibeAI_Creator_Vibe%20Coding4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/VibeAI/VibeAI_Creator_Vibe%20Coding5.jpg'
             ],
             'AI크리에이터 아트웍': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_Artwork/AI_Creator_Artwork1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_Artwork/AI_Creator_Artwork2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_Artwork/AI_Creator_Artwork3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_Artwork/AI_Creator_Artwork4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_Artwork/AI_Creator_Artwork5.jpg'
             ],
             'AI크리에이터 인테리어': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_Interior/AI_Creator_Interior1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_Interior/AI_Creator_Interior2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_Interior/AI_Creator_Interior3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_Interior/AI_Creator_Interior4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_Interior/AI_Creator_Interior5.jpg'
             ],
             'AI크리에이터 유튜브': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_YouTube/AI_Creator_YouTube1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_YouTube/AI_Creator_YouTube2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_YouTube/AI_Creator_YouTube3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_YouTube/AI_Creator_YouTube4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_YouTube/AI_Creator_YouTube5.jpg'
             ],
             'AI크리에이터 영상모션': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_Video_Motion/AI_Creator_Video_Motion1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_Video_Motion/AI_Creator_Video_Motion2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_Video_Motion/AI_Creator_Video_Motion3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_Video_Motion/AI_Creator_Video_Motion4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AI_Creator_Video_Motion/AI_Creator_Video_Motion5.jpg'
             ],
             '[BIM] 스마트 건축 설계&실내인테리어 3D디자이너 양성과정(캐드,스케치업,레빗)': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AaABIM/BIM_AaABIM_Architecture%20and%20Architectural1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AaABIM/BIM_AaABIM_Architecture%20and%20Architectural2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AaABIM/BIM_AaABIM_Architecture%20and%20Architectural3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AaABIM/BIM_AaABIM_Architecture%20and%20Architectural4.jpg',
@@ -1372,14 +1352,12 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/AaABIM/BIM_AaABIM_Architecture%20and%20Architectural15.jpg'
             ],
             'UIUX 스프린트(포폴기획 - 금요특강)': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/SprintUIUX/SprintUIUX_Sprint1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/SprintUIUX/SprintUIUX_Sprint2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/SprintUIUX/SprintUIUX_Sprint3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/SprintUIUX/SprintUIUX_Sprint4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/SprintUIUX/SprintUIUX_Sprint5.jpg'
             ],
             '[디지털디자인] AI 기반 UIUX 웹디자인 & 웹퍼블리셔 양성과정(Figma, HTML5, CSS)': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/UIUX_FrontEnd/UIUX_FrontEnd1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/UIUX_FrontEnd/UIUX_FrontEnd2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/UIUX_FrontEnd/UIUX_FrontEnd3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/UIUX_FrontEnd/UIUX_FrontEnd4.jpg',
@@ -1392,7 +1370,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/UIUX_FrontEnd/UIUX_FrontEnd11.jpg'
             ],
             '모션 쇼릴(포폴기획 - 금요특강)': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Motion_showreel/Motion_showreel1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Motion_showreel/Motion_showreel2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Motion_showreel/Motion_showreel3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Motion_showreel/Motion_showreel4.jpg',
@@ -1400,14 +1377,12 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Motion_showreel/Motion_showreel6.jpg'
             ],
             '비주얼 아트 디렉터': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Art_director/Art_director1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Art_director/Art_director2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Art_director/Art_director3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Art_director/Art_director4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Art_director/Art_director5.jpg'
             ],
             '[디지털컨버전스] 공공데이터 융합 풀스택 웹 개발자 양성과정(Next.js & Spring)': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Fullstec/Fullstec1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Fullstec/Fullstec2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Fullstec/Fullstec3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Fullstec/Fullstec4.jpg',
@@ -1424,7 +1399,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Fullstec/Fullstec15.jpg'
             ],
             '웹툰 1-6': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Webtoon/1777000613257-6204d25a-661a-445c-a3b6-50fa51e652eb_1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Webtoon/1777000613257-6204d25a-661a-445c-a3b6-50fa51e652eb_3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Webtoon/1777000613257-6204d25a-661a-445c-a3b6-50fa51e652eb_4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Webtoon/1777000613257-6204d25a-661a-445c-a3b6-50fa51e652eb_5.jpg',
@@ -1440,14 +1414,12 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Webtoon/1777000613257-6204d25a-661a-445c-a3b6-50fa51e652eb_15.jpg'
             ],
             '인테리어 콘셉트 제네시스(포폴기획 - 금요특강)': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Genesis/Genesis1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Genesis/Genesis2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Genesis/Genesis3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Genesis/Genesis4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Genesis/Genesis5.jpg'
             ],
             '정보처리기능사': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Information_processing_technician/Information_processing_technician1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Information_processing_technician/Information_processing_technician2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Information_processing_technician/Information_processing_technician3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Information_processing_technician/Information_processing_technician4.jpg',
@@ -1462,7 +1434,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Information_processing_technician/Information_processing_technician13.jpg'
             ],
             '정보처리기사/산업기사(이미지 준비중)': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/An_information_processing_industry_engineer/An_information_processing_industry_engineer1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/An_information_processing_industry_engineer/An_information_processing_industry_engineer2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/An_information_processing_industry_engineer/An_information_processing_industry_engineer3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/An_information_processing_industry_engineer/An_information_processing_industry_engineer4.jpg',
@@ -1479,7 +1450,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/An_information_processing_industry_engineer/An_information_processing_industry_engineer16.jpg'
             ],
             '캐드 1-2': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/CAD/CAD1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/CAD/CAD2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/CAD/CAD3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/CAD/CAD4.jpg',
@@ -1490,7 +1460,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/CAD/CAD9.jpg'
             ],
             '컴퓨터기초(금요특강)': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Basics_computer/Basics_computer1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Basics_computer/Basics_computer2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Basics_computer/Basics_computer3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Basics_computer/Basics_computer4.jpg',
@@ -1498,21 +1467,18 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Basics_computer/Basics_computer6.jpg'
             ],
             '컴활2급': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/computer_skills2/computer_skills2_1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/computer_skills2/computer_skills2_2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/computer_skills2/computer_skills2_3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/computer_skills2/computer_skills2_4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/computer_skills2/computer_skills2_5.jpg'
             ],
             '컴활1급': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computer_literacy_1level/Computer_literacy_1level1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computer_literacy_1level/Computer_literacy_1level3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computer_literacy_1level/Computer_literacy_1level4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computer_literacy_1level/Computer_literacy_1level5.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computer_literacy_1level/Computer_literacy_1level6.jpg'
             ],
             '전산회계1급': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computerized_Accounting_1Class/Computerized_Accounting_1Class1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computerized_Accounting_1Class/Computerized_Accounting_1Class3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computerized_Accounting_1Class/Computerized_Accounting_1Class4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computerized_Accounting_1Class/Computerized_Accounting_1Class5.jpg',
@@ -1520,7 +1486,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computerized_Accounting_1Class/Computerized_Accounting_1Class7.jpg'
             ],
             '전산세무2급': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computerized_tax_2level/Computerized_tax_2level1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computerized_tax_2level/Computerized_tax_2level3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computerized_tax_2level/Computerized_tax_2level4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computerized_tax_2level/Computerized_tax_2level5.jpg',
@@ -1528,14 +1493,12 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computerized_tax_2level/Computerized_tax_2level7.jpg'
             ],
             '재경관리사': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Financial_Manager/Financial_Manager1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Financial_Manager/Financial_Manager2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Financial_Manager/Financial_Manager3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Financial_Manager/Financial_Manager4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Financial_Manager/Financial_Manager5.jpg'
             ],
             '전산응용기계제도': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computerized_Application_Mechanical_System/Computerized_Application_Mechanical_System1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computerized_Application_Mechanical_System/Computerized_Application_Mechanical_System2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computerized_Application_Mechanical_System/Computerized_Application_Mechanical_System3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computerized_Application_Mechanical_System/Computerized_Application_Mechanical_System4.jpg',
@@ -1543,20 +1506,17 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computerized_Application_Mechanical_System/Computerized_Application_Mechanical_System6.jpg'
             ],
             '전산응용건축제도': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computer-Applied_Building_System/Computer-Applied_Building_System1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computer-Applied_Building_System/Computer-Applied_Building_System2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computer-Applied_Building_System/Computer-Applied_Building_System3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Computer-Applied_Building_System/Computer-Applied_Building_System4.jpg'
             ],
             '인벤터': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Inventory/Inventory1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Inventory/Inventory2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Inventory/Inventory3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Inventory/Inventory4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Inventory/Inventory5.jpg'
             ],
             '파이썬 1-3': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Python/Python1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Python/Python2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Python/Python3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Python/Python4.jpg',
@@ -1565,7 +1525,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Python/Python7.jpg'
             ],
             '자바 1-2': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Java/Java1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Java/Java3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Java/Java4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Java/Java5.jpg',
@@ -1573,7 +1532,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Java/Java7.jpg'
             ],
             'C언어 1-2': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/C/C1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/C/C3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/C/C4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/C/C5.jpg',
@@ -1583,7 +1541,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/C/C9.jpg'
             ],
             'Blender1-2': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Blender1-2/Blender1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Blender1-2/Blender2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Blender1-2/Blender3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Blender1-2/Blender4.jpg',
@@ -1591,7 +1548,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Blender1-2/Blender6.jpg'
             ],
             'BIM1-2': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/BIM1-2/BIM1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/BIM1-2/BIM3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/BIM1-2/BIM4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/BIM1-2/BIM5.jpg',
@@ -1603,21 +1559,18 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/BIM1-2/BIM11.jpg'
             ],
             '포토샵': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Photoshop/Photoshop1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Photoshop/Photoshop2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Photoshop/Photoshop3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Photoshop/Photoshop4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Photoshop/Photoshop5.jpg'
             ],
             '포토웍스': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Photoworks/Photoworks1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Photoworks/Photoworks2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Photoworks/Photoworks3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Photoworks/Photoworks4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Photoworks/Photoworks5.jpg'
             ],
             '퓨전360 1-2(이미지 준비중)': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Fusion360/Fusion360_1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Fusion360/Fusion360_2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Fusion360/Fusion360_3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Fusion360/Fusion360_4.jpg',
@@ -1626,7 +1579,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Fusion360/Fusion360_7.jpg'
             ],
             '프리미어': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Premiere/Premiere1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Premiere/Premiere2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Premiere/Premiere3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Premiere/Premiere4.jpg',
@@ -1635,7 +1587,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Premiere/Premiere7.jpg'
             ],
             '유튜브': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/YouTube/YouTube1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/YouTube/YouTube3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/YouTube/YouTube4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/YouTube/YouTube5.jpg',
@@ -1645,7 +1596,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/YouTube/YouTube9.jpg'
             ],
             '유튜브(영크리)': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/YouTube_Youngcry/YouTube_Youngcry1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/YouTube_Youngcry/YouTube_Youngcry3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/YouTube_Youngcry/YouTube_Youngcry4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/YouTube_Youngcry/YouTube_Youngcry5.jpg',
@@ -1657,7 +1607,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/YouTube_Youngcry/YouTube_Youngcry11.jpg'
             ],
             '유튜브(시니어)': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/YouTube_senior/YouTube_senior1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/YouTube_senior/YouTube_senior3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/YouTube_senior/YouTube_senior4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/YouTube_senior/YouTube_senior5.jpg',
@@ -1668,13 +1617,11 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/YouTube_senior/YouTube_senior10.jpg'
             ],
             '웹디자인개발기능사': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Skill_History_of_Web_Design_Development/Skill_History_of_Web_Design_Development1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Skill_History_of_Web_Design_Development/Skill_History_of_Web_Design_Development2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Skill_History_of_Web_Design_Development/Skill_History_of_Web_Design_Development3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Skill_History_of_Web_Design_Development/Skill_History_of_Web_Design_Development4.jpg'
             ],
             '웹1-3': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/WEB/WEB1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/WEB/WEB3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/WEB/WEB4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/WEB/WEB5.jpg',
@@ -1700,7 +1647,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/WEB/WEB23.jpg'
             ],
             '영상편집&유튜브편집제작(프리미어,에프터이펙트)실무자 양성과정': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Video_editing_and_YouTube_editing_production/Video_editing_and_YouTube_editing_production_(premier,effect)_training_course_for_practitioners1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Video_editing_and_YouTube_editing_production/Video_editing_and_YouTube_editing_production_(premier,effect)_training_course_for_practitioners2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Video_editing_and_YouTube_editing_production/Video_editing_and_YouTube_editing_production_(premier,effect)_training_course_for_practitioners3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Video_editing_and_YouTube_editing_production/Video_editing_and_YouTube_editing_production_(premier,effect)_training_course_for_practitioners4.jpg',
@@ -1723,20 +1669,17 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Video_editing_and_YouTube_editing_production/Video_editing_and_YouTube_editing_production_(premier,effect)_training_course_for_practitioners21.jpg'
             ],
             '어드벤스에펙': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Advances_Effec/Advances_Effec1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Advances_Effec/Advances_Effec3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Advances_Effec/Advances_Effec4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Advances_Effec/Advances_Effec5.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Advances_Effec/Advances_Effec6.jpg'
             ],
             '실무엑셀(금요특강)(이미지 준비중)': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Practical_Excel/Practical_Excel1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Practical_Excel/Practical_Excel3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Practical_Excel/Practical_Excel4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Practical_Excel/Practical_Excel5.jpg'
             ],
             '시네마4D 1-4': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Cinema4D/Cinema4D1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Cinema4D/Cinema4D3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Cinema4D/Cinema4D4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Cinema4D/Cinema4D5.jpg',
@@ -1748,7 +1691,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Cinema4D/Cinema4D11.jpg'
             ],
             '스토리보드 1-6': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Storyboard/Storyboard1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Storyboard/Storyboard3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Storyboard/Storyboard4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Storyboard/Storyboard5.jpg',
@@ -1764,7 +1706,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Storyboard/Storyboard15.jpg'
             ],
             '스토리보드1-6': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Storyboard/Storyboard1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Storyboard/Storyboard3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Storyboard/Storyboard4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Storyboard/Storyboard5.jpg',
@@ -1780,7 +1721,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Storyboard/Storyboard15.jpg'
             ],
             '스케치업1-2': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Sketchup/Sketchup1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Sketchup/Sketchup3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Sketchup/Sketchup4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Sketchup/Sketchup5.jpg',
@@ -1790,35 +1730,30 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Sketchup/Sketchup9.jpg'
             ],
             '숏폼컨텐츠(금요특강)': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/ShortForm_Content/ShortForm_Content1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/ShortForm_Content/ShortForm_Content3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/ShortForm_Content/ShortForm_Content4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/ShortForm_Content/ShortForm_Content5.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/ShortForm_Content/ShortForm_Content6.jpg'
             ],
             '색채학': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Color_Science/Color_Science1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Color_Science/Color_Science3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Color_Science/Color_Science4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Color_Science/Color_Science5.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Color_Science/Color_Science6.jpg'
             ],
             '베이직에펙': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Basic_Effec/Basic_Effec1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Basic_Effec/Basic_Effec3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Basic_Effec/Basic_Effec4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Basic_Effec/Basic_Effec5.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Basic_Effec/Basic_Effec6.jpg'
             ],
             '디테일일러스트': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Detailed_Illustration/Detailed_Illustration1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Detailed_Illustration/Detailed_Illustration2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Detailed_Illustration/Detailed_Illustration3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Detailed_Illustration/Detailed_Illustration4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Detailed_Illustration/Detailed_Illustration5.jpg'
             ],
             '발상과 표현': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Ideas_and_Expressions/Ideas_and_Expressions1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Ideas_and_Expressions/Ideas_and_Expressions3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Ideas_and_Expressions/Ideas_and_Expressions4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Ideas_and_Expressions/Ideas_and_Expressions5.jpg',
@@ -1826,7 +1761,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Ideas_and_Expressions/Ideas_and_Expressions7.jpg'
             ],
             '모스': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Moss/Moss1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Moss/Moss3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Moss/Moss4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Moss/Moss5.jpg',
@@ -1834,14 +1768,12 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Moss/Moss7.jpg'
             ],
             '모션에펙': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Motion_Effec/Motion_Effec1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Motion_Effec/Motion_Effec3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Motion_Effec/Motion_Effec4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Motion_Effec/Motion_Effec5.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Motion_Effec/Motion_Effec6.jpg'
             ],
             '맥스 1-3': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/MAX/MAX1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/MAX/MAX3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/MAX/MAX4.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/MAX/MAX5.jpg',
@@ -1854,7 +1786,6 @@
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/MAX/MAX12.jpg'
             ],
             '마야크리틱(포폴기획 - 금요특강)': [
-                'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/MayaCritic/MayaCritic1.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/MayaCritic/MayaCritic2.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/MayaCritic/MayaCritic3.jpg',
                 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/MayaCritic/MayaCritic4.jpg',
