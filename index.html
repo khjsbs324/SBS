@@ -387,6 +387,92 @@
 
     <!-- 3. 주요 교육과정 (Curriculum) -->
     <section id="curriculum" class="py-[160px] lg:py-[200px] relative z-10 bg-white border-t border-gray-100">
+        <!-- 교육과정 바로가기 -->
+        <div id="curriculum-shortcuts" class="max-w-[1200px] mx-auto px-6 mb-[160px] lg:mb-[200px]">
+            <div class="mb-[100px] text-center">
+                <span class="text-sbs-main font-bold text-[14px] tracking-[0.2em] uppercase mb-4 block">PROGRAMS</span>
+                <h2 class="text-[40px] md:text-[56px] font-extrabold tracking-[-0.03em] text-gray-900 mb-6">교육과정 바로가기</h2>
+                <p class="text-gray-500 text-[18px] font-medium">원하는 분야를 선택하고 상세 커리큘럼을 확인하세요.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <button type="button" onclick="goToCurriculum('ai_agent')" aria-label="AI Master 교육과정 바로가기" class="w-full text-left bg-white border border-gray-100 rounded-3xl p-8 hover:shadow-[0_20px_50px_rgba(13,130,255,0.08)] hover:-translate-y-2 transition-all duration-300 cursor-pointer group flex flex-col justify-between min-h-[190px]">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="w-10 h-10 rounded-full bg-gray-50 text-gray-500 font-bold flex items-center justify-center text-[14px] group-hover:bg-sbs-light group-hover:text-sbs-main transition-colors">01</span>
+                        <svg class="w-6 h-6 text-gray-300 group-hover:text-sbs-main transition-colors transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div>
+                        <span class="text-sbs-main font-extrabold text-[13px] tracking-[0.08em] mb-3 block">AI Master</span>
+                        <h3 class="text-[20px] font-bold text-gray-900 group-hover:text-sbs-main transition-colors tracking-tight mb-2">AI Master</h3>
+                        <p class="text-gray-500 text-[15px] font-medium leading-[1.6]">AI 자동화, 바이브코딩</p>
+                    </div>
+                </button>
+
+                <button type="button" onclick="goToCurriculum('uiux')" aria-label="AI 디자인 교육과정 바로가기" class="w-full text-left bg-white border border-gray-100 rounded-3xl p-8 hover:shadow-[0_20px_50px_rgba(13,130,255,0.08)] hover:-translate-y-2 transition-all duration-300 cursor-pointer group flex flex-col justify-between min-h-[190px]">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="w-10 h-10 rounded-full bg-gray-50 text-gray-500 font-bold flex items-center justify-center text-[14px] group-hover:bg-sbs-light group-hover:text-sbs-main transition-colors">02</span>
+                        <svg class="w-6 h-6 text-gray-300 group-hover:text-sbs-main transition-colors transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div>
+                        <span class="text-sbs-main font-extrabold text-[13px] tracking-[0.08em] mb-3 block">HOT</span>
+                        <h3 class="text-[20px] font-bold text-gray-900 group-hover:text-sbs-main transition-colors tracking-tight mb-2">AI 디자인</h3>
+                        <p class="text-gray-500 text-[15px] font-medium leading-[1.6]">
+                            <span class="block">AI 디자인</span>
+                            <span class="block">웹 UIUX, 시각편집</span>
+                        </p>
+                    </div>
+                </button>
+
+                <button type="button" onclick="goToCurriculum('motion')" aria-label="AI 모션·CG 교육과정 바로가기" class="w-full text-left bg-white border border-gray-100 rounded-3xl p-8 hover:shadow-[0_20px_50px_rgba(13,130,255,0.08)] hover:-translate-y-2 transition-all duration-300 cursor-pointer group flex flex-col justify-between min-h-[190px]">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="w-10 h-10 rounded-full bg-gray-50 text-gray-500 font-bold flex items-center justify-center text-[14px] group-hover:bg-sbs-light group-hover:text-sbs-main transition-colors">03</span>
+                        <svg class="w-6 h-6 text-gray-300 group-hover:text-sbs-main transition-colors transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div>
+                        <span class="text-sbs-main font-extrabold text-[13px] tracking-[0.08em] mb-3 block">AI 모션·CG</span>
+                        <h3 class="text-[20px] font-bold text-gray-900 group-hover:text-sbs-main transition-colors tracking-tight mb-2">AI 모션/CG</h3>
+                        <p class="text-gray-500 text-[15px] font-medium leading-[1.6]">유튜브/영상편집</p>
+                    </div>
+                </button>
+
+                <button type="button" onclick="goToCurriculum('webtoon')" aria-label="AI 웹툰·드로잉 교육과정 바로가기" class="w-full text-left bg-white border border-gray-100 rounded-3xl p-8 hover:shadow-[0_20px_50px_rgba(13,130,255,0.08)] hover:-translate-y-2 transition-all duration-300 cursor-pointer group flex flex-col justify-between min-h-[190px]">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="w-10 h-10 rounded-full bg-gray-50 text-gray-500 font-bold flex items-center justify-center text-[14px] group-hover:bg-sbs-light group-hover:text-sbs-main transition-colors">04</span>
+                        <svg class="w-6 h-6 text-gray-300 group-hover:text-sbs-main transition-colors transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div>
+                        <span class="text-sbs-main font-extrabold text-[13px] tracking-[0.08em] mb-3 block">AI 웹툰/드로잉</span>
+                        <h3 class="text-[20px] font-bold text-gray-900 group-hover:text-sbs-main transition-colors tracking-tight mb-2">AI 웹툰/드로잉</h3>
+                        <p class="text-gray-500 text-[15px] font-medium leading-[1.6]">미술 기초, 디지털드로잉</p>
+                    </div>
+                </button>
+
+                <button type="button" onclick="goToCurriculum('archi')" aria-label="AI 인테리어·제품 교육과정 바로가기" class="w-full text-left bg-white border border-gray-100 rounded-3xl p-8 hover:shadow-[0_20px_50px_rgba(13,130,255,0.08)] hover:-translate-y-2 transition-all duration-300 cursor-pointer group flex flex-col justify-between min-h-[190px]">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="w-10 h-10 rounded-full bg-gray-50 text-gray-500 font-bold flex items-center justify-center text-[14px] group-hover:bg-sbs-light group-hover:text-sbs-main transition-colors">05</span>
+                        <svg class="w-6 h-6 text-gray-300 group-hover:text-sbs-main transition-colors transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div>
+                        <span class="text-sbs-main font-extrabold text-[13px] tracking-[0.08em] mb-3 block">AI 인테리어</span>
+                        <h3 class="text-[20px] font-bold text-gray-900 group-hover:text-sbs-main transition-colors tracking-tight mb-2">AI 인테리어/제품</h3>
+                        <p class="text-gray-500 text-[15px] font-medium leading-[1.6]">인테리어/기계,제품</p>
+                    </div>
+                </button>
+
+                <button type="button" onclick="goToCurriculum('cert')" aria-label="AI 자격증 교육과정 바로가기" class="w-full text-left bg-white border border-gray-100 rounded-3xl p-8 hover:shadow-[0_20px_50px_rgba(13,130,255,0.08)] hover:-translate-y-2 transition-all duration-300 cursor-pointer group flex flex-col justify-between min-h-[190px]">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="w-10 h-10 rounded-full bg-gray-50 text-gray-500 font-bold flex items-center justify-center text-[14px] group-hover:bg-sbs-light group-hover:text-sbs-main transition-colors">06</span>
+                        <svg class="w-6 h-6 text-gray-300 group-hover:text-sbs-main transition-colors transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div>
+                        <span class="text-sbs-main font-extrabold text-[13px] tracking-[0.08em] mb-3 block">AI 자격증</span>
+                        <h3 class="text-[20px] font-bold text-gray-900 group-hover:text-sbs-main transition-colors tracking-tight mb-2">자격증</h3>
+                        <p class="text-gray-500 text-[15px] font-medium leading-[1.6]">디자인/사무/AI자격증</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+
         <div class="max-w-[1200px] mx-auto px-6">
             <div class="mb-[100px] reveal text-center">
                 <span class="text-sbs-main font-bold text-[14px] tracking-[0.2em] uppercase mb-4 block">PROGRAMS</span>
@@ -2109,6 +2195,17 @@
         window.scrollToBottom = function() {
             if(lenis) lenis.scrollTo('bottom', { duration: 1.5 });
             else window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
+        };
+
+        window.goToCurriculum = function(target) {
+            const tabButton = document.querySelector(`.tab-btn[data-target="${target}"]`);
+            if (tabButton) tabButton.click();
+
+            if (lenis) {
+                lenis.scrollTo('#curriculum', { offset: -80 });
+            } else {
+                document.querySelector('#curriculum')?.scrollIntoView({ behavior: 'smooth' });
+            }
         };
 
         window.scrollDirection = 'up';
