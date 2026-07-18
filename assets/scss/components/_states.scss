@@ -1,0 +1,99 @@
+/* 탭 상태 */
+.tab-btn { border-color: transparent; color: #9ca3af; }
+.tab-btn:hover,
+.tab-btn.is-active { color: var(--color-ink); }
+.tab-btn.is-active { border-color: var(--color-ink); }
+
+.cur-box6.is-open { display: flex; }
+
+.sub-tab-btn {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-muted);
+  box-shadow: none;
+}
+
+.sub-tab-btn.is-show { display: inline-block; }
+.cur-btn3.sub-tab-btn { border-width: 0; }
+.sub-tab-btn:hover { background: var(--color-surface-soft); }
+.sub-tab-btn.is-active {
+  border-width: 0;
+  background: var(--color-ink);
+  color: #fff;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.cur-ico2 { --sbs-rotate: 0deg; }
+.cur-ico2:not(.is-rotated) { transform: none; }
+.cur-ico2.is-rotated { --sbs-rotate: 180deg; }
+
+/* 동적 과정 모달 탭 */
+.course-tab {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  background: var(--color-surface);
+  padding: 0.625rem 1.25rem;
+  color: var(--color-muted);
+  font-size: 14px;
+  font-weight: 700;
+  transition: all var(--motion-fast) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.course-tab:hover { background: var(--color-surface-soft); }
+.course-tab.is-active {
+  border-width: 0;
+  background: var(--color-ink);
+  color: #fff;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.course-tab.is-disabled { opacity: 0.5; }
+
+@media (min-width: 768px) {
+  .course-tab { font-size: 15px; }
+}
+
+.cmod-box9.is-filled { background: transparent; }
+.cmod-box9.is-empty { background: #f3f4f6; }
+
+/* 모달과 전체 메뉴 상태 */
+.smod-box.is-open,
+.cmod-box.is-open,
+.pmod-box.is-open,
+.menu-box.is-open { display: flex; }
+
+.smod-box3.is-active,
+.cmod-box3.is-active,
+.pmod-box3.is-active {
+  --sbs-scale-x: 1;
+  --sbs-scale-y: 1;
+  opacity: 1;
+}
+
+.menu-box2.is-active { opacity: 1; }
+.menu-box3.is-active { --sbs-translate-y: 0; }
+.menu-box5.is-active { --sbs-translate-y: 0; opacity: 1; }
+
+/* 헤더·스크롤·플로팅 상태 */
+.hdr-hdr.is-scrolled {
+  background: rgb(255 255 255 / 0.98);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.scroll-box.is-visible {
+  pointer-events: auto;
+  --sbs-translate-y: 0;
+  opacity: 1;
+}
+
+.scroll-ico.is-down { --sbs-rotate: 180deg; }
+.group:hover .scroll-ico.is-down { --sbs-translate-y: 0.25rem; }
+
+.float-box.is-visible { --sbs-translate-y: 0; opacity: 1; }
+
+/* 세미나 포스터 대체 배경 */
+.modc-box.is-placeholder { background: #111827; }
+.modc-box.poster-lilac { background: #e0e7ff; }
+.modc-box.poster-night { background: #1a1738; }
+.modc-box.poster-clay { background: #c15e42; }

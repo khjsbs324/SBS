@@ -1283,8 +1283,8 @@ insert into public.review_items (kind, label, title, body, course_name, author_n
     ('item', '수강생 인터뷰', null, '"일단 훌륭한 강사님께서 수강생 한 명, 한 명의 수준과 속도에 최대한 맞춰가면서 수업을 진행해주신 점이 도움이 되지 않았나 싶습니다."', '[대전] 모션그래픽', '강대솔', null, 4, true);
 
 insert into public.seminars (branch, title, description, event_date_label, application_period_label, image_url, background_class, sort_order, is_published) values
-    ('[대전지점]', '인스타툰으로 시작하는 나만의 콘텐츠 브랜딩 세미나', '퍼스널 브랜딩부터 실전 드로잉, 채널 성장 노하우까지 현업 작가에게 직접 배웁니다.', '2026. 04. 29 (수) 16:00', '2026. 04. 01 ~ 2026. 04. 28', 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/seminar/seminar1.jpg', 'bg-indigo-100', 0, true),
-    ('[대전지점]', 'AI가 대신 일하는 시대, AI에이전트 실전 세미나', 'Claude Code로 만드는 자동화 워크플로우 실무 활용 및 확장 전략을 배웁니다.', '2026. 04. 30 (목) 14:00 - 16:00', '2026. 04. 01 ~ 2026. 04. 29', 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/seminar/seminar2.jpg', 'bg-[#1a1738]', 1, true),
-    ('[대전지점]', '인테리어 AI 크리에이터 신규과정 런칭', '신규과정 소개와 인테리어 분야에서의 AI전망 및 연계 방법을 알아봅니다.', '2025. 11. 28 (금) 13:00 - 15:00', '~ 2025. 11. 27', 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/seminar/seminar3.jpg', 'bg-[#c15e42]', 2, true);
+    ('[대전지점]', '인스타툰으로 시작하는 나만의 콘텐츠 브랜딩 세미나', '퍼스널 브랜딩부터 실전 드로잉, 채널 성장 노하우까지 현업 작가에게 직접 배웁니다.', '2026. 04. 29 (수) 16:00', '2026. 04. 01 ~ 2026. 04. 28', 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/seminar/seminar1.jpg', 'poster-lilac', 0, true),
+    ('[대전지점]', 'AI가 대신 일하는 시대, AI에이전트 실전 세미나', 'Claude Code로 만드는 자동화 워크플로우 실무 활용 및 확장 전략을 배웁니다.', '2026. 04. 30 (목) 14:00 - 16:00', '2026. 04. 01 ~ 2026. 04. 29', 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/seminar/seminar2.jpg', 'poster-night', 1, true),
+    ('[대전지점]', '인테리어 AI 크리에이터 신규과정 런칭', '신규과정 소개와 인테리어 분야에서의 AI전망 및 연계 방법을 알아봅니다.', '2025. 11. 28 (금) 13:00 - 15:00', '~ 2025. 11. 27', 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/seminar/seminar3.jpg', 'poster-clay', 2, true);
 
 commit;

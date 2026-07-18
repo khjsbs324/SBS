@@ -1,0 +1,90 @@
+.base-page {
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+.base-page *::-moz-selection {
+  --sbs-bg-opacity: 1;
+  background-color: rgb(13 130 255 / var(--sbs-bg-opacity, 1));
+  --sbs-text-opacity: 1;
+  color: rgb(255 255 255 / var(--sbs-text-opacity, 1))
+}
+
+.base-page *::selection {
+  --sbs-bg-opacity: 1;
+  background-color: rgb(13 130 255 / var(--sbs-bg-opacity, 1));
+  --sbs-text-opacity: 1;
+  color: rgb(255 255 255 / var(--sbs-text-opacity, 1))
+}
+
+.base-page::-moz-selection {
+  --sbs-bg-opacity: 1;
+  background-color: rgb(13 130 255 / var(--sbs-bg-opacity, 1));
+  --sbs-text-opacity: 1;
+  color: rgb(255 255 255 / var(--sbs-text-opacity, 1))
+}
+
+.base-page::selection {
+  --sbs-bg-opacity: 1;
+  background-color: rgb(13 130 255 / var(--sbs-bg-opacity, 1));
+  --sbs-text-opacity: 1;
+  color: rgb(255 255 255 / var(--sbs-text-opacity, 1))
+}
+
+.base-box {
+  pointer-events: none;
+  position: fixed;
+  inset: 0px;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  --sbs-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--sbs-bg-opacity, 1))
+}
+
+.base-box2 {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  height: 60vw;
+  width: 60vw;
+  border-radius: 9999px;
+  --sbs-bg-opacity: 1;
+  background-color: rgb(224 242 254 / var(--sbs-bg-opacity, 1));
+  opacity: 0.7;
+  mix-blend-mode: multiply;
+  --sbs-blur: blur(100px);
+  filter: var(--sbs-blur) var(--sbs-brightness) var(--sbs-contrast) var(--sbs-grayscale) var(--sbs-hue-rotate) var(--sbs-invert) var(--sbs-saturate) var(--sbs-sepia) var(--sbs-drop-shadow)
+}
+
+.base-box3 {
+  position: absolute;
+  top: 20%;
+  right: -10%;
+  height: 50vw;
+  width: 50vw;
+  border-radius: 9999px;
+  --sbs-bg-opacity: 1;
+  background-color: rgb(186 230 253 / var(--sbs-bg-opacity, 1));
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  --sbs-blur: blur(120px);
+  filter: var(--sbs-blur) var(--sbs-brightness) var(--sbs-contrast) var(--sbs-grayscale) var(--sbs-hue-rotate) var(--sbs-invert) var(--sbs-saturate) var(--sbs-sepia) var(--sbs-drop-shadow)
+}
+
+.base-box4 {
+  position: absolute;
+  bottom: -20%;
+  left: 20%;
+  height: 70vw;
+  width: 70vw;
+  border-radius: 9999px;
+  --sbs-bg-opacity: 1;
+  background-color: rgb(240 249 255 / var(--sbs-bg-opacity, 1));
+  opacity: 0.8;
+  mix-blend-mode: multiply;
+  --sbs-blur: blur(100px);
+  filter: var(--sbs-blur) var(--sbs-brightness) var(--sbs-contrast) var(--sbs-grayscale) var(--sbs-hue-rotate) var(--sbs-invert) var(--sbs-saturate) var(--sbs-sepia) var(--sbs-drop-shadow)
+}

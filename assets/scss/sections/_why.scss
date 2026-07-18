@@ -1,0 +1,115 @@
+.why-sec {
+  position: relative;
+  z-index: 10;
+  border-top-width: 1px;
+  --sbs-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--sbs-border-opacity, 1));
+  --sbs-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--sbs-bg-opacity, 1));
+  padding-top: 160px;
+  padding-bottom: 160px
+}
+
+@media (min-width: 1024px) {
+  .why-sec {
+    padding-top: 200px;
+    padding-bottom: 200px
+  }
+}
+
+.why-box {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem
+}
+
+.why-box2 {
+  margin-bottom: 100px;
+  text-align: center
+}
+
+.why-tag {
+  margin-bottom: 1rem;
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  --sbs-text-opacity: 1;
+  color: rgb(13 130 255 / var(--sbs-text-opacity, 1))
+}
+
+.why-tit {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  --sbs-text-opacity: 1;
+  color: rgb(17 24 39 / var(--sbs-text-opacity, 1))
+}
+
+@media (min-width: 768px) {
+  .why-tit {
+    font-size: 56px
+  }
+}
+
+.why-box3 {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem
+}
+
+@media (min-width: 768px) {
+  .why-box3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr))
+  }
+}
+
+.why-box4 {
+  border-radius: 32px;
+  border-width: 1px;
+  --sbs-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--sbs-border-opacity, 1));
+  background-color: rgb(249 250 251 / 0.8);
+  padding: 3rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms
+}
+
+.why-box4:hover {
+  --sbs-translate-y: -0.5rem;
+  transform: translate(var(--sbs-translate-x), var(--sbs-translate-y)) rotate(var(--sbs-rotate)) skewX(var(--sbs-skew-x)) skewY(var(--sbs-skew-y)) scaleX(var(--sbs-scale-x)) scaleY(var(--sbs-scale-y));
+  --sbs-shadow: 0 20px 50px rgba(13,130,255,0.06);
+  --sbs-shadow-colored: 0 20px 50px var(--sbs-shadow-color);
+  box-shadow: var(--sbs-ring-offset-shadow, 0 0 #0000), var(--sbs-ring-shadow, 0 0 #0000), var(--sbs-shadow)
+}
+
+.why-tag2 {
+  margin-bottom: 1.5rem;
+  display: block;
+  font-size: 20px;
+  font-weight: 900;
+  --sbs-text-opacity: 1;
+  color: rgb(13 130 255 / var(--sbs-text-opacity, 1));
+  opacity: 0.5
+}
+
+.why-tit2 {
+  margin-bottom: 1.25rem;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  --sbs-text-opacity: 1;
+  color: rgb(17 24 39 / var(--sbs-text-opacity, 1))
+}
+
+.why-txt {
+  word-break: keep-all;
+  font-size: 16px;
+  line-height: 1.7;
+  --sbs-text-opacity: 1;
+  color: rgb(107 114 128 / var(--sbs-text-opacity, 1))
+}

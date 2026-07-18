@@ -1,0 +1,199 @@
+.ftr-ftr {
+  border-top-width: 1px;
+  --sbs-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--sbs-border-opacity, 1));
+  --sbs-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--sbs-bg-opacity, 1));
+  padding-top: 100px;
+  padding-bottom: 80px
+}
+
+.ftr-box {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1400px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem
+}
+
+@media (min-width: 1024px) {
+  .ftr-box {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem
+  }
+}
+
+.ftr-box2 {
+  margin-bottom: 5rem;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 3rem
+}
+
+@media (min-width: 768px) {
+  .ftr-box2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+  }
+}
+
+@media (min-width: 1024px) {
+  .ftr-box2 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 2.5rem
+  }
+
+  .ftr-box3 {
+    grid-column: span 7 / span 7
+  }
+}
+
+.ftr-img {
+  margin-bottom: 2rem;
+  height: auto;
+  width: 160px
+}
+
+.ftr-box4 > :not([hidden]) ~ :not([hidden]) {
+  --sbs-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--sbs-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--sbs-space-y-reverse))
+}
+
+.ftr-box4 {
+  font-size: 14px;
+  line-height: 2;
+  --sbs-text-opacity: 1;
+  color: rgb(107 114 128 / var(--sbs-text-opacity, 1))
+}
+
+.ftr-bold {
+  font-weight: 700;
+  --sbs-text-opacity: 1;
+  color: rgb(17 24 39 / var(--sbs-text-opacity, 1))
+}
+
+.ftr-tag {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  --sbs-text-opacity: 1;
+  color: rgb(209 213 219 / var(--sbs-text-opacity, 1))
+}
+
+.ftr-lnk {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms
+}
+
+.ftr-lnk:hover {
+  --sbs-text-opacity: 1;
+  color: rgb(13 130 255 / var(--sbs-text-opacity, 1))
+}
+
+@media (min-width: 1024px) {
+  .ftr-box5 {
+    grid-column: span 3 / span 3
+  }
+}
+
+.ftr-tit {
+  margin-bottom: 2rem;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  --sbs-text-opacity: 1;
+  color: rgb(17 24 39 / var(--sbs-text-opacity, 1))
+}
+
+.ftr-list > :not([hidden]) ~ :not([hidden]) {
+  --sbs-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--sbs-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--sbs-space-y-reverse))
+}
+
+.ftr-list {
+  font-size: 14px;
+  font-weight: 500;
+  --sbs-text-opacity: 1;
+  color: rgb(107 114 128 / var(--sbs-text-opacity, 1))
+}
+
+.ftr-tag2 {
+  font-size: 18px;
+  font-weight: 700;
+  --sbs-text-opacity: 1;
+  color: rgb(13 130 255 / var(--sbs-text-opacity, 1))
+}
+
+@media (min-width: 1024px) {
+  .ftr-box6 {
+    grid-column: span 2 / span 2
+  }
+}
+
+.ftr-tit2 {
+  margin-bottom: 2rem;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  --sbs-text-opacity: 1;
+  color: rgb(17 24 39 / var(--sbs-text-opacity, 1))
+}
+
+.ftr-lnk2 {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms
+}
+
+.ftr-lnk2:hover {
+  --sbs-text-opacity: 1;
+  color: rgb(17 24 39 / var(--sbs-text-opacity, 1))
+}
+
+.ftr-lnk3 {
+  font-weight: 700;
+  --sbs-text-opacity: 1;
+  color: rgb(17 24 39 / var(--sbs-text-opacity, 1));
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms
+}
+
+.ftr-lnk3:hover {
+  --sbs-text-opacity: 1;
+  color: rgb(13 130 255 / var(--sbs-text-opacity, 1))
+}
+
+.ftr-box7 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-top-width: 1px;
+  --sbs-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--sbs-border-opacity, 1));
+  padding-top: 2.5rem;
+  font-size: 14px;
+  font-weight: 500;
+  --sbs-text-opacity: 1;
+  color: rgb(156 163 175 / var(--sbs-text-opacity, 1))
+}
+
+@media (min-width: 768px) {
+  .ftr-box7 {
+    flex-direction: row
+  }
+}
+
+.ftr-txt {
+  margin-top: 0.5rem;
+  letter-spacing: 0.05em
+}
+
+@media (min-width: 768px) {
+  .ftr-txt {
+    margin-top: 0px
+  }
+}

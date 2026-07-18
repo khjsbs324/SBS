@@ -213,7 +213,7 @@ window.SBSSiteData = Object.freeze({
                 "date": "2026. 04. 29 (수) 16:00",
                 "applicationPeriod": "2026. 04. 01 ~ 2026. 04. 28",
                 "image": "https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/seminar/seminar1.jpg",
-                "backgroundClass": "bg-indigo-100"
+                "backgroundClass": "poster-lilac"
             },
             {
                 "branch": "[대전지점]",
@@ -222,7 +222,7 @@ window.SBSSiteData = Object.freeze({
                 "date": "2026. 04. 30 (목) 14:00 - 16:00",
                 "applicationPeriod": "2026. 04. 01 ~ 2026. 04. 29",
                 "image": "https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/seminar/seminar2.jpg",
-                "backgroundClass": "bg-[#1a1738]"
+                "backgroundClass": "poster-night"
             },
             {
                 "branch": "[대전지점]",
@@ -231,7 +231,7 @@ window.SBSSiteData = Object.freeze({
                 "date": "2025. 11. 28 (금) 13:00 - 15:00",
                 "applicationPeriod": "~ 2025. 11. 27",
                 "image": "https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/seminar/seminar3.jpg",
-                "backgroundClass": "bg-[#c15e42]"
+                "backgroundClass": "poster-clay"
             }
         ],
         "all": {

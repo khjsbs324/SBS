@@ -4,52 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>미래를 선도할 인재 양성, SBS 아카데미 컴퓨터아트학원</title>
-    <!-- 빌드된 정적 유틸리티 CSS (브라우저 런타임 의존성 없음) -->
-    <link rel="stylesheet" href="./assets/css/framework.css">
+    <!-- 섹션·컴포넌트별 SCSS에서 빌드된 정적 CSS -->
     <!-- Pretendard Font -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <!-- 부드러운 스크롤을 위한 Lenis 라이브러리 -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <link rel="stylesheet" href="./assets/css/main.css">
 </head>
-<body class="antialiased relative selection:bg-sbs-main selection:text-white">
+<body class="base-page">
 
     <!-- Global Background Fluid Blobs -->
-    <div class="fixed inset-0 w-full h-full pointer-events-none z-[-1] bg-white overflow-hidden">
-        <div class="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-[#e0f2fe] mix-blend-multiply filter blur-[100px] opacity-70 animate-blob1"></div>
-        <div class="absolute top-[20%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-[#bae6fd] mix-blend-multiply filter blur-[120px] opacity-50 animate-blob2"></div>
-        <div class="absolute bottom-[-20%] left-[20%] w-[70vw] h-[70vw] rounded-full bg-[#f0f9ff] mix-blend-multiply filter blur-[100px] opacity-80 animate-blob3"></div>
+    <div class="base-box">
+        <div class="base-box2 animate-blob1"></div>
+        <div class="base-box3 animate-blob2"></div>
+        <div class="base-box4 animate-blob3"></div>
     </div>
 
     <!-- 1. Header & Navigation -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 glass-header transition-all duration-300">
-        <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
-            <div class="flex items-center justify-between h-[80px]">
+    <header id="header" class="hdr-hdr glass-header">
+        <div class="hdr-box">
+            <div class="hdr-box2">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <img data-site-logo alt="SBS 아카데미" class="w-[160px] h-auto">
+                <div class="hdr-box3" onclick="window.scrollTo(0,0)">
+                    <img data-site-logo alt="SBS 아카데미" class="hdr-img">
                 </div>
                 
                 <!-- GNB (Desktop) -->
-                <nav class="hidden xl:flex items-center space-x-12">
-                    <a href="#curriculum" class="text-[16px] font-bold text-gray-800 hover:text-sbs-main transition-colors">교육과정</a>
-                    <a href="#curriculum-detail" class="text-[16px] font-bold text-gray-800 hover:text-sbs-main transition-colors">커리큘럼</a>
-                    <a href="#roadmap" class="text-[16px] font-bold text-gray-800 hover:text-sbs-main transition-colors">국비지원</a>
-                    <a href="#seminar" class="text-[16px] font-bold text-gray-800 hover:text-sbs-main transition-colors">세미나&특강</a>
+                <nav class="hdr-nav">
+                    <a href="#curriculum" class="hdr-lnk">교육과정</a>
+                    <a href="#curriculum-detail" class="hdr-lnk">커리큘럼</a>
+                    <a href="#roadmap" class="hdr-lnk">국비지원</a>
+                    <a href="#seminar" class="hdr-lnk">세미나&특강</a>
                 </nav>
 
                 <!-- Right Utility -->
-                <div class="hidden md:flex items-center space-x-4">
-                    <button onclick="openFullMenu()" class="flex items-center gap-2 px-6 py-2.5 rounded-full bg-white border border-gray-200 text-gray-800 text-[14px] font-bold hover:shadow-md hover:border-sbs-main transition-all">
-                        <span class="w-2 h-2 rounded-full bg-sbs-main"></span>
+                <div class="hdr-box4">
+                    <button onclick="openFullMenu()" class="hdr-btn">
+                        <span class="hdr-tag"></span>
                         전체메뉴 열기
                     </button>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <div class="lg:hidden flex items-center">
-                    <button onclick="openFullMenu()" class="text-gray-900">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <div class="hdr-box5">
+                    <button onclick="openFullMenu()" class="hdr-btn2">
+                        <svg class="hdr-ico" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </button>
                 </div>
             </div>
@@ -57,45 +56,45 @@
     </header>
 
     <!-- 2. 메인 배너 섹션 (Hero Section) -->
-    <section class="relative pt-[200px] pb-[160px] lg:pt-[260px] lg:pb-[200px] flex items-center justify-center min-h-[90vh]">
-        <div class="relative max-w-[1200px] mx-auto px-6 text-center z-10 w-full">
-            <div class="overflow-hidden inline-block mb-6">
-                <span class="text-sbs-main font-extrabold text-[15px] tracking-[0.2em] uppercase animate-slide-up delay-100">END TO END</span>
+    <section class="hero-sec">
+        <div class="hero-box">
+            <div class="hero-box2">
+                <span class="hero-tag animate-slide-up delay-100">END TO END</span>
             </div>
             
-            <h1 class="text-[48px] md:text-[68px] lg:text-[88px] font-extrabold tracking-[-0.04em] mb-6 leading-[1.1] flex flex-col items-center">
+            <h1 class="hero-tit">
                 <!-- Slide Up 영역과 Fill 영역의 분리 -->
-                <div class="overflow-hidden pb-1">
+                <div class="hero-box3">
                     <div class="animate-slide-up delay-200">
                         <span class="text-fill-animation delay-fill-1">미래를 선도할 인재 양성</span>
                     </div>
                 </div>
-                <div class="overflow-hidden pb-1">
+                <div class="hero-box3">
                     <div class="animate-slide-up delay-300">
                         <span class="text-fill-animation delay-fill-2">SBS 아카데미</span>
                     </div>
                 </div>
             </h1>
             
-            <div class="overflow-hidden mt-6 mb-16">
-                <p class="text-[18px] md:text-[22px] text-gray-500 max-w-3xl mx-auto font-medium leading-[1.6] tracking-tight animate-slide-up delay-400">
-                    디자인 기초부터 AI 적용, 실무 포트폴리오, 취업 매칭까지<br class="hidden md:block">
+            <div class="hero-box4">
+                <p class="hero-txt animate-slide-up delay-400">
+                    디자인 기초부터 AI 적용, 실무 포트폴리오, 취업 매칭까지<br class="hero-br">
                     당신의 커리어 여정을 End-to-End로 책임집니다.
                 </p>
             </div>
 
-            <div class="max-w-[860px] mx-auto bg-white/90 backdrop-blur-2xl rounded-3xl shadow-[0_20px_60px_rgba(13,130,255,0.08)] border border-white p-5 md:p-8 flex flex-col items-start text-left relative animate-slide-up delay-500">
-                <div class="flex items-center gap-3 mb-6 pl-2">
-                    <span class="text-sbs-main text-xl">✦</span>
-                    <span class="text-gray-800 text-[15px] md:text-[17px] font-bold tracking-tight">SBS 아카데미에 대해 궁금한 점을 찾아보세요!</span>
+            <div class="hero-box5 animate-slide-up delay-500">
+                <div class="hero-box6">
+                    <span class="hero-tag2">✦</span>
+                    <span class="hero-tag3">SBS 아카데미에 대해 궁금한 점을 찾아보세요!</span>
                 </div>
-                <div class="flex flex-col sm:flex-row gap-4 w-full">
-                    <a href="#curriculum" class="flex-1 flex justify-center items-center py-4 md:py-5 rounded-2xl border border-gray-200 bg-white text-gray-800 font-bold text-[16px] hover:border-sbs-main hover:text-sbs-main transition-all shadow-sm">
+                <div class="hero-box7">
+                    <a href="#curriculum" class="hero-lnk">
                         전체 교육과정 보기
                     </a>
-                    <a href="https://www.work24.go.kr/hr/a/a/1100/trnnCrsInf.do?dghtSe=A&traingMthCd=A&endDate=20270511&trng_prd=A&pageSize=10&startDate_datepicker=2026-05-11&topMenuYn=&tracseId=AIG20240000493819&totamtSuptYn=A&crseTracseSeNum=&keyword=sbs&area=30170%7C%EB%8C%80%EC%A0%84+%EC%84%9C%EA%B5%AC&orderKey=2&kdgLinkYn=&srchType=all_type&crseTracseSe=A%7C%ED%9B%88%EB%A0%A8%EC%9C%A0%ED%98%95+%EC%A0%84%EC%B2%B4&tranRegister=&trng_type=A&mberId=&pageId=2&noTrngPay=Y&endDate_datepicker=2027-05-11&monthGubun=&pageOrder=2ASC&startTrngPay=&startDate=20260511&endTrngPay=&tracseTme=2&keyword1=&keyword2=&orderBy=ASC&currentTab=1&pop=&pageRow=10&ncsSearchKeyword=&keywordTrngNm=&keywordType=1&gb=&kDgtlYn=&mberSe=&max_trng=&totTraingTime=A&i2=A&areaSearchKeyword=&programMenuIdentification=EBG020000000310&min_trng=&pageIndex=1&chkNoTrngPay=Y&bgrlInstYn=&crseTracseSeKDT=&ncs=&gvrnInstt=&selectNCSKeyword=&compareArgArr=&action=trnnCrsInfPost.do" target="_blank" rel="noopener noreferrer" class="flex-1 flex justify-center items-center gap-2 py-4 md:py-5 rounded-2xl bg-gray-900 text-white font-bold text-[16px] hover:bg-sbs-main transition-colors shadow-md">
+                    <a href="https://www.work24.go.kr/hr/a/a/1100/trnnCrsInf.do?dghtSe=A&traingMthCd=A&endDate=20270511&trng_prd=A&pageSize=10&startDate_datepicker=2026-05-11&topMenuYn=&tracseId=AIG20240000493819&totamtSuptYn=A&crseTracseSeNum=&keyword=sbs&area=30170%7C%EB%8C%80%EC%A0%84+%EC%84%9C%EA%B5%AC&orderKey=2&kdgLinkYn=&srchType=all_type&crseTracseSe=A%7C%ED%9B%88%EB%A0%A8%EC%9C%A0%ED%98%95+%EC%A0%84%EC%B2%B4&tranRegister=&trng_type=A&mberId=&pageId=2&noTrngPay=Y&endDate_datepicker=2027-05-11&monthGubun=&pageOrder=2ASC&startTrngPay=&startDate=20260511&endTrngPay=&tracseTme=2&keyword1=&keyword2=&orderBy=ASC&currentTab=1&pop=&pageRow=10&ncsSearchKeyword=&keywordTrngNm=&keywordType=1&gb=&kDgtlYn=&mberSe=&max_trng=&totTraingTime=A&i2=A&areaSearchKeyword=&programMenuIdentification=EBG020000000310&min_trng=&pageIndex=1&chkNoTrngPay=Y&bgrlInstYn=&crseTracseSeKDT=&ncs=&gvrnInstt=&selectNCSKeyword=&compareArgArr=&action=trnnCrsInfPost.do" target="_blank" rel="noopener noreferrer" class="hero-box8">
                         국비 지원 받기
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        <svg class="hero-ico" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
                 </div>
             </div>
@@ -103,32 +102,32 @@
     </section>
 
     <!-- 2-1. 취업 성과 통계 섹션 (Statistics) -->
-    <section class="py-[160px] lg:py-[200px] bg-gradient-to-b from-[#f4f9fd]/50 to-[#e6f3fc]/50 text-gray-900 relative z-20">
-        <div class="max-w-[1200px] mx-auto px-6 text-center reveal">
-            <h2 class="text-[40px] md:text-[56px] lg:text-[64px] font-extrabold leading-[1.2] tracking-[-0.03em] text-[#111] mb-[100px]">
+    <section class="stats-sec">
+        <div class="stats-box reveal">
+            <h2 class="stats-tit">
                 2025년 압도적인 수치로<br>증명한 취업 성과
             </h2>
             
-            <div class="flex flex-col md:flex-row justify-center w-full gap-[60px] md:gap-[120px]">
-                <div class="flex flex-col items-center">
-                    <p class="text-[16px] font-bold text-gray-600 mb-4 tracking-tight">우수기관</p>
-                    <div class="flex items-end text-sbs-main mb-3">
-                        <span class="text-[72px] md:text-[96px] font-extrabold leading-none tracking-tighter counter" data-target="5" data-decimal="0">0</span>
-                        <span class="text-[28px] md:text-[36px] font-bold mb-2 ml-1">년 연속</span>
+            <div class="stats-box2">
+                <div class="stats-box3">
+                    <p class="stats-txt">우수기관</p>
+                    <div class="stats-box4">
+                        <span class="stats-tag counter" data-target="5" data-decimal="0">0</span>
+                        <span class="stats-tag2">년 연속</span>
                     </div>
                 </div>
-                <div class="flex flex-col items-center">
-                    <p class="text-[16px] font-bold text-gray-600 mb-4 tracking-tight">국비 최대 만족도</p>
-                    <div class="flex items-end text-sbs-main mb-3">
-                        <span class="text-[72px] md:text-[96px] font-extrabold leading-none tracking-tighter counter" data-target="4.9" data-decimal="1">0.0</span>
+                <div class="stats-box3">
+                    <p class="stats-txt">국비 최대 만족도</p>
+                    <div class="stats-box4">
+                        <span class="stats-tag counter" data-target="4.9" data-decimal="1">0.0</span>
                     </div>
                 </div>
-                <div class="flex flex-col items-center">
-                    <p class="text-[16px] font-bold text-gray-600 mb-4 tracking-tight">취업률</p>
-                    <div class="flex items-end text-sbs-main mb-3">
-                        <span class="text-[28px] md:text-[36px] font-bold mb-2 mr-2">최대</span>
-                        <span class="text-[72px] md:text-[96px] font-extrabold leading-none tracking-tighter counter" data-target="90" data-decimal="0">0</span>
-                        <span class="text-[28px] md:text-[36px] font-bold mb-2 ml-1">%</span>
+                <div class="stats-box3">
+                    <p class="stats-txt">취업률</p>
+                    <div class="stats-box4">
+                        <span class="stats-tag3">최대</span>
+                        <span class="stats-tag counter" data-target="90" data-decimal="0">0</span>
+                        <span class="stats-tag2">%</span>
                     </div>
                 </div>
             </div>
@@ -136,80 +135,80 @@
     </section>
 
     <!-- NEW 1. SBS 선택하는 이유 (#why-sbs) -->
-    <section id="why-sbs" class="py-[160px] lg:py-[200px] bg-white relative z-10 border-t border-gray-100">
-        <div class="max-w-[1200px] mx-auto px-6">
-            <div class="text-center mb-[100px] reveal">
-                <span class="text-sbs-main font-bold text-[14px] tracking-[0.2em] uppercase mb-4 block">WHY SBS</span>
-                <h2 class="text-[40px] md:text-[56px] font-extrabold tracking-[-0.03em] text-gray-900">SBS 아카데미를 선택하는 이유</h2>
+    <section id="why-sbs" class="why-sec">
+        <div class="why-box">
+            <div class="why-box2 reveal">
+                <span class="why-tag">WHY SBS</span>
+                <h2 class="why-tit">SBS 아카데미를 선택하는 이유</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-50/80 p-12 rounded-[32px] border border-gray-100 hover:shadow-[0_20px_50px_rgba(13,130,255,0.06)] hover:-translate-y-2 transition-all duration-500 reveal">
-                    <span class="text-sbs-main font-black text-[20px] mb-6 block opacity-50">01</span>
-                    <h3 class="text-[24px] font-bold text-gray-900 mb-5 tracking-tight">최고 수준의<br>전임 강사진</h3>
-                    <p class="text-gray-500 text-[16px] leading-[1.7] break-keep">시간 강사가 아닌, 실무 경험이 풍부한 전임 강사진이 직접 교육하여 수업의 책임감과 퀄리티를 최상으로 유지합니다.</p>
+            <div class="why-box3">
+                <div class="why-box4 reveal">
+                    <span class="why-tag2">01</span>
+                    <h3 class="why-tit2">최고 수준의<br>전임 강사진</h3>
+                    <p class="why-txt">시간 강사가 아닌, 실무 경험이 풍부한 전임 강사진이 직접 교육하여 수업의 책임감과 퀄리티를 최상으로 유지합니다.</p>
                 </div>
-                <div class="bg-gray-50/80 p-12 rounded-[32px] border border-gray-100 hover:shadow-[0_20px_50px_rgba(13,130,255,0.06)] hover:-translate-y-2 transition-all duration-500 reveal delay-100">
-                    <span class="text-sbs-main font-black text-[20px] mb-6 block opacity-50">02</span>
-                    <h3 class="text-[24px] font-bold text-gray-900 mb-5 tracking-tight">1:1 밀착<br>멘토링 시스템</h3>
-                    <p class="text-gray-500 text-[16px] leading-[1.7] break-keep">학원 등록부터 수강, 취업에 이르기까지 1:1 멘토가 배정되어 출결 및 진로 고민 등 철저한 개별 관리를 진행합니다.</p>
+                <div class="why-box4 reveal delay-100">
+                    <span class="why-tag2">02</span>
+                    <h3 class="why-tit2">1:1 밀착<br>멘토링 시스템</h3>
+                    <p class="why-txt">학원 등록부터 수강, 취업에 이르기까지 1:1 멘토가 배정되어 출결 및 진로 고민 등 철저한 개별 관리를 진행합니다.</p>
                 </div>
-                <div class="bg-gray-50/80 p-12 rounded-[32px] border border-gray-100 hover:shadow-[0_20px_50px_rgba(13,130,255,0.06)] hover:-translate-y-2 transition-all duration-500 reveal delay-200">
-                    <span class="text-sbs-main font-black text-[20px] mb-6 block opacity-50">03</span>
-                    <h3 class="text-[24px] font-bold text-gray-900 mb-5 tracking-tight">독보적인<br>취업 전문 부서</h3>
-                    <p class="text-gray-500 text-[16px] leading-[1.7] break-keep">취업 전담 부서를 독립적으로 운영하여 이력서 첨삭, 모의 면접, 우수 기업 매칭 등 체계적인 취업 솔루션을 제공합니다.</p>
+                <div class="why-box4 reveal delay-200">
+                    <span class="why-tag2">03</span>
+                    <h3 class="why-tit2">독보적인<br>취업 전문 부서</h3>
+                    <p class="why-txt">취업 전담 부서를 독립적으로 운영하여 이력서 첨삭, 모의 면접, 우수 기업 매칭 등 체계적인 취업 솔루션을 제공합니다.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- NEW 2. 로드맵 (#roadmap) -->
-    <section id="roadmap" class="py-[160px] lg:py-[200px] bg-[#f8fafc] relative z-10 overflow-hidden">
-        <div class="max-w-[1200px] mx-auto px-6">
-            <div class="text-center mb-[120px] reveal">
-                <span class="text-sbs-main font-bold text-[14px] tracking-[0.2em] uppercase mb-4 block">ROADMAP</span>
-                <h2 class="text-[40px] md:text-[56px] font-extrabold tracking-[-0.03em] text-gray-900">비전공자도 성공하는 학습 로드맵</h2>
+    <section id="roadmap" class="road-sec">
+        <div class="road-box">
+            <div class="road-box2 reveal">
+                <span class="road-tag">ROADMAP</span>
+                <h2 class="road-tit">비전공자도 성공하는 학습 로드맵</h2>
             </div>
             
-            <div class="relative w-full max-w-[900px] mx-auto">
+            <div class="road-box3">
                 <!-- 연결 선 -->
-                <div class="hidden md:block absolute top-[55px] left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-transparent via-sbs-main/30 to-transparent z-0 reveal delay-100"></div>
+                <div class="road-box4 reveal delay-100"></div>
                 
-                <div class="flex flex-col md:flex-row justify-between items-center gap-12 md:gap-0 relative z-10">
+                <div class="road-box5">
                     <!-- Step 1 -->
-                    <div class="flex flex-col items-center text-center group cursor-default reveal delay-200">
-                        <div class="w-[110px] h-[110px] bg-white text-sbs-main rounded-full flex items-center justify-center text-[18px] font-extrabold mb-6 shadow-[0_10px_30px_rgba(13,130,255,0.08)] relative">
-                            <span class="absolute inset-0 rounded-full border border-sbs-main/20 scale-110 group-hover:scale-125 transition-transform duration-500 opacity-50"></span>
+                    <div class="road-box6 group reveal delay-200">
+                        <div class="road-box7">
+                            <span class="road-tag2"></span>
                             BASIC
                         </div>
-                        <h3 class="text-[18px] font-bold text-gray-900 mb-2">기초 역량 강화</h3>
-                        <p class="text-[14px] text-gray-500">이론 및 툴 학습</p>
+                        <h3 class="road-tit2">기초 역량 강화</h3>
+                        <p class="road-txt">이론 및 툴 학습</p>
                     </div>
                     <!-- Step 2 -->
-                    <div class="flex flex-col items-center text-center group cursor-default reveal delay-400">
-                        <div class="w-[110px] h-[110px] bg-white text-sbs-main rounded-full flex items-center justify-center text-[18px] font-extrabold mb-6 shadow-[0_10px_30px_rgba(13,130,255,0.08)] relative">
-                            <span class="absolute inset-0 rounded-full border border-sbs-main/20 scale-110 group-hover:scale-125 transition-transform duration-500 opacity-50"></span>
+                    <div class="road-box6 group reveal delay-400">
+                        <div class="road-box7">
+                            <span class="road-tag2"></span>
                             ADV.
                         </div>
-                        <h3 class="text-[18px] font-bold text-gray-900 mb-2">심화 및 응용</h3>
-                        <p class="text-[14px] text-gray-500">실무 테크닉 체득</p>
+                        <h3 class="road-tit2">심화 및 응용</h3>
+                        <p class="road-txt">실무 테크닉 체득</p>
                     </div>
                     <!-- Step 3 -->
-                    <div class="flex flex-col items-center text-center group cursor-default reveal delay-600">
-                        <div class="w-[110px] h-[110px] bg-white text-sbs-main rounded-full flex items-center justify-center text-[18px] font-extrabold mb-6 shadow-[0_10px_30px_rgba(13,130,255,0.08)] relative">
-                            <span class="absolute inset-0 rounded-full border border-sbs-main/20 scale-110 group-hover:scale-125 transition-transform duration-500 opacity-50"></span>
+                    <div class="road-box6 group reveal delay-600">
+                        <div class="road-box7">
+                            <span class="road-tag2"></span>
                             PROJ.
                         </div>
-                        <h3 class="text-[18px] font-bold text-gray-900 mb-2">프로젝트 기획</h3>
-                        <p class="text-[14px] text-gray-500">실무 포트폴리오</p>
+                        <h3 class="road-tit2">프로젝트 기획</h3>
+                        <p class="road-txt">실무 포트폴리오</p>
                     </div>
                     <!-- Step 4 -->
-                    <div class="flex flex-col items-center text-center group cursor-default reveal delay-800">
-                        <div class="w-[110px] h-[110px] bg-gray-900 text-white rounded-full flex items-center justify-center text-[18px] font-extrabold mb-6 shadow-[0_10px_30px_rgba(0,0,0,0.1)] relative">
-                            <span class="absolute inset-0 rounded-full border border-gray-900/20 scale-110 group-hover:scale-125 transition-transform duration-500 opacity-50"></span>
+                    <div class="road-box6 group reveal delay-800">
+                        <div class="road-box8">
+                            <span class="road-tag3"></span>
                             JOB
                         </div>
-                        <h3 class="text-[18px] font-bold text-gray-900 mb-2">취업 컨설팅</h3>
-                        <p class="text-[14px] text-gray-500">면접 및 이력서 지원</p>
+                        <h3 class="road-tit2">취업 컨설팅</h3>
+                        <p class="road-txt">면접 및 이력서 지원</p>
                     </div>
                 </div>
             </div>
@@ -217,68 +216,68 @@
     </section>
 
     <!-- 3. 주요 교육과정 (Curriculum) -->
-    <section id="curriculum" class="py-[160px] lg:py-[200px] relative z-10 bg-white border-t border-gray-100">
+    <section id="curriculum" class="cur-sec">
         <!-- 교육과정 바로가기 -->
-        <div id="curriculum-shortcuts" class="max-w-[1200px] mx-auto px-6 mb-[160px] lg:mb-[200px]">
-            <div class="mb-[100px] text-center">
-                <span class="text-sbs-main font-bold text-[14px] tracking-[0.2em] uppercase mb-4 block">PROGRAMS</span>
-                <h2 class="text-[40px] md:text-[56px] font-extrabold tracking-[-0.03em] text-gray-900 mb-6">교육과정 바로가기</h2>
-                <p class="text-gray-500 text-[18px] font-medium">원하는 분야를 선택하고 상세 커리큘럼을 확인하세요.</p>
+        <div id="curriculum-shortcuts" class="cur-box">
+            <div class="cur-box2">
+                <span class="cur-tag">PROGRAMS</span>
+                <h2 class="cur-tit">교육과정 바로가기</h2>
+                <p class="cur-txt">원하는 분야를 선택하고 상세 커리큘럼을 확인하세요.</p>
             </div>
 
-            <div id="curriculum-shortcuts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            <div id="curriculum-shortcuts-grid" class="cur-box3"></div>
         </div>
 
-        <div class="max-w-[1200px] mx-auto px-6">
-            <div class="mb-[100px] reveal text-center">
-                <span class="text-sbs-main font-bold text-[14px] tracking-[0.2em] uppercase mb-4 block">PROGRAMS</span>
-                <h2 class="text-[40px] md:text-[56px] font-extrabold tracking-[-0.03em] text-gray-900 mb-6">주요 교육과정</h2>
-                <p class="text-gray-500 text-[18px] font-medium">원하는 분야를 선택하고 상세 커리큘럼을 확인하세요.</p>
+        <div class="cur-box4">
+            <div class="cur-box2 reveal">
+                <span class="cur-tag">PROGRAMS</span>
+                <h2 class="cur-tit">주요 교육과정</h2>
+                <p class="cur-txt">원하는 분야를 선택하고 상세 커리큘럼을 확인하세요.</p>
             </div>
 
             <!-- 탭 메뉴 -->
-            <div class="flex flex-wrap gap-x-6 md:gap-x-10 gap-y-4 mb-[80px] reveal delay-100 justify-start lg:justify-center border-b border-gray-100 transition-all duration-300" id="curriculum-tabs">
-                <button data-target="design_basic" class="tab-btn text-gray-900 border-b-2 border-gray-900 pb-4 font-bold text-[16px] md:text-[18px] whitespace-nowrap transition-colors">디자인 기초</button>
-                <button data-target="webtoon" class="tab-btn text-gray-400 border-b-2 border-transparent pb-4 font-bold text-[16px] md:text-[18px] hover:text-gray-900 whitespace-nowrap transition-colors">웹툰</button>
-                <button data-target="artwork" class="tab-btn text-gray-400 border-b-2 border-transparent pb-4 font-bold text-[16px] md:text-[18px] hover:text-gray-900 whitespace-nowrap transition-colors">아트웍(드로잉)</button>
-                <button data-target="ai_agent" class="tab-btn text-gray-400 border-b-2 border-transparent pb-4 font-bold text-[16px] md:text-[18px] hover:text-gray-900 whitespace-nowrap transition-colors">AI에이전트</button>
-                <button data-target="uiux" class="tab-btn text-gray-400 border-b-2 border-transparent pb-4 font-bold text-[16px] md:text-[18px] hover:text-gray-900 whitespace-nowrap transition-colors">UIUX바이브</button>
-                <button data-target="ai_sw" class="tab-btn text-gray-400 border-b-2 border-transparent pb-4 font-bold text-[16px] md:text-[18px] hover:text-gray-900 whitespace-nowrap transition-colors">인공지능융합 SW</button>
-                <button data-target="visual" class="tab-btn text-gray-400 border-b-2 border-transparent pb-4 font-bold text-[16px] md:text-[18px] hover:text-gray-900 whitespace-nowrap transition-colors">시각편집디자인</button>
-                <button data-target="archi" class="tab-btn text-gray-400 border-b-2 border-transparent pb-4 font-bold text-[16px] md:text-[18px] hover:text-gray-900 whitespace-nowrap transition-colors">건축, 인테리어</button>
-                <button data-target="motion" class="tab-btn text-gray-400 border-b-2 border-transparent pb-4 font-bold text-[16px] md:text-[18px] hover:text-gray-900 whitespace-nowrap transition-colors">모션 그래픽</button>
-                <button data-target="cg_vfx" class="tab-btn text-gray-400 border-b-2 border-transparent pb-4 font-bold text-[16px] md:text-[18px] hover:text-gray-900 whitespace-nowrap transition-colors">CG·VFX</button>
-                <button data-target="youtube" class="tab-btn text-gray-400 border-b-2 border-transparent pb-4 font-bold text-[16px] md:text-[18px] hover:text-gray-900 whitespace-nowrap transition-colors">유튜브 크리에이터</button>
-                <button data-target="product_cert" class="tab-btn text-gray-400 border-b-2 border-transparent pb-4 font-bold text-[16px] md:text-[18px] hover:text-gray-900 whitespace-nowrap transition-colors">제품/기계자격증</button>
-                <button data-target="senior" class="tab-btn text-gray-400 border-b-2 border-transparent pb-4 font-bold text-[16px] md:text-[18px] hover:text-gray-900 whitespace-nowrap transition-colors">시니어</button>
-                <button data-target="cert" class="tab-btn text-gray-400 border-b-2 border-transparent pb-4 font-bold text-[16px] md:text-[18px] hover:text-gray-900 whitespace-nowrap transition-colors">자격증</button>
-                <button data-target="national" class="tab-btn text-gray-400 border-b-2 border-transparent pb-4 font-bold text-[16px] md:text-[18px] hover:text-gray-900 whitespace-nowrap transition-colors">국기</button>
+            <div class="cur-box5 reveal delay-100" id="curriculum-tabs">
+                <button data-target="design_basic" class="cur-btn tab-btn is-active">디자인 기초</button>
+                <button data-target="webtoon" class="cur-btn2 tab-btn">웹툰</button>
+                <button data-target="artwork" class="cur-btn2 tab-btn">아트웍(드로잉)</button>
+                <button data-target="ai_agent" class="cur-btn2 tab-btn">AI에이전트</button>
+                <button data-target="uiux" class="cur-btn2 tab-btn">UIUX바이브</button>
+                <button data-target="ai_sw" class="cur-btn2 tab-btn">인공지능융합 SW</button>
+                <button data-target="visual" class="cur-btn2 tab-btn">시각편집디자인</button>
+                <button data-target="archi" class="cur-btn2 tab-btn">건축, 인테리어</button>
+                <button data-target="motion" class="cur-btn2 tab-btn">모션 그래픽</button>
+                <button data-target="cg_vfx" class="cur-btn2 tab-btn">CG·VFX</button>
+                <button data-target="youtube" class="cur-btn2 tab-btn">유튜브 크리에이터</button>
+                <button data-target="product_cert" class="cur-btn2 tab-btn">제품/기계자격증</button>
+                <button data-target="senior" class="cur-btn2 tab-btn">시니어</button>
+                <button data-target="cert" class="cur-btn2 tab-btn">자격증</button>
+                <button data-target="national" class="cur-btn2 tab-btn">국기</button>
             </div>
 
             <!-- 하위 탭 메뉴 (자격증, AI에이전트 전용) -->
-            <div id="sub-tabs-container" class="hidden justify-center gap-3 mb-[40px] reveal delay-100 animate-customFadeIn flex-wrap">
-                <button data-target="ai_agent_basic" data-parent="ai_agent" class="sub-tab-btn px-6 py-2.5 rounded-full font-bold text-[15px] bg-gray-900 text-white shadow-md transition-colors hidden">AI 기초</button>
-                <button data-target="ai_agent_advanced" data-parent="ai_agent" class="sub-tab-btn px-6 py-2.5 rounded-full font-bold text-[15px] bg-white border border-gray-200 text-gray-500 hover:bg-gray-50 transition-colors hidden">AI 학과 심화</button>
-                <button data-target="cert_oa" data-parent="cert" class="sub-tab-btn px-6 py-2.5 rounded-full font-bold text-[15px] bg-gray-900 text-white shadow-md transition-colors hidden">사무 OA</button>
-                <button data-target="cert_field" data-parent="cert" class="sub-tab-btn px-6 py-2.5 rounded-full font-bold text-[15px] bg-white border border-gray-200 text-gray-500 hover:bg-gray-50 transition-colors hidden">분야별</button>
+            <div id="sub-tabs-container" class="cur-box6 reveal delay-100 animate-customFadeIn">
+                <button data-target="ai_agent_basic" data-parent="ai_agent" class="cur-btn3 sub-tab-btn is-active">AI 기초</button>
+                <button data-target="ai_agent_advanced" data-parent="ai_agent" class="cur-btn4 sub-tab-btn">AI 학과 심화</button>
+                <button data-target="cert_oa" data-parent="cert" class="cur-btn3 sub-tab-btn is-active">사무 OA</button>
+                <button data-target="cert_field" data-parent="cert" class="cur-btn4 sub-tab-btn">분야별</button>
             </div>
 
             <!-- NEW: 과정 전체 흐름 Dropdown -->
-            <div class="max-w-[900px] mx-auto mb-[60px] reveal delay-100">
-                <div class="w-full bg-gray-50 border border-gray-200 rounded-[16px] shadow-sm overflow-hidden">
-                    <button id="flow-toggle-btn" class="w-full flex items-center justify-between px-6 py-4 hover:bg-gray-100/50 transition-colors group">
-                        <span class="text-[15px] font-bold text-gray-800 flex items-center gap-2 tracking-tight">
-                            <svg class="w-4 h-4 text-sbs-main" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                            <span class="text-sbs-main" id="flow-category-name">디자인 기초</span> 과정 전체 흐름 확인하기
+            <div class="cur-box7 reveal delay-100">
+                <div class="cur-box8">
+                    <button id="flow-toggle-btn" class="cur-btn5 group">
+                        <span class="cur-tag2">
+                            <svg class="cur-ico" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            <span class="cur-tag3" id="flow-category-name">디자인 기초</span> 과정 전체 흐름 확인하기
                         </span>
                         <!-- 화살표가 위를 향하도록 rotate-180 클래스 추가 (기본 열림) -->
-                        <svg id="flow-toggle-icon" class="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-transform duration-300 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg id="flow-toggle-icon" class="cur-ico2 is-rotated" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <!-- grid transition을 활용해 부드러운 아코디언 구현, 기본적으로 열림 -->
-                    <div id="flow-content-wrapper" class="grid transition-all duration-300 grid-rows-[1fr] opacity-100">
-                        <div class="overflow-hidden">
-                            <div class="px-6 pb-5 pt-1">
-                                <p id="flow-content-text" class="text-[15px] text-gray-600 font-medium leading-[1.8] break-keep">
+                    <div id="flow-content-wrapper" class="cur-box9">
+                        <div class="cur-box10">
+                            <div class="cur-box11">
+                                <p id="flow-content-text" class="cur-txt2">
                                     포토샵 > 일러스트 > 포토웍스 > 디테일일러스트
                                 </p>
                             </div>
@@ -288,64 +287,64 @@
             </div>
 
             <!-- Course Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[400px] content-start" id="curriculum-cards">
+            <div class="cur-box12" id="curriculum-cards">
                 <!-- Cards injected here via JS -->
             </div>
         </div>
     </section>
 
     <!-- NEW 3. 커리큘럼 상세 (#curriculum-detail) -->
-    <section id="curriculum-detail" class="py-[160px] lg:py-[200px] relative z-10 bg-gray-50 border-t border-gray-100">
-        <div class="max-w-[1000px] mx-auto px-6">
-            <div class="text-center mb-[100px] reveal">
-                <span class="text-sbs-main font-bold text-[14px] tracking-[0.2em] uppercase mb-4 block">DETAIL</span>
-                <h2 class="text-[40px] md:text-[56px] font-extrabold tracking-[-0.03em] text-gray-900">체계적인 실무 중심 커리큘럼</h2>
-                <p class="text-gray-500 mt-6 text-[18px] font-medium">비전공자도 전문가로 성장할 수 있도록 촘촘하게 설계되었습니다.</p>
+    <section id="curriculum-detail" class="dtl-sec">
+        <div class="dtl-box">
+            <div class="dtl-box2 reveal">
+                <span class="dtl-tag">DETAIL</span>
+                <h2 class="dtl-tit">체계적인 실무 중심 커리큘럼</h2>
+                <p class="dtl-txt">비전공자도 전문가로 성장할 수 있도록 촘촘하게 설계되었습니다.</p>
             </div>
 
-            <div class="space-y-8 relative before:absolute before:inset-0 before:ml-[42px] md:before:ml-[68px] before:-translate-x-px md:before:translate-x-0 before:w-[2px] before:bg-gray-200">
+            <div class="dtl-box3">
                 <!-- Phase 1 -->
-                <div class="relative flex items-start gap-8 md:gap-12 reveal delay-200">
-                    <div class="w-[84px] h-[84px] md:w-[136px] md:h-[136px] bg-white rounded-full border-[4px] border-gray-100 shadow-sm flex flex-col items-center justify-center shrink-0 z-10">
-                        <span class="text-[12px] md:text-[14px] font-bold text-gray-400">STEP</span>
-                        <span class="text-[24px] md:text-[36px] font-extrabold text-sbs-main leading-none">01</span>
+                <div class="dtl-box4 reveal delay-200">
+                    <div class="dtl-box5">
+                        <span class="dtl-tag2">STEP</span>
+                        <span class="dtl-tag3">01</span>
                     </div>
-                    <div class="pt-2 md:pt-8">
-                        <h4 class="text-[22px] md:text-[28px] font-bold text-gray-900 mb-4 tracking-tight">기초 지식 및 툴 숙지</h4>
-                        <p class="text-gray-500 text-[16px] leading-[1.7] max-w-2xl break-keep">디자인 및 IT 분야의 필수 툴(Photoshop, Illustrator, AutoCAD, 기본 언어 등)의 인터페이스와 기초 활용법을 익히고, 작업에 필요한 기본 이론을 단단하게 다집니다.</p>
+                    <div class="dtl-box6">
+                        <h4 class="dtl-tit2">기초 지식 및 툴 숙지</h4>
+                        <p class="dtl-txt2">디자인 및 IT 분야의 필수 툴(Photoshop, Illustrator, AutoCAD, 기본 언어 등)의 인터페이스와 기초 활용법을 익히고, 작업에 필요한 기본 이론을 단단하게 다집니다.</p>
                     </div>
                 </div>
                 <!-- Phase 2 -->
-                <div class="relative flex items-start gap-8 md:gap-12 reveal delay-400">
-                    <div class="w-[84px] h-[84px] md:w-[136px] md:h-[136px] bg-white rounded-full border-[4px] border-gray-100 shadow-sm flex flex-col items-center justify-center shrink-0 z-10">
-                        <span class="text-[12px] md:text-[14px] font-bold text-gray-400">STEP</span>
-                        <span class="text-[24px] md:text-[36px] font-extrabold text-sbs-main leading-none">02</span>
+                <div class="dtl-box4 reveal delay-400">
+                    <div class="dtl-box5">
+                        <span class="dtl-tag2">STEP</span>
+                        <span class="dtl-tag3">02</span>
                     </div>
-                    <div class="pt-2 md:pt-8">
-                        <h4 class="text-[22px] md:text-[28px] font-bold text-gray-900 mb-4 tracking-tight">심화 기능 및 실무 응용</h4>
-                        <p class="text-gray-500 text-[16px] leading-[1.7] max-w-2xl break-keep">기초에서 배운 툴을 응용하여 복합적인 예제를 실습합니다. 실무에서 자주 발생하는 문제 해결 능력을 기르고, 작업 속도와 퀄리티를 한 단계 높이는 테크닉을 배웁니다.</p>
+                    <div class="dtl-box6">
+                        <h4 class="dtl-tit2">심화 기능 및 실무 응용</h4>
+                        <p class="dtl-txt2">기초에서 배운 툴을 응용하여 복합적인 예제를 실습합니다. 실무에서 자주 발생하는 문제 해결 능력을 기르고, 작업 속도와 퀄리티를 한 단계 높이는 테크닉을 배웁니다.</p>
                     </div>
                 </div>
                 <!-- Phase 3 -->
-                <div class="relative flex items-start gap-8 md:gap-12 reveal delay-600">
-                    <div class="w-[84px] h-[84px] md:w-[136px] md:h-[136px] bg-white rounded-full border-[4px] border-gray-100 shadow-sm flex flex-col items-center justify-center shrink-0 z-10">
-                        <span class="text-[12px] md:text-[14px] font-bold text-gray-400">STEP</span>
-                        <span class="text-[24px] md:text-[36px] font-extrabold text-sbs-main leading-none">03</span>
+                <div class="dtl-box4 reveal delay-600">
+                    <div class="dtl-box5">
+                        <span class="dtl-tag2">STEP</span>
+                        <span class="dtl-tag3">03</span>
                     </div>
-                    <div class="pt-2 md:pt-8">
-                        <h4 class="text-[22px] md:text-[28px] font-bold text-gray-900 mb-4 tracking-tight">개인 및 팀 프로젝트 기획</h4>
-                        <p class="text-gray-500 text-[16px] leading-[1.7] max-w-2xl break-keep">실무와 동일한 프로세스로 프로젝트 기획합니다. 아이디어 도출, 레퍼런스 수집, 기획안 작성 등 최종 포트폴리오의 기반이 되는 방향성을 확립합니다.</p>
+                    <div class="dtl-box6">
+                        <h4 class="dtl-tit2">개인 및 팀 프로젝트 기획</h4>
+                        <p class="dtl-txt2">실무와 동일한 프로세스로 프로젝트 기획합니다. 아이디어 도출, 레퍼런스 수집, 기획안 작성 등 최종 포트폴리오의 기반이 되는 방향성을 확립합니다.</p>
                     </div>
                 </div>
                 <!-- Phase 4 -->
-                <div class="relative flex items-start gap-8 md:gap-12 reveal delay-800">
-                    <div class="w-[84px] h-[84px] md:w-[136px] md:h-[136px] bg-gray-900 rounded-full border-[4px] border-white shadow-[0_10px_30px_rgba(0,0,0,0.15)] flex flex-col items-center justify-center shrink-0 z-10">
-                        <span class="text-[12px] md:text-[14px] font-bold text-gray-400">STEP</span>
-                        <span class="text-[24px] md:text-[36px] font-extrabold text-white leading-none">04</span>
+                <div class="dtl-box4 reveal delay-800">
+                    <div class="dtl-box7">
+                        <span class="dtl-tag2">STEP</span>
+                        <span class="dtl-tag4">04</span>
                     </div>
-                    <div class="pt-2 md:pt-8">
-                        <h4 class="text-[22px] md:text-[28px] font-bold text-sbs-main mb-4 tracking-tight">포트폴리오 완성 & 취업 준비</h4>
-                        <p class="text-gray-700 text-[16px] leading-[1.7] max-w-2xl font-medium break-keep">수강생 고유의 개성과 실무 역량이 담긴 퀄리티 높은 포트폴리오를 최종 완성합니다. 전문 강사님의 1:1 크리틱, 모의 면접, 이력서 첨삭 등 본격적인 취업 준비를 함께합니다.</p>
+                    <div class="dtl-box6">
+                        <h4 class="dtl-tit3">포트폴리오 완성 & 취업 준비</h4>
+                        <p class="dtl-txt3">수강생 고유의 개성과 실무 역량이 담긴 퀄리티 높은 포트폴리오를 최종 완성합니다. 전문 강사님의 1:1 크리틱, 모의 면접, 이력서 첨삭 등 본격적인 취업 준비를 함께합니다.</p>
                     </div>
                 </div>
             </div>
@@ -353,102 +352,102 @@
     </section>
 
     <!-- NEW 4. 수강생 작품 (Creative Portfolio) -->
-    <section id="portfolio" class="py-[160px] lg:py-[200px] bg-white relative z-10 border-t border-gray-100 overflow-hidden">
-        <div class="max-w-[1200px] mx-auto px-6">
+    <section id="portfolio" class="port-sec">
+        <div class="port-box">
             <!-- Header Area -->
-            <div class="flex flex-col md:flex-row justify-between items-start mb-[80px] reveal gap-8">
-                <div class="md:w-1/2">
-                    <h2 class="text-[40px] md:text-[56px] font-extrabold text-gray-900 tracking-[-0.03em] leading-tight mb-2">수강생 작품</h2>
-                    <span class="text-gray-500 font-bold text-[14px] md:text-[16px] tracking-[0.15em] uppercase">CREATIVE PORTFOLIO</span>
+            <div class="port-box2 reveal">
+                <div class="port-box3">
+                    <h2 class="port-tit">수강생 작품</h2>
+                    <span class="port-tag">CREATIVE PORTFOLIO</span>
                 </div>
-                <div class="md:w-1/2 flex flex-col items-start md:items-start">
-                    <p class="text-gray-600 text-[16px] md:text-[18px] leading-[1.6] font-medium mb-6 break-keep">
+                <div class="port-box4">
+                    <p class="port-txt">
                         SBS아카데미컴퓨터아트학원만의 커리큘럼으로<br>
                         획일화된 포트폴리오가 아닌 크리에이티브를 고민하는<br>
                         진정한 디자이너를 양성합니다.
                     </p>
-                    <a href="#" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full border border-sbs-main text-sbs-main hover:bg-sbs-light transition-colors font-bold text-[14px]">
-                        자세히 보기 <span class="ml-1 font-normal">→</span>
+                    <a href="#" class="port-lnk">
+                        자세히 보기 <span class="port-tag2">→</span>
                     </a>
                 </div>
             </div>
 
             <!-- Grid for Images -->
-            <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 reveal delay-100 items-start"></div>
+            <div id="portfolio-grid" class="port-box5 reveal delay-100"></div>
         </div>
     </section>
 
     <!-- 5. 수강생 후기 (Reviews) -->
-    <section id="reviews" class="py-[160px] lg:py-[200px] bg-[#f9fafb] relative z-10 border-t border-gray-100">
-        <div class="max-w-[1200px] mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-[100px] reveal">
+    <section id="reviews" class="rev-sec">
+        <div class="rev-box">
+            <div class="rev-box2 reveal">
                 <div>
-                    <span class="text-sbs-main font-bold text-[14px] tracking-[0.2em] uppercase mb-4 block">REVIEWS</span>
-                    <h2 class="text-[40px] md:text-[56px] font-extrabold text-gray-900 tracking-[-0.03em] leading-tight">수강생들이 증명하는<br>만족의 경험담</h2>
+                    <span class="rev-tag">REVIEWS</span>
+                    <h2 class="rev-tit">수강생들이 증명하는<br>만족의 경험담</h2>
                 </div>
-                <a href="#" class="mt-8 md:mt-0 px-8 py-4 rounded-full bg-white border border-gray-200 hover:border-gray-900 transition-colors font-bold text-gray-800 text-[16px] flex items-center">
-                    후기 모두 보기 <span class="ml-2 text-gray-400">→</span>
+                <a href="#" class="rev-lnk">
+                    후기 모두 보기 <span class="rev-tag2">→</span>
                 </a>
             </div>
 
-            <div id="reviews-content" class="flex flex-col lg:flex-row gap-8 reveal"></div>
+            <div id="reviews-content" class="rev-box3 reveal"></div>
         </div>
     </section>
 
     <!-- 7. 학원 정보 (특별전략 TOP5) -->
-    <section id="academy-info" class="py-[160px] lg:py-[200px] bg-gray-50 relative z-10 border-t border-gray-100 overflow-hidden">
-        <div class="max-w-[1200px] mx-auto px-6">
-            <div class="flex flex-col lg:flex-row items-start gap-[60px] lg:gap-[80px]">
+    <section id="academy-info" class="info-sec">
+        <div class="info-box">
+            <div class="info-box2">
                 <!-- 좌측: Sticky 타이틀 영역 -->
-                <div class="lg:w-4/12 reveal text-center lg:text-left lg:sticky lg:top-[120px]">
-                    <span class="text-sbs-main font-bold text-[14px] tracking-[0.2em] uppercase mb-4 block">STRATEGY</span>
-                    <h2 class="text-[40px] md:text-[52px] font-extrabold tracking-[-0.03em] text-gray-900 mb-8 leading-[1.2] break-keep">
-                        SBS아카데미만의<br><span class="text-sbs-main">특별전략 TOP5</span>
+                <div class="info-box3 reveal">
+                    <span class="info-tag">STRATEGY</span>
+                    <h2 class="info-tit">
+                        SBS아카데미만의<br><span class="info-tag2">특별전략 TOP5</span>
                     </h2>
                     <!-- 부드러운 배경 빛 효과 -->
-                    <div class="hidden lg:block absolute top-[80%] left-[-30%] w-80 h-80 bg-[#e0f2fe] rounded-full blur-[100px] z-0 opacity-70 pointer-events-none"></div>
+                    <div class="info-box4"></div>
                 </div>
                 
                 <!-- 우측: 5가지 전략 리스트 -->
-                <div class="lg:w-8/12 w-full flex flex-col gap-6 relative z-10">
+                <div class="info-box5">
                     <!-- Item 1 -->
-                    <div class="bg-white p-8 md:p-10 rounded-[32px] border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(13,130,255,0.06)] hover:-translate-y-1 transition-all duration-300 reveal flex gap-6 md:gap-8 items-start">
-                        <span class="text-sbs-main font-black text-[32px] md:text-[44px] leading-none mt-1">1</span>
+                    <div class="info-box6 reveal">
+                        <span class="info-tag3">1</span>
                         <div>
-                            <h3 class="text-[20px] md:text-[24px] font-bold text-gray-900 mb-4 tracking-tight">대상별 특화된 체계적인 교육과정</h3>
-                            <p class="text-gray-500 text-[15px] md:text-[16px] leading-[1.7] break-keep">비전공자, 전공자 및 국비 지원 대상자별로 교육과정을 구성해 디자인에 쉽게 접근할 수 있도록 체계적으로 준비되어 있습니다.</p>
+                            <h3 class="info-tit2">대상별 특화된 체계적인 교육과정</h3>
+                            <p class="info-txt">비전공자, 전공자 및 국비 지원 대상자별로 교육과정을 구성해 디자인에 쉽게 접근할 수 있도록 체계적으로 준비되어 있습니다.</p>
                         </div>
                     </div>
                     <!-- Item 2 -->
-                    <div class="bg-white p-8 md:p-10 rounded-[32px] border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(13,130,255,0.06)] hover:-translate-y-1 transition-all duration-300 reveal delay-[100ms] flex gap-6 md:gap-8 items-start">
-                        <span class="text-sbs-main font-black text-[32px] md:text-[44px] leading-none mt-1">2</span>
+                    <div class="info-box7 reveal">
+                        <span class="info-tag3">2</span>
                         <div>
-                            <h3 class="text-[20px] md:text-[24px] font-bold text-gray-900 mb-4 tracking-tight">컴퓨터 교육 핵심 노하우</h3>
-                            <p class="text-gray-500 text-[15px] md:text-[16px] leading-[1.7] break-keep">기초 교재를 통한 이론교육부터 피드백으로 만들어가는 포트폴리오 수업까지 수강생에게 맞춘 교육과정으로 만족스러운 수업을 경험하실 수 있습니다.</p>
+                            <h3 class="info-tit2">컴퓨터 교육 핵심 노하우</h3>
+                            <p class="info-txt">기초 교재를 통한 이론교육부터 피드백으로 만들어가는 포트폴리오 수업까지 수강생에게 맞춘 교육과정으로 만족스러운 수업을 경험하실 수 있습니다.</p>
                         </div>
                     </div>
                     <!-- Item 3 -->
-                    <div class="bg-white p-8 md:p-10 rounded-[32px] border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(13,130,255,0.06)] hover:-translate-y-1 transition-all duration-300 reveal delay-[150ms] flex gap-6 md:gap-8 items-start">
-                        <span class="text-sbs-main font-black text-[32px] md:text-[44px] leading-none mt-1">3</span>
+                    <div class="info-box8 reveal">
+                        <span class="info-tag3">3</span>
                         <div>
-                            <h3 class="text-[20px] md:text-[24px] font-bold text-gray-900 mb-4 tracking-tight">혁신적인 수강생 서비스</h3>
-                            <p class="text-gray-500 text-[15px] md:text-[16px] leading-[1.7] break-keep">학원의 각종 서비스 및 공지사항, 알람을 실시간으로 확인 할 수 있고 세미나 및 특강, 채용상담 등 다양한 정보를 손쉽게 모아 볼 수 있습니다.</p>
+                            <h3 class="info-tit2">혁신적인 수강생 서비스</h3>
+                            <p class="info-txt">학원의 각종 서비스 및 공지사항, 알람을 실시간으로 확인 할 수 있고 세미나 및 특강, 채용상담 등 다양한 정보를 손쉽게 모아 볼 수 있습니다.</p>
                         </div>
                     </div>
                     <!-- Item 4 -->
-                    <div class="bg-white p-8 md:p-10 rounded-[32px] border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(13,130,255,0.06)] hover:-translate-y-1 transition-all duration-300 reveal delay-[200ms] flex gap-6 md:gap-8 items-start">
-                        <span class="text-sbs-main font-black text-[32px] md:text-[44px] leading-none mt-1">4</span>
+                    <div class="info-box9 reveal">
+                        <span class="info-tag3">4</span>
                         <div>
-                            <h3 class="text-[20px] md:text-[24px] font-bold text-gray-900 mb-4 tracking-tight">1:1 멘토 맞춤 학습관리 시스템</h3>
-                            <p class="text-gray-500 text-[15px] md:text-[16px] leading-[1.7] break-keep">수강생과 멘토의 1:1 학습관리 시스템으로 수강생이 원하는 취업/진학과 관련한 정보를 제공받을 수 있습니다.</p>
+                            <h3 class="info-tit2">1:1 멘토 맞춤 학습관리 시스템</h3>
+                            <p class="info-txt">수강생과 멘토의 1:1 학습관리 시스템으로 수강생이 원하는 취업/진학과 관련한 정보를 제공받을 수 있습니다.</p>
                         </div>
                     </div>
                     <!-- Item 5 -->
-                    <div class="bg-white p-8 md:p-10 rounded-[32px] border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(13,130,255,0.06)] hover:-translate-y-1 transition-all duration-300 reveal delay-[250ms] flex gap-6 md:gap-8 items-start">
-                        <span class="text-sbs-main font-black text-[32px] md:text-[44px] leading-none mt-1">5</span>
+                    <div class="info-box10 reveal">
+                        <span class="info-tag3">5</span>
                         <div>
-                            <h3 class="text-[20px] md:text-[24px] font-bold text-gray-900 mb-4 tracking-tight">온라인 강좌로 반복 학습</h3>
-                            <p class="text-gray-500 text-[15px] md:text-[16px] leading-[1.7] break-keep">처음 배우는 과정이라도 온라인 학습 플랫폼 따즈아를 통해 언제나 어디서나 반복 학습을 할 수 있습니다.</p>
+                            <h3 class="info-tit2">온라인 강좌로 반복 학습</h3>
+                            <p class="info-txt">처음 배우는 과정이라도 온라인 학습 플랫폼 따즈아를 통해 언제나 어디서나 반복 학습을 할 수 있습니다.</p>
                         </div>
                     </div>
                 </div>
@@ -457,224 +456,224 @@
     </section>
 
     <!-- 8. 오시는 길 (#location) -->
-    <section id="location" class="py-[160px] lg:py-[200px] bg-white relative z-10 border-t border-gray-100">
-        <div class="max-w-[1200px] mx-auto px-6">
-            <div class="text-center mb-[120px] reveal">
-                <span class="text-sbs-main font-bold text-[14px] tracking-[0.2em] uppercase mb-4 block">LOCATION</span>
-                <h2 class="text-[40px] md:text-[56px] font-extrabold tracking-[-0.03em] text-gray-900">오시는 길</h2>
-                <p class="text-gray-500 mt-4 text-[18px] font-medium">전국 주요 핵심 상권에 위치하여 교통 접근성이 뛰어납니다.</p>
+    <section id="location" class="loc-sec">
+        <div class="loc-box">
+            <div class="loc-box2 reveal">
+                <span class="loc-tag">LOCATION</span>
+                <h2 class="loc-tit">오시는 길</h2>
+                <p class="loc-txt">전국 주요 핵심 상권에 위치하여 교통 접근성이 뛰어납니다.</p>
             </div>
             
-            <div id="location-content" class="bg-white rounded-[40px] border border-gray-100 shadow-[0_20px_60px_rgba(0,0,0,0.06)] overflow-hidden reveal delay-100 flex flex-col lg:flex-row items-stretch"></div>
+            <div id="location-content" class="loc-box3 reveal delay-100"></div>
         </div>
     </section>
 
     <!-- 9. 세미나 & 특강 (Seminar / Insight) -->
-    <section id="seminar" class="py-[160px] lg:py-[200px] bg-gray-50 relative z-10 border-t border-gray-100">
-        <div class="max-w-[1200px] mx-auto px-6">
-            <div class="text-left mb-[100px] reveal">
-                <span class="text-sbs-main font-bold text-[14px] tracking-[0.2em] uppercase mb-4 block">SEMINAR</span>
-                <h2 class="text-[40px] md:text-[56px] font-extrabold tracking-[-0.03em] text-gray-900 leading-[1.15]">현업 실무자들의 특강, 세미나로<br>발상의 전환을 이끌어 보세요!</h2>
+    <section id="seminar" class="sem-sec">
+        <div class="sem-box">
+            <div class="sem-box2 reveal">
+                <span class="sem-tag">SEMINAR</span>
+                <h2 class="sem-tit">현업 실무자들의 특강, 세미나로<br>발상의 전환을 이끌어 보세요!</h2>
             </div>
 
             <!-- Horizontal Scrollable Cards -->
-            <div id="seminar-list" class="flex overflow-x-auto gap-8 pb-12 no-scrollbar reveal delay-100 snap-x"></div>
+            <div id="seminar-list" class="sem-box3 no-scrollbar reveal delay-100"></div>
         </div>
     </section>
 
     <!-- 11. 하단 영역 (Footer) -->
-    <footer class="bg-white border-t border-gray-200 pt-[100px] pb-[80px]">
-        <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10 mb-20">
+    <footer class="ftr-ftr">
+        <div class="ftr-box">
+            <div class="ftr-box2">
                 <!-- Company Info -->
-                <div class="lg:col-span-7">
+                <div class="ftr-box3">
                     <!-- 하단 로고 이미지 적용 -->
-                    <img data-site-logo alt="SBS 아카데미 컴퓨터아트학원" class="w-[160px] h-auto mb-8">
-                    <div class="text-[14px] text-gray-500 leading-loose space-y-2">
-                        <p><strong class="text-gray-900 font-bold">사업자(법인)명:</strong> 주식회사 에스씨에이아카데미대전 <span class="mx-3 text-gray-300">|</span> <strong class="text-gray-900 font-bold">사업자등록번호:</strong> 822-81-00224</p>
-                        <p><strong class="text-gray-900 font-bold">대표:</strong> 정해승 <span class="mx-3 text-gray-300">|</span> <strong class="text-gray-900 font-bold">개인정보책임자:</strong> 오도윤 <span class="mx-3 text-gray-300">|</span> <strong class="text-gray-900 font-bold">통신판매업번호:</strong> 제2015-대전서구-0647 호</p>
-                        <p><strong class="text-gray-900 font-bold">주소:</strong> 대전광역시 서구 대덕대로 179, 9·10층 (둔산동, 엠제이피부과굿모닝어학원빌딩)</p>
-                        <p><strong class="text-gray-900 font-bold">학원명:</strong> 에스비에스(SBS)아카데미컴퓨터아트학원 <span class="mx-3 text-gray-300">|</span> <strong class="text-gray-900 font-bold">교육담당:</strong> 대전지점</p>
-                        <p><strong class="text-gray-900 font-bold">지점 대표 블로그:</strong> <a id="footer-blog-link" href="#" target="_blank" class="hover:text-sbs-main transition-colors"></a></p>
+                    <img data-site-logo alt="SBS 아카데미 컴퓨터아트학원" class="ftr-img">
+                    <div class="ftr-box4">
+                        <p><strong class="ftr-bold">사업자(법인)명:</strong> 주식회사 에스씨에이아카데미대전 <span class="ftr-tag">|</span> <strong class="ftr-bold">사업자등록번호:</strong> 822-81-00224</p>
+                        <p><strong class="ftr-bold">대표:</strong> 정해승 <span class="ftr-tag">|</span> <strong class="ftr-bold">개인정보책임자:</strong> 오도윤 <span class="ftr-tag">|</span> <strong class="ftr-bold">통신판매업번호:</strong> 제2015-대전서구-0647 호</p>
+                        <p><strong class="ftr-bold">주소:</strong> 대전광역시 서구 대덕대로 179, 9·10층 (둔산동, 엠제이피부과굿모닝어학원빌딩)</p>
+                        <p><strong class="ftr-bold">학원명:</strong> 에스비에스(SBS)아카데미컴퓨터아트학원 <span class="ftr-tag">|</span> <strong class="ftr-bold">교육담당:</strong> 대전지점</p>
+                        <p><strong class="ftr-bold">지점 대표 블로그:</strong> <a id="footer-blog-link" href="#" target="_blank" class="ftr-lnk"></a></p>
                     </div>
                 </div>
                 
                 <!-- Contact -->
-                <div class="lg:col-span-3">
-                    <h4 class="text-gray-900 font-extrabold text-[16px] mb-8 tracking-widest">고객상담센터</h4>
-                    <ul class="space-y-4 text-[14px] text-gray-500 font-medium">
-                        <li>대표문의전화: <span id="footer-phone" class="text-sbs-main font-bold text-[18px]"></span></li>
+                <div class="ftr-box5">
+                    <h4 class="ftr-tit">고객상담센터</h4>
+                    <ul class="ftr-list">
+                        <li>대표문의전화: <span id="footer-phone" class="ftr-tag2"></span></li>
                         <li>대표이메일: <span id="footer-email"></span></li>
                     </ul>
                 </div>
 
                 <!-- Links -->
-                <div class="lg:col-span-2">
-                    <h4 class="text-gray-900 font-extrabold text-[16px] mb-8 uppercase tracking-widest">Legal</h4>
-                    <ul class="space-y-4 text-[14px] text-gray-500 font-medium">
-                        <li><a href="#" class="hover:text-gray-900 transition-colors">수강료안내</a></li>
-                        <li><a href="#" class="text-gray-900 font-bold hover:text-sbs-main transition-colors">개인정보처리방침</a></li>
+                <div class="ftr-box6">
+                    <h4 class="ftr-tit2">Legal</h4>
+                    <ul class="ftr-list">
+                        <li><a href="#" class="ftr-lnk2">수강료안내</a></li>
+                        <li><a href="#" class="ftr-lnk3">개인정보처리방침</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="border-t border-gray-100 pt-10 flex flex-col md:flex-row justify-between items-center text-[14px] text-gray-400 font-medium">
+            <div class="ftr-box7">
                 <p>학원등록번호: 대전서부 제서4019호</p>
-                <p class="mt-2 md:mt-0 tracking-wider">© SBS ACADEMY COMPUTER ART. All Rights Reserved.</p>
+                <p class="ftr-txt">© SBS ACADEMY COMPUTER ART. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- 하단 고정 플로팅 CTA 배너 -->
-    <div id="floating-cta" class="fixed bottom-10 left-0 w-full z-40 flex justify-center pointer-events-none px-6 transition-all duration-500 transform translate-y-24 opacity-0">
-        <div class="bg-white/90 backdrop-blur-xl rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.08)] px-8 py-5 flex items-center gap-8 pointer-events-auto border border-gray-100">
-            <div class="flex items-center">
-                <span class="text-[16px] font-extrabold text-gray-900 tracking-tight">다양한 주요 교육과정을 확인해보세요</span>
+    <div id="floating-cta" class="float-box">
+        <div class="float-box2">
+            <div class="float-box3">
+                <span class="float-tag">다양한 주요 교육과정을 확인해보세요</span>
             </div>
             <!-- 부드러운 스크롤 함수 호출 (Lenis scroll) -->
-            <button onclick="scrollToSection('#curriculum')" class="bg-gray-900 hover:bg-sbs-main text-white px-8 py-3.5 rounded-full text-[15px] font-bold transition-colors whitespace-nowrap shadow-md tracking-tight">
+            <button onclick="scrollToSection('#curriculum')" class="float-btn">
                 주요 교육과정 보기
             </button>
         </div>
     </div>
 
     <!-- 2. 세미나 상세 이미지 팝업 모달 -->
-    <div id="seminar-modal" class="fixed inset-0 z-[110] hidden items-center justify-center">
+    <div id="seminar-modal" class="smod-box">
         <!-- 모달 배경 -->
-        <div class="absolute inset-0 bg-gray-900/80 backdrop-blur-sm transition-opacity cursor-pointer" onclick="closeSeminarModal()"></div>
+        <div class="smod-box2" onclick="closeSeminarModal()"></div>
         <!-- 모달 컨테이너 -->
-        <div id="seminar-modal-container" class="relative w-full max-w-lg mx-4 flex flex-col items-center transform transition-all duration-300 scale-95 opacity-0">
+        <div id="seminar-modal-container" class="smod-box3">
             <!-- 닫기 버튼 -->
-            <button onclick="closeSeminarModal()" class="absolute -top-14 right-0 z-50 p-2 text-white hover:text-gray-300 transition-colors">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            <button onclick="closeSeminarModal()" class="smod-btn">
+                <svg class="smod-ico" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
 
             <!-- 포스터 이미지 영역 -->
-            <div id="seminar-modal-image" class="w-full aspect-[1/1.41] bg-white rounded-2xl shadow-2xl overflow-hidden relative flex flex-col items-center justify-center pointer-events-none">
-                <span id="seminar-modal-title" class="text-xl font-bold text-white text-center px-6 leading-snug"></span>
+            <div id="seminar-modal-image" class="smod-box4">
+                <span id="seminar-modal-title" class="smod-tag"></span>
             </div>
         </div>
     </div>
 
     <!-- 교육과정 상세 모달 -->
-    <div id="course-modal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+    <div id="course-modal" class="cmod-box">
         <!-- 모달 배경 -->
-        <div class="absolute inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+        <div class="cmod-box2" onclick="closeModal()"></div>
         <!-- 모달 컨테이너 -->
-        <div id="modal-container" class="relative bg-white w-full max-w-6xl h-[90vh] md:h-[85vh] mx-4 rounded-[32px] overflow-hidden flex flex-col shadow-2xl transform transition-all duration-300 scale-95 opacity-0">
+        <div id="modal-container" class="cmod-box3">
             <!-- 닫기 버튼 -->
-            <button onclick="closeModal()" class="absolute top-6 right-6 z-50 p-2.5 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            <button onclick="closeModal()" class="cmod-btn">
+                <svg class="cmod-ico" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
 
             <!-- 모달 헤더: 카테고리 타이틀 및 과목 탭 -->
-            <div class="pt-8 px-6 md:px-10 pb-6 border-b border-gray-100 shrink-0 bg-white">
-                <h3 id="modal-category-title" class="text-gray-900 font-extrabold text-[24px] mb-5 tracking-tight flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-sbs-main inline-block"></span>
+            <div class="cmod-box4">
+                <h3 id="modal-category-title" class="cmod-tit">
+                    <span class="cmod-tag"></span>
                     <span id="modal-category-name-text">Category Name</span>
                 </h3>
-                <div class="flex items-center gap-2 md:gap-3 w-full">
+                <div class="cmod-box5">
                     <!-- 이전 과목 버튼 (왼쪽에 탭과 붙어서 배치) -->
-                    <button id="btn-prev-subject" onclick="prevSubject()" class="shrink-0 w-10 h-10 md:w-11 md:h-11 bg-white rounded-full shadow-[0_2px_10px_rgba(0,0,0,0.06)] flex items-center justify-center text-gray-500 hover:text-sbs-main transition-colors border border-gray-100 z-10">
-                        <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                    <button id="btn-prev-subject" onclick="prevSubject()" class="cmod-btn2">
+                        <svg class="cmod-ico2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
                     </button>
                     
                     <!-- 탭 리스트 -->
-                    <div id="modal-tabs" class="flex overflow-x-auto gap-3 no-scrollbar py-2 snap-x scroll-smooth">
+                    <div id="modal-tabs" class="cmod-box6 no-scrollbar">
                         <!-- 탭 버튼 JS로 삽입 -->
                     </div>
                     
                     <!-- 다음 과목 버튼 (마지막 탭 오른쪽에 붙어서 배치) -->
-                    <button id="btn-next-subject" onclick="nextSubject()" class="shrink-0 w-10 h-10 md:w-11 md:h-11 bg-white rounded-full shadow-[0_2px_10px_rgba(0,0,0,0.06)] flex items-center justify-center text-gray-500 hover:text-sbs-main transition-colors border border-gray-100 z-10">
-                        <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                    <button id="btn-next-subject" onclick="nextSubject()" class="cmod-btn2">
+                        <svg class="cmod-ico2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
                     </button>
                 </div>
             </div>
 
             <!-- 모달 바디: 이미지 뷰어 -->
-            <div id="image-viewer-container" class="flex-1 relative flex items-center justify-center bg-gray-50/50 p-4 md:p-8 overflow-hidden cursor-pointer" onclick="if(!window.isSwiping) nextImage(); window.isSwiping=false;">
+            <div id="image-viewer-container" class="cmod-box7" onclick="if(!window.isSwiping) nextImage(); window.isSwiping=false;">
                 <!-- 현재 이미지 디스플레이 (비율 고정 제거, h-full 적용으로 잘림 방지) -->
-                <div class="w-full h-full max-w-5xl bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden relative flex items-center justify-center group">
-                    <div id="current-image-display" class="absolute inset-0 transition-opacity duration-300 bg-gray-100 flex items-center justify-center text-gray-400 font-bold tracking-widest text-xl p-2 md:p-4"></div>
+                <div class="cmod-box8 group">
+                    <div id="current-image-display" class="cmod-box9"></div>
                 </div>
             </div>
 
             <!-- 모달 푸터: 이미지 페이지네이션 -->
-            <div class="px-6 py-4 border-t border-gray-100 flex justify-center items-center bg-white shrink-0">
+            <div class="cmod-box10">
                 <!-- 하단 페이지네이션: 검은색 좌우 화살표와 중앙 숫자 포함 -->
-                <div class="flex items-center justify-center gap-4 text-[14px] font-bold text-gray-900 tracking-widest select-none bg-gray-50 px-5 py-2 rounded-full border border-gray-100/50">
-                    <button onclick="prevImage(); event.stopPropagation();" class="hover:text-gray-500 transition-colors flex items-center justify-center text-[16px] px-1">&lt;</button>
-                    <span id="modal-pagination" class="text-center min-w-[50px]">1 / 10</span>
-                    <button onclick="nextImage(); event.stopPropagation();" class="hover:text-gray-500 transition-colors flex items-center justify-center text-[16px] px-1">&gt;</button>
+                <div class="cmod-box11">
+                    <button onclick="prevImage(); event.stopPropagation();" class="cmod-btn3">&lt;</button>
+                    <span id="modal-pagination" class="cmod-tag2">1 / 10</span>
+                    <button onclick="nextImage(); event.stopPropagation();" class="cmod-btn3">&gt;</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- 수강생 작품 팝업 모달 -->
-    <div id="portfolio-modal" class="fixed inset-0 z-[120] hidden items-center justify-center">
+    <div id="portfolio-modal" class="pmod-box">
         <!-- 모달 배경 -->
-        <div class="absolute inset-0 bg-gray-900/80 backdrop-blur-sm transition-opacity cursor-pointer" onclick="closePortfolioModal()"></div>
+        <div class="pmod-box2" onclick="closePortfolioModal()"></div>
         <!-- 모달 컨테이너 -->
-        <div id="portfolio-modal-container" class="relative bg-white w-full max-w-6xl h-[90vh] md:h-[85vh] mx-4 rounded-[32px] overflow-hidden flex flex-col shadow-2xl transform transition-all duration-300 scale-95 opacity-0">
+        <div id="portfolio-modal-container" class="pmod-box3">
             <!-- 닫기 버튼 -->
-            <button onclick="closePortfolioModal()" class="absolute top-6 right-6 z-50 p-2.5 bg-gray-900/30 hover:bg-gray-900/60 backdrop-blur-md text-white rounded-full transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            <button onclick="closePortfolioModal()" class="pmod-btn">
+                <svg class="pmod-ico" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             <!-- 스크롤 가능한 이미지 영역 -->
-            <div class="w-full h-full overflow-y-auto scroll-smooth bg-gray-50 p-2 md:p-6 no-scrollbar" data-lenis-prevent>
-                <img id="portfolio-modal-image" src="" alt="수강생 작품 상세" class="w-full h-auto block rounded-2xl shadow-sm mx-auto">
+            <div class="pmod-box4 no-scrollbar" data-lenis-prevent>
+                <img id="portfolio-modal-image" src="" alt="수강생 작품 상세" class="pmod-img">
             </div>
         </div>
     </div>
 
     <!-- 전체메뉴 (Full Screen Menu) -->
-    <div id="full-menu" class="fixed inset-0 z-[200] hidden flex-col">
+    <div id="full-menu" class="menu-box">
         <!-- Background -->
-        <div class="absolute inset-0 bg-white/95 backdrop-blur-xl transition-opacity duration-500 opacity-0" id="full-menu-bg"></div>
+        <div class="menu-box2" id="full-menu-bg"></div>
         
         <!-- Header -->
-        <div class="relative z-10 flex items-center justify-between h-[80px] px-6 lg:px-10 border-b border-gray-100/50 transform -translate-y-full transition-transform duration-500" id="full-menu-header">
-            <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="closeFullMenu(); scrollToTop();">
-                <img data-site-logo alt="SBS 아카데미" class="w-[160px] h-auto">
+        <div class="menu-box3" id="full-menu-header">
+            <div class="menu-box4" onclick="closeFullMenu(); scrollToTop();">
+                <img data-site-logo alt="SBS 아카데미" class="menu-img">
             </div>
-            <button onclick="closeFullMenu()" class="p-2 text-gray-900 hover:text-sbs-main transition-colors">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            <button onclick="closeFullMenu()" class="menu-btn">
+                <svg class="menu-ico" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
         </div>
 
         <!-- Content -->
-        <div class="relative z-10 flex-1 overflow-y-auto py-12 px-6 lg:px-10 flex flex-col items-center justify-center transform translate-y-10 opacity-0 transition-all duration-500" id="full-menu-content">
-            <nav class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 text-center md:text-left">
+        <div class="menu-box5" id="full-menu-content">
+            <nav class="menu-nav">
                 <!-- Column 1 -->
-                <div class="space-y-6">
-                    <h4 class="text-sbs-main font-extrabold text-[16px] tracking-widest uppercase border-b border-gray-200 pb-4 mb-8">Program</h4>
-                    <a href="#curriculum" class="block text-[28px] font-bold text-gray-900 hover:text-sbs-main transition-colors mb-6" onclick="closeFullMenuAndScroll(this)">주요 교육과정</a>
-                    <a href="#curriculum-detail" class="block text-[28px] font-bold text-gray-900 hover:text-sbs-main transition-colors mb-6" onclick="closeFullMenuAndScroll(this)">상세 커리큘럼</a>
-                    <a href="#portfolio" class="block text-[28px] font-bold text-gray-900 hover:text-sbs-main transition-colors" onclick="closeFullMenuAndScroll(this)">수강생 작품</a>
+                <div class="menu-box6">
+                    <h4 class="menu-tit">Program</h4>
+                    <a href="#curriculum" class="menu-lnk" onclick="closeFullMenuAndScroll(this)">주요 교육과정</a>
+                    <a href="#curriculum-detail" class="menu-lnk" onclick="closeFullMenuAndScroll(this)">상세 커리큘럼</a>
+                    <a href="#portfolio" class="menu-lnk2" onclick="closeFullMenuAndScroll(this)">수강생 작품</a>
                 </div>
                 <!-- Column 2 -->
-                <div class="space-y-6">
-                    <h4 class="text-sbs-main font-extrabold text-[16px] tracking-widest uppercase border-b border-gray-200 pb-4 mb-8">Guide</h4>
-                    <a href="#roadmap" class="block text-[28px] font-bold text-gray-900 hover:text-sbs-main transition-colors mb-6" onclick="closeFullMenuAndScroll(this)">학습 로드맵</a>
-                    <a href="#why-sbs" class="block text-[28px] font-bold text-gray-900 hover:text-sbs-main transition-colors mb-6" onclick="closeFullMenuAndScroll(this)">SBS 선택 이유</a>
-                    <a href="#academy-info" class="block text-[28px] font-bold text-gray-900 hover:text-sbs-main transition-colors" onclick="closeFullMenuAndScroll(this)">특별전략 TOP5</a>
+                <div class="menu-box6">
+                    <h4 class="menu-tit">Guide</h4>
+                    <a href="#roadmap" class="menu-lnk" onclick="closeFullMenuAndScroll(this)">학습 로드맵</a>
+                    <a href="#why-sbs" class="menu-lnk" onclick="closeFullMenuAndScroll(this)">SBS 선택 이유</a>
+                    <a href="#academy-info" class="menu-lnk2" onclick="closeFullMenuAndScroll(this)">특별전략 TOP5</a>
                 </div>
                 <!-- Column 3 -->
-                <div class="space-y-6">
-                    <h4 class="text-sbs-main font-extrabold text-[16px] tracking-widest uppercase border-b border-gray-200 pb-4 mb-8">Community</h4>
-                    <a href="#reviews" class="block text-[28px] font-bold text-gray-900 hover:text-sbs-main transition-colors mb-6" onclick="closeFullMenuAndScroll(this)">수강생 후기</a>
-                    <a href="#seminar" class="block text-[28px] font-bold text-gray-900 hover:text-sbs-main transition-colors mb-6" onclick="closeFullMenuAndScroll(this)">세미나 & 특강</a>
-                    <a href="#location" class="block text-[28px] font-bold text-gray-900 hover:text-sbs-main transition-colors" onclick="closeFullMenuAndScroll(this)">오시는 길</a>
+                <div class="menu-box6">
+                    <h4 class="menu-tit">Community</h4>
+                    <a href="#reviews" class="menu-lnk" onclick="closeFullMenuAndScroll(this)">수강생 후기</a>
+                    <a href="#seminar" class="menu-lnk" onclick="closeFullMenuAndScroll(this)">세미나 & 특강</a>
+                    <a href="#location" class="menu-lnk2" onclick="closeFullMenuAndScroll(this)">오시는 길</a>
                 </div>
             </nav>
         </div>
     </div>
 
     <!-- 최상단/최하단 이동 버튼 (스마트 스크롤) -->
-    <div id="scroll-controls" class="fixed bottom-8 right-6 md:right-10 z-[60] transition-all duration-300 opacity-0 translate-y-10 pointer-events-none">
-        <button id="btn-smart-scroll" onclick="handleSmartScroll()" class="w-[50px] h-[50px] rounded-full bg-white border border-gray-200 shadow-[0_10px_20px_rgba(0,0,0,0.08)] flex items-center justify-center text-sbs-main hover:bg-sbs-main hover:text-white transition-all duration-300 group relative">
-            <svg id="smart-scroll-icon" class="w-6 h-6 transform transition-transform duration-500 group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path></svg>
+    <div id="scroll-controls" class="scroll-box">
+        <button id="btn-smart-scroll" onclick="handleSmartScroll()" class="scroll-btn group">
+            <svg id="smart-scroll-icon" class="scroll-ico" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path></svg>
         </button>
     </div>
 

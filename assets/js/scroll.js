@@ -98,20 +98,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
 
         if (currentScrollY > 20) {
-            header.classList.add('shadow-sm');
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
+            header.classList.add('is-scrolled');
         } else {
-            header.classList.remove('shadow-sm');
-            header.style.background = 'rgba(255, 255, 255, 0.75)';
+            header.classList.remove('is-scrolled');
         }
 
         // 스크롤 버튼 활성화 로직
         if (currentScrollY > 300) {
-            scrollControls.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
-            scrollControls.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            scrollControls.classList.add('is-visible');
         } else {
-            scrollControls.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
-            scrollControls.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+            scrollControls.classList.remove('is-visible');
         }
 
         // 스크롤 방향에 따른 아이콘 및 동작 변경
@@ -119,17 +115,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // 아래로 스크롤 중
             window.scrollDirection = 'down';
             if(smartScrollIcon) {
-                smartScrollIcon.classList.add('rotate-180');
-                smartScrollIcon.classList.remove('group-hover:-translate-y-1');
-                smartScrollIcon.classList.add('group-hover:translate-y-1');
+                smartScrollIcon.classList.add('is-down');
             }
         } else if (currentScrollY < lastScrollY || currentScrollY >= maxScroll - 50) {
             // 위로 스크롤 중이거나 최하단에 도달했을 때 (최상단 이동 아이콘으로 변경)
             window.scrollDirection = 'up';
             if(smartScrollIcon) {
-                smartScrollIcon.classList.remove('rotate-180');
-                smartScrollIcon.classList.remove('group-hover:translate-y-1');
-                smartScrollIcon.classList.add('group-hover:-translate-y-1');
+                smartScrollIcon.classList.remove('is-down');
             }
         }
         lastScrollY = currentScrollY;
@@ -140,16 +132,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let scrollTimeout;
 
     window.addEventListener('scroll', () => {
-        floatingCta.classList.remove('translate-y-24', 'opacity-0');
-        floatingCta.classList.add('translate-y-0', 'opacity-100');
+        floatingCta.classList.add('is-visible');
 
         if (scrollTimeout) {
             clearTimeout(scrollTimeout);
         }
 
         scrollTimeout = setTimeout(() => {
-            floatingCta.classList.remove('translate-y-0', 'opacity-100');
-            floatingCta.classList.add('translate-y-24', 'opacity-0');
+            floatingCta.classList.remove('is-visible');
         }, 1500);
     });
 

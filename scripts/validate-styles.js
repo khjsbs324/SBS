@@ -1,16 +1,11 @@
 const fs = require('fs');
-const os = require('os');
 const path = require('path');
-const { spawnSync } = require('child_process');
 const sass = require('sass');
-const escapeClassName = require('tailwindcss/lib/util/escapeClassName').default;
 
 const root = path.resolve(__dirname, '..');
 const indexPath = path.join(root, 'index.html');
-const frameworkPath = path.join(root, 'assets/css/framework.css');
-const customCssPath = path.join(root, 'assets/css/main.css');
-const customScssPath = path.join(root, 'assets/scss/main.scss');
-
+const cssPath = path.join(root, 'assets/css/main.css');
+const scssPath = path.join(root, 'assets/scss/main.scss');
 const errors = [];
 const checks = [];
 
@@ -20,94 +15,86 @@ function check(condition, message) {
 }
 
 const html = fs.readFileSync(indexPath, 'utf8');
-const frameworkCss = fs.readFileSync(frameworkPath, 'utf8');
-const customCss = fs.readFileSync(customCssPath, 'utf8');
+const css = fs.readFileSync(cssPath, 'utf8');
+const scss = fs.readFileSync(scssPath, 'utf8');
+const packageJson = fs.readFileSync(path.join(root, 'package.json'), 'utf8');
 
-check(!html.includes('cdn.tailwindcss.com'), 'Tailwind Play CDN 제거');
-check(!html.includes('tailwind-config.js'), '브라우저용 Tailwind 설정 스크립트 제거');
-check(
-    html.includes('href="./assets/css/framework.css"') && html.includes('href="./assets/css/main.css"'),
-    '정적 CSS 두 파일 연결'
-);
-check(
-    html.indexOf('assets/css/framework.css') < html.indexOf('assets/css/main.css'),
-    '유틸리티 CSS 뒤에 사용자 정의 CSS 적용'
-);
-check(frameworkCss.includes('tailwindcss v3.4.17'), '고정된 Tailwind 3.4.17 빌드 결과');
-check(frameworkCss.length > 25000, '정적 유틸리티 CSS 생성');
-check(customCss.length > 2000, 'SCSS 기반 사용자 정의 CSS 생성');
+check(!html.includes('cdn.tailwindcss.com'), 'Tailwind 브라우저 CDN 없음');
+check(!html.includes('assets/css/framework.css'), 'framework.css 연결 제거');
+check(html.includes('href="./assets/css/main.css"'), '단일 빌드 CSS 연결');
+check(!fs.existsSync(path.join(root, 'tailwind.config.js')), 'Tailwind 설정 파일 제거');
+check(!fs.existsSync(path.join(root, 'assets/css/framework.css')), 'Tailwind 빌드 파일 제거');
+check(!fs.existsSync(path.join(root, 'assets/styles/framework.css')), 'Tailwind 진입 파일 제거');
+check(!packageJson.toLowerCase().includes('tailwind'), 'Tailwind 패키지와 빌드 명령 제거');
+check(css.length > 50000, '분리된 SCSS의 통합 CSS 생성');
 
-const criticalUtilities = [
-    'flex',
-    'grid',
-    'hidden',
-    'md:flex',
-    'md:grid-cols-3',
-    'lg:grid-cols-3',
-    'xl:flex',
-    'text-sbs-main',
-    'hover:bg-sbs-main',
-    'group-hover:text-sbs-main',
-    'selection:bg-sbs-main',
-    'bg-[#1a1738]',
-    'bg-[#c15e42]',
-    'md:text-[68px]',
-    'lg:text-[88px]',
-    'shadow-[0_20px_60px_rgba(13,130,255,0.08)]',
-    '-translate-y-full',
-    'translate-y-24',
-    'scale-95',
-    'opacity-0',
-    'pointer-events-auto',
-    'aspect-[1/1.41]'
-];
-
-for (const utility of criticalUtilities) {
-    check(frameworkCss.includes(`.${escapeClassName(utility)}`), `필수 유틸리티 포함: ${utility}`);
+const usePaths = [...scss.matchAll(/@use\s+['"]([^'"]+)['"]/g)].map((match) => match[1]);
+for (const usePath of usePaths) {
+    const parts = usePath.split('/');
+    const fileName = `_${parts.pop()}.scss`;
+    const partialPath = path.join(root, 'assets/scss', ...parts, fileName);
+    check(fs.existsSync(partialPath), `SCSS partial 연결: ${usePath}`);
 }
 
-const criticalCustomSelectors = [
-    'html.lenis',
-    '.animate-blob1',
-    '.reveal.active',
-    '.animate-slide-up',
-    '.text-fill-animation',
+for (const category of ['abstracts', 'base', 'layout', 'sections', 'components']) {
+    check(usePaths.some((usePath) => usePath.startsWith(`${category}/`)), `SCSS ${category} 카테고리 연결`);
+}
+
+const requiredSelectors = [
+    '.base-page',
+    '.hdr-hdr',
+    '.hero-sec',
+    '.cur-sec',
+    '.cnt-btn',
+    '.curc-box',
+    '.smod-box',
+    '.cmod-box',
+    '.pmod-box',
+    '.tab-btn.is-active',
+    '.menu-box.is-open',
+    '.scroll-box.is-visible',
     '.glass-header',
-    '.animate-customFadeIn',
+    '.reveal.active',
     'body.modal-open'
 ];
 
-for (const selector of criticalCustomSelectors) {
-    check(customCss.includes(selector), `필수 사용자 정의 스타일 포함: ${selector}`);
+for (const selector of requiredSelectors) {
+    check(css.includes(selector), `필수 스타일 포함: ${selector}`);
 }
 
-const sassResult = sass.compile(customScssPath, {
+const sourceFiles = [
+    indexPath,
+    ...fs.readdirSync(path.join(root, 'assets/js')).filter((name) => name.endsWith('.js')).map((name) => path.join(root, 'assets/js', name)),
+    ...fs.readdirSync(path.join(root, 'data')).filter((name) => name.endsWith('.js')).map((name) => path.join(root, 'data', name))
+];
+const sourceText = sourceFiles.map((file) => fs.readFileSync(file, 'utf8')).join('\n');
+const classTokens = [];
+
+for (const match of sourceText.matchAll(/\b(?:class|className)\s*=\s*["'`]([^"'`]+)["'`]/g)) {
+    classTokens.push(...match[1].split(/\s+/));
+}
+
+for (const call of sourceText.matchAll(/classList\.(?:add|remove|toggle|contains)\(([^)]*)\)/g)) {
+    for (const literal of call[1].matchAll(/["']([^"']+)["']/g)) classTokens.push(literal[1]);
+}
+
+const utilityPatterns = [
+    /^(?:sm|md|lg|xl|2xl|hover|group-hover|focus):/,
+    /^(?:bg|text|border)-(?:gray|white|black|transparent|indigo|sbs|\[)/,
+    /^(?:opacity|translate-[xy]|scale|rotate|pointer-events|grid-cols|col-span|row-span|space-[xy]|rounded|aspect|shadow)(?:-|$)/,
+    /^(?:p[trblxy]?|m[trblxy]?|w|h|min-w|max-w|min-h|max-h|gap|inset|top|right|bottom|left|z|font|leading|tracking|items|justify|self|place|overflow|object|cursor|transition|duration|ease|snap|shrink|grow)-(?:\[|\d|[a-z])/,
+    /^(?:flex|grid|hidden|block|inline|inline-block|fixed|absolute|relative|sticky)$/
+];
+const utilityTokens = [...new Set(classTokens.filter((token) => utilityPatterns.some((pattern) => pattern.test(token))))];
+
+check(utilityTokens.length === 0, `HTML·JS·데이터에 Tailwind 유틸리티 클래스 없음${utilityTokens.length ? ` (${utilityTokens.join(', ')})` : ''}`);
+check(!sourceText.includes('--tw-') && !scss.includes('--tw-'), 'Tailwind 전용 CSS 변수 없음');
+
+const compiledCss = sass.compile(scssPath, {
     style: 'compressed',
     sourceMap: false
 }).css;
-check(sassResult.trimEnd() === customCss.trimEnd(), 'SCSS 원본과 main.css 빌드 결과 일치');
-
-const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'sbs-style-check-'));
-const tempFrameworkPath = path.join(tempDir, 'framework.css');
-const tailwindBin = path.join(root, 'node_modules/.bin/tailwindcss');
-const build = spawnSync(tailwindBin, [
-    '-c', path.join(root, 'tailwind.config.js'),
-    '-i', path.join(root, 'assets/styles/framework.css'),
-    '-o', tempFrameworkPath,
-    '--minify'
-], {
-    cwd: root,
-    encoding: 'utf8'
-});
-
-if (build.status !== 0) {
-    errors.push(`Tailwind 재빌드 실패: ${build.stderr || build.stdout}`);
-} else {
-    const rebuiltFrameworkCss = fs.readFileSync(tempFrameworkPath, 'utf8');
-    check(rebuiltFrameworkCss === frameworkCss, 'Tailwind 원본과 framework.css 빌드 결과 일치');
-}
-
-fs.rmSync(tempDir, { recursive: true, force: true });
+check(compiledCss.trimEnd() === css.trimEnd(), 'SCSS 원본과 main.css 빌드 결과 일치');
 
 console.log(`[스타일 검사] 통과 ${checks.length}개 / 오류 ${errors.length}개`);
 for (const message of checks) console.log(`  ✓ ${message}`);

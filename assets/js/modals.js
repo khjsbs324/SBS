@@ -10,18 +10,14 @@ window.openFullMenu = function() {
     const header = document.getElementById('full-menu-header');
     const content = document.getElementById('full-menu-content');
 
-    menu.classList.remove('hidden');
-    menu.classList.add('flex');
+    menu.classList.add('is-open');
     document.body.classList.add('modal-open');
     if(lenis) lenis.stop();
 
     requestAnimationFrame(() => {
-        bg.classList.remove('opacity-0');
-        bg.classList.add('opacity-100');
-        header.classList.remove('-translate-y-full');
-        header.classList.add('translate-y-0');
-        content.classList.remove('translate-y-10', 'opacity-0');
-        content.classList.add('translate-y-0', 'opacity-100');
+        bg.classList.add('is-active');
+        header.classList.add('is-active');
+        content.classList.add('is-active');
     });
 };
 
@@ -31,20 +27,16 @@ window.closeFullMenu = function() {
     const header = document.getElementById('full-menu-header');
     const content = document.getElementById('full-menu-content');
 
-    bg.classList.remove('opacity-100');
-    bg.classList.add('opacity-0');
-    header.classList.remove('translate-y-0');
-    header.classList.add('-translate-y-full');
-    content.classList.remove('translate-y-0', 'opacity-100');
-    content.classList.add('translate-y-10', 'opacity-0');
+    bg.classList.remove('is-active');
+    header.classList.remove('is-active');
+    content.classList.remove('is-active');
 
     setTimeout(() => {
-        menu.classList.add('hidden');
-        menu.classList.remove('flex');
+        menu.classList.remove('is-open');
 
-        if (!document.getElementById('course-modal').classList.contains('flex') &&
-            !document.getElementById('seminar-modal').classList.contains('flex') &&
-            !document.getElementById('portfolio-modal').classList.contains('flex')) {
+        if (!document.getElementById('course-modal').classList.contains('is-open') &&
+            !document.getElementById('seminar-modal').classList.contains('is-open') &&
+            !document.getElementById('portfolio-modal').classList.contains('is-open')) {
             document.body.classList.remove('modal-open');
             if(lenis) lenis.start();
         }
@@ -71,22 +63,20 @@ window.openSeminarModal = function(title, bgClass, imageUrl) {
 
     // Set placeholder background and title or display image
     if (imageUrl) {
-        imageArea.className = `w-full aspect-[1/1.41] bg-gray-900 rounded-2xl shadow-2xl overflow-hidden relative flex flex-col items-center justify-center pointer-events-none`;
-        imageArea.innerHTML = `<img src="${imageUrl}" alt="${title}" class="w-full h-full object-contain">`;
+        imageArea.className=`modc-box`;
+        imageArea.innerHTML = `<img src="${imageUrl}" alt="${title}" class="modc-img">`;
     } else {
-        imageArea.className = `w-full aspect-[1/1.41] rounded-2xl shadow-2xl overflow-hidden relative flex flex-col items-center justify-center pointer-events-none ${bgClass}`;
-        imageArea.innerHTML = `<span id="seminar-modal-title" class="text-xl font-bold text-white text-center px-6 leading-snug"><span class="text-sm font-bold opacity-50 block mb-3 uppercase tracking-widest text-white">Seminar Poster</span><span class="text-white text-[24px] font-bold">${title}</span></span>`;
+        imageArea.className = `modc-box is-placeholder ${bgClass}`;
+        imageArea.innerHTML = `<span id="seminar-modal-title" class="modc-tag"><span class="modc-tag2">Seminar Poster</span><span class="modc-tag3">${title}</span></span>`;
     }
 
     // Open Animation
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
+    modal.classList.add('is-open');
     document.body.classList.add('modal-open');
     if(lenis) lenis.stop(); // 모달 켜졌을 때 백그라운드 스크롤 정지
 
     setTimeout(() => {
-        container.classList.remove('scale-95', 'opacity-0');
-        container.classList.add('scale-100', 'opacity-100');
+        container.classList.add('is-active');
     }, 10);
 }
 
@@ -94,12 +84,10 @@ window.closeSeminarModal = function() {
     const modal = document.getElementById('seminar-modal');
     const container = document.getElementById('seminar-modal-container');
 
-    container.classList.remove('scale-100', 'opacity-100');
-    container.classList.add('scale-95', 'opacity-0');
+    container.classList.remove('is-active');
 
     setTimeout(() => {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
+        modal.classList.remove('is-open');
         document.body.classList.remove('modal-open');
         if(lenis) lenis.start(); // 스크롤 복구
     }, 300);
@@ -116,14 +104,12 @@ window.openPortfolioModal = function(imageUrl) {
     imageEl.src = imageUrl;
 
     // Open Animation
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
+    modal.classList.add('is-open');
     document.body.classList.add('modal-open');
     if(lenis) lenis.stop();
 
     setTimeout(() => {
-        container.classList.remove('scale-95', 'opacity-0');
-        container.classList.add('scale-100', 'opacity-100');
+        container.classList.add('is-active');
     }, 10);
 }
 
@@ -131,12 +117,10 @@ window.closePortfolioModal = function() {
     const modal = document.getElementById('portfolio-modal');
     const container = document.getElementById('portfolio-modal-container');
 
-    container.classList.remove('scale-100', 'opacity-100');
-    container.classList.add('scale-95', 'opacity-0');
+    container.classList.remove('is-active');
 
     setTimeout(() => {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
+        modal.classList.remove('is-open');
         document.body.classList.remove('modal-open');
         if(lenis) lenis.start();
     }, 300);

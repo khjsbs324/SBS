@@ -31,11 +31,11 @@
             if (isFlowOpen) {
                 flowContentWrapper.style.gridTemplateRows = "1fr";
                 flowContentWrapper.style.opacity = "1";
-                flowToggleIcon.classList.add('rotate-180');
+                flowToggleIcon.classList.add('is-rotated');
             } else {
                 flowContentWrapper.style.gridTemplateRows = "0fr";
                 flowContentWrapper.style.opacity = "0";
-                flowToggleIcon.classList.remove('rotate-180');
+                flowToggleIcon.classList.remove('is-rotated');
             }
         });
 
@@ -58,32 +58,32 @@
                 const card = document.createElement('div');
 
                 if (hasImages) {
-                    card.className = "bg-white border border-gray-100 rounded-3xl p-8 hover:shadow-[0_20px_50px_rgba(13,130,255,0.08)] hover:-translate-y-2 transition-all duration-300 cursor-pointer group flex flex-col justify-between min-h-[160px]";
+                    card.className="curc-box group";
                     card.innerHTML = `
                         <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span class="w-10 h-10 rounded-full bg-gray-50 text-gray-500 font-bold flex items-center justify-center text-[14px] group-hover:bg-sbs-light group-hover:text-sbs-main transition-colors">
+                            <div class="curc-box2">
+                                <span class="curc-tag">
                                     ${String(index + 1).padStart(2, '0')}
                                 </span>
-                                <svg class="w-6 h-6 text-gray-300 group-hover:text-sbs-main transition-colors transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                <svg class="curc-ico" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                             </div>
-                            <h3 class="text-[20px] font-bold text-gray-900 group-hover:text-sbs-main transition-colors tracking-tight line-clamp-2">${subject}</h3>
+                            <h3 class="curc-tit">${subject}</h3>
                         </div>
                     `;
                 } else {
-                    card.className = "bg-white border border-gray-100 rounded-3xl p-8 transition-all duration-300 flex flex-col justify-between min-h-[160px]";
+                    card.className="curc-box3";
                     card.innerHTML = `
                         <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="flex items-center gap-3">
-                                    <span class="w-10 h-10 rounded-full bg-gray-50 text-gray-400 font-bold flex items-center justify-center text-[14px]">
+                            <div class="curc-box2">
+                                <div class="curc-box4">
+                                    <span class="curc-tag2">
                                         ${String(index + 1).padStart(2, '0')}
                                     </span>
-                                    <span class="text-[#9ca3af] font-bold text-[14px] tracking-tight">이미지 준비중</span>
+                                    <span class="curc-tag3">이미지 준비중</span>
                                 </div>
-                                <svg class="w-6 h-6 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                <svg class="curc-ico2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                             </div>
-                            <h3 class="text-[20px] font-bold text-gray-900 tracking-tight line-clamp-2">${subject}</h3>
+                            <h3 class="curc-tit2">${subject}</h3>
                         </div>
                     `;
                 }
@@ -93,26 +93,21 @@
         }
 
         function activateMainTab(target) {
-            mainTabBtns.forEach(btn => {
-                btn.classList.remove('text-gray-900', 'border-gray-900');
-                btn.classList.add('text-gray-400', 'border-transparent');
-            });
+            mainTabBtns.forEach(btn => btn.classList.remove('is-active'));
             const activeBtn = document.querySelector(`.tab-btn[data-target="${target}"]`);
             if(activeBtn) {
-                activeBtn.classList.remove('text-gray-400', 'border-transparent');
-                activeBtn.classList.add('text-gray-900', 'border-gray-900');
+                activeBtn.classList.add('is-active');
             }
 
             // Handle sub-tabs visibility
             if (target === 'ai_agent' || target === 'cert') {
-                subTabsContainer.classList.remove('hidden');
-                subTabsContainer.classList.add('flex');
+                subTabsContainer.classList.add('is-open');
 
                 subTabBtns.forEach(btn => {
                     if (btn.dataset.parent === target) {
-                        btn.classList.remove('hidden');
+                        btn.classList.add('is-show');
                     } else {
-                        btn.classList.add('hidden');
+                        btn.classList.remove('is-show');
                     }
                 });
 
@@ -122,21 +117,17 @@
                     activateSubTab(firstSubTab.dataset.target);
                 }
             } else {
-                subTabsContainer.classList.add('hidden');
-                subTabsContainer.classList.remove('flex');
+                subTabsContainer.classList.remove('is-open');
+                subTabBtns.forEach(btn => btn.classList.remove('is-show'));
                 renderCards(target);
             }
         }
 
         function activateSubTab(target) {
-            subTabBtns.forEach(btn => {
-                btn.classList.remove('bg-gray-900', 'text-white', 'shadow-md');
-                btn.classList.add('bg-white', 'text-gray-500');
-            });
+            subTabBtns.forEach(btn => btn.classList.remove('is-active'));
             const activeBtn = document.querySelector(`.sub-tab-btn[data-target="${target}"]`);
             if(activeBtn) {
-                activeBtn.classList.remove('bg-white', 'text-gray-500');
-                activeBtn.classList.add('bg-gray-900', 'text-white', 'shadow-md');
+                activeBtn.classList.add('is-active');
             }
             renderCards(target);
         }
@@ -202,14 +193,12 @@
         updateModalView();
 
         // Open Animation
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
+        modal.classList.add('is-open');
         document.body.classList.add('modal-open');
         if(lenis) lenis.stop();
 
         setTimeout(() => {
-            container.classList.remove('scale-95', 'opacity-0');
-            container.classList.add('scale-100', 'opacity-100');
+            container.classList.add('is-active');
         }, 10);
     }
 
@@ -217,12 +206,10 @@
         const modal = document.getElementById('course-modal');
         const container = document.getElementById('modal-container');
 
-        container.classList.remove('scale-100', 'opacity-100');
-        container.classList.add('scale-95', 'opacity-0');
+        container.classList.remove('is-active');
 
         setTimeout(() => {
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
+            modal.classList.remove('is-open');
             document.body.classList.remove('modal-open');
             if(lenis) lenis.start();
         }, 300);
@@ -239,14 +226,10 @@
             const btn = document.createElement('button');
             const isActive = index === currentSubjectIndex;
 
-            let btnClass = `shrink-0 px-5 py-2.5 rounded-full font-bold text-[14px] md:text-[15px] transition-all snap-start ${
-                isActive
-                ? 'bg-gray-900 text-white shadow-md'
-                : 'bg-white border border-gray-200 text-gray-500 hover:bg-gray-50'
-            }`;
+            let btnClass = `course-tab${isActive ? ' is-active' : ''}`;
 
             if (!hasImages) {
-                btnClass += ' opacity-50';
+                btnClass += ' is-disabled';
             }
 
             btn.className = btnClass;
@@ -276,16 +259,18 @@
         setTimeout(() => {
             if (images && images.length > 0) {
                 // 실제 이미지가 있는 경우 렌더링
-                display.innerHTML = `<img src="${images[currentImageIndex]}" alt="${subjectName} 과정 상세 이미지" class="w-full h-full object-contain rounded-2xl">`;
-                display.classList.remove('bg-gray-100'); // 배경 회색 제거
+                display.innerHTML = `<img src="${images[currentImageIndex]}" alt="${subjectName} 과정 상세 이미지" class="curc-img">`;
+                display.classList.remove('is-empty');
+                display.classList.add('is-filled');
             } else {
                 // 이미지가 없는 경우 더미 렌더링
                 display.innerHTML = `
-                    <div class="flex flex-col items-center gap-4">
+                    <div class="curc-box5">
                         <span>${subjectName} - 준비중 ${currentImageIndex + 1}</span>
                     </div>
                 `;
-                display.classList.add('bg-gray-100');
+                display.classList.remove('is-filled');
+                display.classList.add('is-empty');
             }
 
             display.style.opacity = 1;
