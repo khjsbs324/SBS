@@ -166,6 +166,11 @@ window.scrollToBottom = function() {
 };
 
 window.goToCurriculum = function(target) {
+    if (typeof window.selectCurriculumCategory === 'function') {
+        window.selectCurriculumCategory(target);
+        return;
+    }
+
     const tabButton = document.querySelector(`.tab-btn[data-target="${target}"]`);
     if (tabButton) tabButton.click();
 

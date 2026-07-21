@@ -31,7 +31,27 @@
                 
                 <!-- GNB (Desktop) -->
                 <nav class="hdr-nav">
-                    <a href="#curriculum" class="hdr-lnk">교육과정</a>
+                    <div id="course-menu-root" class="hdr-mn">
+                        <button id="course-menu-trigger" class="hdr-lnk hdr-crs" type="button" aria-expanded="false" aria-controls="course-submenu">
+                            교육과정
+                            <svg class="hdr-arr" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9 6 6 6-6"></path></svg>
+                        </button>
+                        <div id="course-submenu" class="m2-box" aria-hidden="true">
+                            <button class="m2-bg" type="button" aria-label="교육과정 메뉴 닫기"></button>
+                            <div class="m2-pan">
+                                <div class="m2-top">
+                                    <div>
+                                        <span class="m2-tag">PROGRAM</span>
+                                        <p class="m2-txt">목표에 맞는 교육과정을 빠르게 찾아보세요.</p>
+                                    </div>
+                                    <button id="course-menu-close" class="m2-x" type="button" aria-label="교육과정 메뉴 닫기">
+                                        <svg aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 18 6M6 6l12 12"></path></svg>
+                                    </button>
+                                </div>
+                                <nav id="course-submenu-grid" class="m2-nav" aria-label="교육과정 세부 메뉴"></nav>
+                            </div>
+                        </div>
+                    </div>
                     <a href="#curriculum-detail" class="hdr-lnk">커리큘럼</a>
                     <a href="#roadmap" class="hdr-lnk">국비지원</a>
                     <a href="#seminar" class="hdr-lnk">세미나&특강</a>
@@ -683,6 +703,7 @@
     <script src="./assets/js/content.js"></script>
     <script src="./assets/js/scroll.js"></script>
     <script src="./assets/js/curriculum.js"></script>
+    <script src="./assets/js/submenu.js"></script>
     <script src="./assets/js/modals.js"></script>
 </body>
 </html>

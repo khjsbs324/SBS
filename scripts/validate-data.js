@@ -86,6 +86,18 @@ if (site) {
     assert(Array.isArray(site.portfolio) && site.portfolio.length > 0, '포트폴리오 데이터가 없습니다.');
     assert(Array.isArray(site.reviews?.items), '후기 데이터가 올바르지 않습니다.');
     assert(Array.isArray(site.seminars?.items), '세미나 데이터가 올바르지 않습니다.');
+    assert(Array.isArray(site.courseMenu) && site.courseMenu.length > 0, '교육과정 2차 메뉴 데이터가 없습니다.');
+
+    const curriculumTargets = new Set(Object.keys(curriculum?.curriculumData || {}));
+    site.courseMenu?.forEach((group, groupIndex) => {
+        assert(group.id && group.title, `교육과정 2차 메뉴 그룹 정보가 올바르지 않습니다. (${groupIndex + 1})`);
+        assert(curriculumTargets.has(group.target), `교육과정 2차 메뉴 그룹 연결이 올바르지 않습니다. (${group.title})`);
+        assert(Array.isArray(group.items) && group.items.length > 0, `교육과정 2차 메뉴 항목이 없습니다. (${group.title})`);
+        group.items?.forEach((item, itemIndex) => {
+            assert(item.label, `교육과정 2차 메뉴명이 없습니다. (${group.title} ${itemIndex + 1})`);
+            assert(curriculumTargets.has(item.target), `교육과정 2차 메뉴 연결이 올바르지 않습니다. (${group.title} > ${item.label})`);
+        });
+    });
 
     site.portfolio?.forEach((item, index) => {
         assert(isHttpUrl(item.thumbnail), `포트폴리오 썸네일 URL이 올바르지 않습니다. (${index + 1})`);

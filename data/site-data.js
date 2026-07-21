@@ -65,6 +65,121 @@ window.SBSSiteData = Object.freeze({
             "ariaLabel": "AI 자격증 교육과정 바로가기"
         }
     ],
+    "courseMenu": [
+        {
+            "id": "master",
+            "title": "AI MASTER",
+            "target": "ai_agent_basic",
+            "items": [
+                { "label": "AI 에이전트(클로드)", "target": "ai_agent_basic" },
+                { "label": "AI 프롬프트 엔지니어링", "target": "ai_agent_basic" },
+                { "label": "AI-POT", "target": "cert_field" },
+                { "label": "AI 바이브코딩", "target": "ai_agent_advanced" },
+                { "label": "AI 마케팅 영상 제작", "target": "youtube" },
+                { "label": "AI 비주얼 디자인", "target": "ai_agent_advanced" },
+                { "label": "스마트 AI 생활활용(시니어)", "target": "senior" },
+                { "label": "WRTN AI", "target": "ai_agent_basic" },
+                { "label": "국가공인 AI 자격증 - AICE", "target": "cert_field" }
+            ]
+        },
+        {
+            "id": "design",
+            "title": "AI 디자인",
+            "target": "uiux",
+            "items": [
+                { "label": "시각디자이너 전문가(취업)과정", "target": "national" },
+                { "label": "인디자인 디지털출판 과정", "target": "visual" },
+                { "label": "AI 크리에이터 - 시각편집", "target": "ai_agent_advanced" },
+                { "label": "디자인 실무 포트폴리오", "target": "visual" },
+                { "label": "패키지·브랜딩 디자인", "target": "visual" },
+                { "label": "포토샵", "target": "design_basic" },
+                { "label": "일러스트", "target": "design_basic" },
+                { "label": "UX/UI 웹디자인 전문가 & 취업 포트폴리오", "target": "uiux" },
+                { "label": "Figma", "target": "uiux" },
+                { "label": "UX/UI 디자인", "target": "uiux" },
+                { "label": "AI 바이브코딩", "target": "ai_agent_advanced" },
+                { "label": "UX/UI 포트폴리오", "target": "uiux" }
+            ]
+        },
+        {
+            "id": "motion",
+            "title": "AI 모션·CG",
+            "target": "motion",
+            "items": [
+                { "label": "모션그래픽디자이너 전문가(취업)과정", "target": "motion" },
+                { "label": "CG 애니메이션 전문가(취업)과정", "target": "cg_vfx" },
+                { "label": "AI 모션그래픽 제작", "target": "ai_agent_advanced" },
+                { "label": "AI 크리에이터 - 유튜브", "target": "youtube" },
+                { "label": "AI 크리에이터 - 영상·모션", "target": "ai_agent_advanced" },
+                { "label": "프리미어 프로(영상 편집)", "target": "motion" },
+                { "label": "애프터이펙트", "target": "motion" },
+                { "label": "Cinema 4D", "target": "motion" },
+                { "label": "블렌더", "target": "motion" },
+                { "label": "모션그래픽 포트폴리오", "target": "motion" },
+                { "label": "AI CG·3D 비주얼 제작", "target": "cg_vfx" },
+                { "label": "3D 에셋(지브러쉬)", "target": "cg_vfx" },
+                { "label": "리깅 & 애니메이션", "target": "cg_vfx" },
+                { "label": "합성(누크)", "target": "cg_vfx" },
+                { "label": "FX(후디니)", "target": "cg_vfx" },
+                { "label": "룩뎁(언리얼)", "target": "cg_vfx" },
+                { "label": "CG 포트폴리오", "target": "cg_vfx" }
+            ]
+        },
+        {
+            "id": "drawing",
+            "title": "AI 웹툰·드로잉",
+            "target": "webtoon",
+            "items": [
+                { "label": "웹툰 & AI 어시스트", "target": "webtoon" },
+                { "label": "AI 아트 크리에이터", "target": "ai_agent_advanced" },
+                { "label": "디지털아트 드로잉 마스터과정", "target": "artwork" },
+                { "label": "캐릭터 콘텐츠 크리에이터(이모티콘·굿즈)", "target": "artwork" },
+                { "label": "스토리보드 & 비주얼 스토리텔링", "target": "motion" },
+                { "label": "아이패드 드로잉", "target": "artwork" },
+                { "label": "비주얼 아이디어 & 컬러 디자인", "target": "artwork" }
+            ]
+        },
+        {
+            "id": "interior",
+            "title": "AI 인테리어·제품",
+            "target": "archi",
+            "items": [
+                { "label": "인테리어·기계제품 취업과정", "target": "national" },
+                { "label": "AI 크리에이터 - 인테리어", "target": "ai_agent_advanced" },
+                { "label": "실내건축 자격증", "target": "archi" },
+                { "label": "공간디자인 기초", "target": "archi" },
+                { "label": "리터칭 및 도면 표현", "target": "archi" },
+                { "label": "오토캐드", "target": "archi" },
+                { "label": "스케치업 프로", "target": "archi" },
+                { "label": "3ds Max", "target": "archi" },
+                { "label": "BIM", "target": "archi" },
+                { "label": "Inventor", "target": "product_cert" },
+                { "label": "라이노세라스(라이노)", "target": "product_cert" },
+                { "label": "포트폴리오", "target": "archi" }
+            ]
+        },
+        {
+            "id": "certificate",
+            "title": "자격증",
+            "target": "cert_oa",
+            "items": [
+                { "label": "MOS", "target": "cert_oa" },
+                { "label": "컴퓨터활용능력 2급", "target": "cert_oa" },
+                { "label": "컴퓨터활용능력 1급", "target": "cert_oa" },
+                { "label": "회계실무 기초과정", "target": "cert_oa" },
+                { "label": "세무실무 중급과정", "target": "cert_oa" },
+                { "label": "세무실무 전문가과정", "target": "cert_oa" },
+                { "label": "재경관리사", "target": "cert_oa" },
+                { "label": "WRTN AI", "target": "ai_agent_basic" },
+                { "label": "AI-POT", "target": "cert_field" },
+                { "label": "국가공인 AI 자격증 - AICE", "target": "cert_field" },
+                { "label": "컴퓨터그래픽기능사", "target": "cert_field" },
+                { "label": "웹디자인개발기능사", "target": "cert_field" },
+                { "label": "GTQ·GTQi", "target": "cert_field" },
+                { "label": "ACP", "target": "cert_field" }
+            ]
+        }
+    ],
     "portfolio": [
         {
             "detailImage": "https://cdn.koreaedugroup.com/sbsfile/gallery_img/%EC%9D%B8%EB%A7%88%EB%A6%AC%EC%95%84,%20%EB%B0%B0%EB%AF%B8%EB%82%98,%20%EB%B0%95%EC%86%8C%ED%98%B8,%20%EC%8B%AC%EC%9C%A0%EB%82%98%20%EB%B3%B8%EB%AC%B8.jpg",

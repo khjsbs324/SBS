@@ -132,6 +132,26 @@
             renderCards(target);
         }
 
+        window.selectCurriculumCategory = function(target) {
+            const subTab = document.querySelector(`.sub-tab-btn[data-target="${target}"]`);
+
+            if (subTab) {
+                activateMainTab(subTab.dataset.parent);
+                activateSubTab(target);
+            } else {
+                activateMainTab(target);
+            }
+
+            const curriculum = document.getElementById('curriculum');
+            window.requestAnimationFrame(() => {
+                if (typeof window.scrollToSection === 'function') {
+                    window.scrollToSection('#curriculum');
+                } else {
+                    curriculum?.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        };
+
         // Event Listeners for Tabs
         mainTabBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
