@@ -36,21 +36,6 @@
                             교육과정
                             <svg class="hdr-arr" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9 6 6 6-6"></path></svg>
                         </button>
-                        <div id="course-submenu" class="m2-box" aria-hidden="true">
-                            <button class="m2-bg" type="button" aria-label="교육과정 메뉴 닫기"></button>
-                            <div class="m2-pan">
-                                <div class="m2-top">
-                                    <div>
-                                        <span class="m2-tag">PROGRAM</span>
-                                        <p class="m2-txt">목표에 맞는 교육과정을 빠르게 찾아보세요.</p>
-                                    </div>
-                                    <button id="course-menu-close" class="m2-x" type="button" aria-label="교육과정 메뉴 닫기">
-                                        <svg aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 18 6M6 6l12 12"></path></svg>
-                                    </button>
-                                </div>
-                                <nav id="course-submenu-grid" class="m2-nav" aria-label="교육과정 세부 메뉴"></nav>
-                            </div>
-                        </div>
                     </div>
                     <a href="#curriculum-detail" class="hdr-lnk">커리큘럼</a>
                     <a href="#roadmap" class="hdr-lnk">국비지원</a>
@@ -74,6 +59,13 @@
             </div>
         </div>
     </header>
+
+    <!-- 교육과정 2차 메뉴: 고정 헤더의 렌더링 영역과 분리 -->
+    <div id="course-submenu" class="m2-box" aria-hidden="true" data-lenis-prevent>
+        <div class="m2-pan">
+            <nav id="course-submenu-grid" class="m2-nav" aria-label="교육과정 세부 메뉴"></nav>
+        </div>
+    </div>
 
     <!-- 2. 메인 배너 섹션 (Hero Section) -->
     <section class="hero-sec">
