@@ -26,7 +26,8 @@ window.SBSSiteData = Object.freeze({
                 "AI 디자인",
                 "웹 UIUX, 시각편집"
             ],
-            "ariaLabel": "AI 디자인 교육과정 바로가기"
+            "ariaLabel": "AI 디자인 교육과정 바로가기",
+            "detailUrl": "./courses/ai-design.html"
         },
         {
             "target": "motion",
