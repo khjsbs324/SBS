@@ -1,0 +1,128 @@
+.stats-sec {
+  position: relative;
+  z-index: 20;
+  background-image: linear-gradient(to bottom, var(--sbs-gradient-stops));
+  --sbs-gradient-from: rgb(244 249 253 / 0.5) var(--sbs-gradient-from-position);
+  --sbs-gradient-to: rgb(244 249 253 / 0) var(--sbs-gradient-to-position);
+  --sbs-gradient-stops: var(--sbs-gradient-from), var(--sbs-gradient-to);
+  --sbs-gradient-to: rgb(230 243 252 / 0.5) var(--sbs-gradient-to-position);
+  padding-top: 160px;
+  padding-bottom: 160px;
+  --sbs-text-opacity: 1;
+  color: rgb(17 24 39 / var(--sbs-text-opacity, 1))
+}
+
+@media (min-width: 1024px) {
+  .stats-sec {
+    padding-top: 200px;
+    padding-bottom: 200px
+  }
+}
+
+.stats-box {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  text-align: center
+}
+
+.stats-tit {
+  margin-bottom: 100px;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  --sbs-text-opacity: 1;
+  color: rgb(17 17 17 / var(--sbs-text-opacity, 1))
+}
+
+@media (min-width: 768px) {
+  .stats-tit {
+    font-size: 56px
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats-tit {
+    font-size: 64px
+  }
+}
+
+.stats-box2 {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 60px
+}
+
+@media (min-width: 768px) {
+  .stats-box2 {
+    flex-direction: row;
+    gap: 120px
+  }
+}
+
+.stats-box3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.stats-txt {
+  margin-bottom: 1rem;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  --sbs-text-opacity: 1;
+  color: rgb(75 85 99 / var(--sbs-text-opacity, 1))
+}
+
+.stats-box4 {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: flex-end;
+  --sbs-text-opacity: 1;
+  color: rgb(13 130 255 / var(--sbs-text-opacity, 1))
+}
+
+.stats-tag {
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em
+}
+
+@media (min-width: 768px) {
+  .stats-tag {
+    font-size: 96px
+  }
+}
+
+.stats-tag2 {
+  margin-bottom: 0.5rem;
+  margin-left: 0.25rem;
+  font-size: 28px;
+  font-weight: 700
+}
+
+@media (min-width: 768px) {
+  .stats-tag2 {
+    font-size: 36px
+  }
+}
+
+.stats-tag3 {
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 28px;
+  font-weight: 700
+}
+
+@media (min-width: 768px) {
+  .stats-tag3 {
+    font-size: 36px
+  }
+}

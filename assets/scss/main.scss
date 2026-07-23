@@ -1,0 +1,35 @@
+/*
+ * SBS 사이트 스타일 진입점
+ * 섹션 또는 컴포넌트별 partial을 수정한 뒤 `npm run build:styles`를 실행합니다.
+ */
+
+@use 'abstracts/tokens';
+@use 'base/reset';
+@use 'base/page';
+@use 'layout/header';
+@use 'layout/submenu';
+@use 'layout/footer';
+@use 'layout/floating';
+@use 'layout/menu';
+@use 'layout/scroll';
+@use 'sections/hero';
+@use 'sections/stats';
+@use 'sections/why';
+@use 'sections/roadmap';
+@use 'sections/curriculum';
+@use 'sections/detail';
+@use 'sections/portfolio';
+@use 'sections/reviews';
+@use 'sections/academy';
+@use 'sections/location';
+@use 'sections/seminar';
+@use 'components/content';
+@use 'components/course';
+@use 'components/seminar-modal';
+@use 'components/course-modal';
+@use 'components/portfolio-modal';
+@use 'components/modal-content';
+@use 'base/global';
+@use 'base/motion';
+@use 'components/helpers';
+@use 'components/states';

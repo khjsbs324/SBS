@@ -1,0 +1,56 @@
+.modc-box {
+  pointer-events: none;
+  position: relative;
+  display: flex;
+  aspect-ratio: 1/1.41;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 1rem;
+  --sbs-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--sbs-bg-opacity, 1));
+  --sbs-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --sbs-shadow-colored: 0 25px 50px -12px var(--sbs-shadow-color);
+  box-shadow: var(--sbs-ring-offset-shadow, 0 0 #0000), var(--sbs-ring-shadow, 0 0 #0000), var(--sbs-shadow)
+}
+
+.modc-img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain
+}
+
+.modc-tag {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  line-height: 1.375;
+  --sbs-text-opacity: 1;
+  color: rgb(255 255 255 / var(--sbs-text-opacity, 1))
+}
+
+.modc-tag2 {
+  margin-bottom: 0.75rem;
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  --sbs-text-opacity: 1;
+  color: rgb(255 255 255 / var(--sbs-text-opacity, 1));
+  opacity: 0.5
+}
+
+.modc-tag3 {
+  font-size: 24px;
+  font-weight: 700;
+  --sbs-text-opacity: 1;
+  color: rgb(255 255 255 / var(--sbs-text-opacity, 1))
+}

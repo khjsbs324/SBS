@@ -1,0 +1,118 @@
+.rev-sec {
+  position: relative;
+  z-index: 10;
+  border-top-width: 1px;
+  --sbs-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--sbs-border-opacity, 1));
+  --sbs-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--sbs-bg-opacity, 1));
+  padding-top: 160px;
+  padding-bottom: 160px
+}
+
+@media (min-width: 1024px) {
+  .rev-sec {
+    padding-top: 200px;
+    padding-bottom: 200px
+  }
+}
+
+.rev-box {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem
+}
+
+.rev-box2 {
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between
+}
+
+@media (min-width: 768px) {
+  .rev-box2 {
+    flex-direction: row
+  }
+}
+
+.rev-tag {
+  margin-bottom: 1rem;
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  --sbs-text-opacity: 1;
+  color: rgb(13 130 255 / var(--sbs-text-opacity, 1))
+}
+
+.rev-tit {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  --sbs-text-opacity: 1;
+  color: rgb(17 24 39 / var(--sbs-text-opacity, 1))
+}
+
+@media (min-width: 768px) {
+  .rev-tit {
+    font-size: 56px
+  }
+}
+
+.rev-lnk {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  border-radius: 9999px;
+  border-width: 1px;
+  --sbs-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--sbs-border-opacity, 1));
+  --sbs-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--sbs-bg-opacity, 1));
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 16px;
+  font-weight: 700;
+  --sbs-text-opacity: 1;
+  color: rgb(31 41 55 / var(--sbs-text-opacity, 1));
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms
+}
+
+.rev-lnk:hover {
+  --sbs-border-opacity: 1;
+  border-color: rgb(17 24 39 / var(--sbs-border-opacity, 1))
+}
+
+@media (min-width: 768px) {
+  .rev-lnk {
+    margin-top: 0px
+  }
+}
+
+.rev-tag2 {
+  margin-left: 0.5rem;
+  --sbs-text-opacity: 1;
+  color: rgb(156 163 175 / var(--sbs-text-opacity, 1))
+}
+
+.rev-box3 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem
+}
+
+@media (min-width: 1024px) {
+  .rev-box3 {
+    flex-direction: row
+  }
+}

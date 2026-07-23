@@ -1,0 +1,63 @@
+.scroll-box {
+  pointer-events: none;
+  position: fixed;
+  bottom: 2rem;
+  right: 1.5rem;
+  z-index: 60;
+  --sbs-translate-y: 2.5rem;
+  transform: translate(var(--sbs-translate-x), var(--sbs-translate-y)) rotate(var(--sbs-rotate)) skewX(var(--sbs-skew-x)) skewY(var(--sbs-skew-y)) scaleX(var(--sbs-scale-x)) scaleY(var(--sbs-scale-y));
+  opacity: 0;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms
+}
+
+@media (min-width: 768px) {
+  .scroll-box {
+    right: 2.5rem
+  }
+}
+
+.scroll-btn {
+  position: relative;
+  display: flex;
+  height: 50px;
+  width: 50px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border-width: 1px;
+  --sbs-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--sbs-border-opacity, 1));
+  --sbs-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--sbs-bg-opacity, 1));
+  --sbs-text-opacity: 1;
+  color: rgb(13 130 255 / var(--sbs-text-opacity, 1));
+  --sbs-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  --sbs-shadow-colored: 0 10px 20px var(--sbs-shadow-color);
+  box-shadow: var(--sbs-ring-offset-shadow, 0 0 #0000), var(--sbs-ring-shadow, 0 0 #0000), var(--sbs-shadow);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms
+}
+
+.scroll-btn:hover {
+  --sbs-bg-opacity: 1;
+  background-color: rgb(13 130 255 / var(--sbs-bg-opacity, 1));
+  --sbs-text-opacity: 1;
+  color: rgb(255 255 255 / var(--sbs-text-opacity, 1))
+}
+
+.scroll-ico {
+  height: 1.5rem;
+  width: 1.5rem;
+  transform: translate(var(--sbs-translate-x), var(--sbs-translate-y)) rotate(var(--sbs-rotate)) skewX(var(--sbs-skew-x)) skewY(var(--sbs-skew-y)) scaleX(var(--sbs-scale-x)) scaleY(var(--sbs-scale-y));
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms
+}
+
+.group:hover .scroll-ico {
+  --sbs-translate-y: -0.25rem;
+  transform: translate(var(--sbs-translate-x), var(--sbs-translate-y)) rotate(var(--sbs-rotate)) skewX(var(--sbs-skew-x)) skewY(var(--sbs-skew-y)) scaleX(var(--sbs-scale-x)) scaleY(var(--sbs-scale-y))
+}
