@@ -33,7 +33,7 @@
             : escapeHtml(item.description[0]);
 
         return `
-            <button type="button" data-shortcut-target="${escapeHtml(item.target)}" aria-label="${escapeHtml(item.ariaLabel)}" class="cnt-btn group">
+            <button type="button" data-shortcut-target="${escapeHtml(item.target)}" data-shortcut-url="${escapeHtml(item.detailUrl || '')}" aria-label="${escapeHtml(item.ariaLabel)}" class="cnt-btn group">
                 <div class="cnt-box">
                     <span class="cnt-tag2">${String(index + 1).padStart(2, '0')}</span>
                     <svg class="cnt-ico" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
@@ -48,7 +48,14 @@
     }).join('');
 
     shortcutsGrid.querySelectorAll('[data-shortcut-target]').forEach((button) => {
-        button.addEventListener('click', () => window.goToCurriculum(button.dataset.shortcutTarget));
+        button.addEventListener('click', () => {
+            const detailUrl = safeUrl(button.dataset.shortcutUrl);
+            if (detailUrl) {
+                window.location.assign(detailUrl);
+                return;
+            }
+            window.goToCurriculum(button.dataset.shortcutTarget);
+        });
     });
 
     const portfolioGrid = document.getElementById('portfolio-grid');
