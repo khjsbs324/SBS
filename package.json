@@ -5,12 +5,14 @@
     "scripts": {
         "build:styles": "sass ./assets/scss/main.scss ./assets/css/main.css --style=compressed --no-source-map",
         "build:styles:dev": "sass ./assets/scss/main.scss ./assets/css/main.css --style=expanded --no-source-map",
+        "generate:supabase-seed": "node ./scripts/generate-supabase-seed.js",
         "watch:styles": "sass ./assets/scss/main.scss ./assets/css/main.css --watch --style=expanded --no-source-map",
         "validate:data": "node ./scripts/validate-data.js",
         "validate:styles": "node ./scripts/validate-styles.js",
         "validate": "npm run validate:data && npm run validate:styles"
     },
     "devDependencies": {
-        "sass": "1.101.0"
+        "sass": "1.101.0",
+        "supabase": "2.109.1"
     }
 }
