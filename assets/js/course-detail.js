@@ -5,6 +5,53 @@
     const header = document.querySelector('.cd-hdr');
     const menuButton = document.querySelector('.cd-menu-btn');
     const mobileNavigation = document.getElementById('mobile-navigation');
+
+    function renderCourseCards() {
+        const courseList = document.getElementById('course-card-list');
+        if (!courseList) return;
+
+        const menuId = courseList.dataset.courseMenuId;
+        const menuData = window.SBSSiteData?.courseMenu?.find((menu) => menu.id === menuId);
+
+        if (!menuData?.items?.length) {
+            const errorItem = document.createElement('li');
+            errorItem.className = 'cd-course-error';
+            errorItem.textContent = '교육과정 정보를 불러오지 못했습니다.';
+            courseList.append(errorItem);
+            return;
+        }
+
+        const fragment = document.createDocumentFragment();
+
+        menuData.items.forEach((item, index) => {
+            const card = document.createElement('li');
+            const number = document.createElement('span');
+            const copy = document.createElement('div');
+            const group = document.createElement('p');
+            const title = document.createElement('h3');
+            const note = document.createElement('p');
+
+            card.className = 'cd-course-card reveal';
+            number.className = 'cd-course-no';
+            copy.className = 'cd-course-copy';
+            group.className = 'cd-course-group';
+            note.className = 'cd-course-note';
+
+            number.textContent = String(index + 1).padStart(2, '0');
+            group.textContent = item.group ?? 'AI 디자인';
+            title.textContent = item.label;
+            note.textContent = '과정별 세부 구성과 수강 일정은 상담 시 안내합니다.';
+
+            copy.append(group, title, note);
+            card.append(number, copy);
+            fragment.append(card);
+        });
+
+        courseList.append(fragment);
+    }
+
+    renderCourseCards();
+
     const sectionLinks = [...document.querySelectorAll('.cd-nav a[href^="#"], .cd-mnav a[href^="#"]')];
     const sections = sectionLinks
         .map((link) => document.querySelector(link.getAttribute('href')))

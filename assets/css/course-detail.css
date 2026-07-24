@@ -672,81 +672,105 @@ ol {
     color: #98a2b3;
 }
 
-.cd-step-list {
-    margin-top: 72px;
-    border-top: 1px solid rgb(255 255 255 / 0.16);
-}
-
-.cd-step {
+.cd-course-grid {
     display: grid;
-    grid-template-columns: 110px minmax(300px, 1.08fr) minmax(300px, 0.92fr);
-    align-items: start;
-    gap: 50px;
-    padding: 48px 4px;
-    border-bottom: 1px solid rgb(255 255 255 / 0.16);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 72px;
 }
 
-.cd-step-index span {
-    display: block;
-    color: #8b95a5;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 0.15em;
+.cd-course-card {
+    position: relative;
+    display: grid;
+    min-height: 220px;
+    grid-template-columns: 72px minmax(0, 1fr);
+    align-content: space-between;
+    gap: 28px;
+    overflow: hidden;
+    padding: 34px;
+    border: 1px solid rgb(255 255 255 / 0.14);
+    border-radius: 24px;
+    background: rgb(255 255 255 / 0.045);
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
 }
 
-.cd-step-index strong {
-    display: block;
-    margin-top: 2px;
+.cd-course-card::after {
+    position: absolute;
+    right: -50px;
+    bottom: -80px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgb(13 130 255 / 0.18), transparent 70%);
+    content: "";
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.cd-course-card:hover {
+    border-color: rgb(13 130 255 / 0.52);
+    background: rgb(13 130 255 / 0.08);
+    transform: translateY(-4px);
+}
+
+.cd-course-card:hover::after {
+    opacity: 1;
+}
+
+.cd-course-no {
+    position: relative;
+    z-index: 1;
     color: var(--cd-blue);
-    font-size: 44px;
-    letter-spacing: -0.04em;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
 }
 
-.cd-step-copy > p {
-    color: #729bd0;
+.cd-course-copy {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    min-width: 0;
+    min-height: 150px;
+    flex-direction: column;
+}
+
+.cd-course-group {
+    width: fit-content;
+    padding: 7px 10px;
+    border: 1px solid rgb(13 130 255 / 0.24);
+    border-radius: 999px;
+    background: rgb(13 130 255 / 0.1);
+    color: #8fbef2;
     font-size: 11px;
     font-weight: 800;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.04em;
 }
 
-.cd-step-copy h3 {
-    margin-top: 10px;
-    font-size: 25px;
+.cd-course-copy h3 {
+    max-width: 460px;
+    margin-top: 22px;
+    font-size: clamp(20px, 2vw, 27px);
     letter-spacing: -0.03em;
+    line-height: 1.36;
 }
 
-.cd-step-copy > span {
-    display: block;
-    max-width: 530px;
-    margin-top: 14px;
+.cd-course-note {
+    margin-top: auto;
+    padding-top: 24px;
     color: #98a2b3;
-    font-size: 14px;
-    line-height: 1.75;
+    font-size: 12px;
+    line-height: 1.6;
 }
 
-.cd-step > ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 11px 20px;
-    padding-top: 5px;
-}
-
-.cd-step > ul li {
-    position: relative;
-    padding-left: 15px;
+.cd-course-error {
+    margin-top: 32px;
     color: #d0d5dd;
-    font-size: 13px;
-}
-
-.cd-step > ul li::before {
-    position: absolute;
-    top: 0.67em;
-    left: 0;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--cd-blue);
-    content: "";
+    font-size: 14px;
+    text-align: center;
 }
 
 .cd-target {
@@ -937,14 +961,6 @@ ol {
 
     .cd-value-card {
         min-height: 300px;
-    }
-
-    .cd-step {
-        grid-template-columns: 90px 1fr;
-    }
-
-    .cd-step > ul {
-        grid-column: 2;
     }
 
     .cd-footer-in {
@@ -1202,25 +1218,16 @@ ol {
         min-height: 280px;
     }
 
-    .cd-step {
-        grid-template-columns: 1fr;
-        gap: 22px;
-        padding: 38px 0;
+    .cd-course-grid {
+        gap: 14px;
+        margin-top: 48px;
     }
 
-    .cd-step-index {
-        display: flex;
-        align-items: baseline;
-        gap: 7px;
-    }
-
-    .cd-step-index strong {
-        font-size: 30px;
-    }
-
-    .cd-step > ul {
-        grid-column: auto;
-        grid-template-columns: 1fr;
+    .cd-course-card {
+        min-height: 210px;
+        grid-template-columns: 48px minmax(0, 1fr);
+        gap: 16px;
+        padding: 26px;
     }
 
     .cd-target-list article {
@@ -1242,6 +1249,16 @@ ol {
 
     .cd-cta-actions {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .cd-course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cd-course-card {
+        min-height: 188px;
     }
 }
 

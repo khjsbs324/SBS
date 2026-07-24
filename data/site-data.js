@@ -88,18 +88,18 @@ window.SBSSiteData = Object.freeze({
             "title": "AI 디자인",
             "target": "uiux",
             "items": [
-                { "label": "시각디자이너 전문가(취업)과정", "target": "national" },
-                { "label": "인디자인 디지털출판 과정", "target": "visual" },
-                { "label": "AI 크리에이터 - 시각편집", "target": "ai_agent_advanced" },
-                { "label": "디자인 실무 포트폴리오", "target": "visual" },
-                { "label": "패키지·브랜딩 디자인", "target": "visual" },
-                { "label": "포토샵", "target": "design_basic" },
-                { "label": "일러스트", "target": "design_basic" },
-                { "label": "UX/UI 웹디자인 전문가 & 취업 포트폴리오", "target": "uiux" },
-                { "label": "Figma", "target": "uiux" },
-                { "label": "UX/UI 디자인", "target": "uiux" },
-                { "label": "AI 바이브코딩", "target": "ai_agent_advanced" },
-                { "label": "UX/UI 포트폴리오", "target": "uiux" }
+                { "label": "시각디자이너 전문가(취업) 과정", "target": "national", "group": "국비 과정" },
+                { "label": "인디자인 디지털출판 과정", "target": "visual", "group": "시각편집디자인" },
+                { "label": "AI 크리에이터 - 시각편집", "target": "ai_agent_advanced", "group": "AI 심화" },
+                { "label": "디자인 실무 포트폴리오", "target": "visual", "group": "시각편집디자인" },
+                { "label": "패키지·브랜딩 디자인", "target": "visual", "group": "시각편집디자인" },
+                { "label": "포토샵", "target": "design_basic", "group": "디자인 기초" },
+                { "label": "일러스트", "target": "design_basic", "group": "디자인 기초" },
+                { "label": "UI/UX 웹디자인 전문가 & 취업 포트폴리오", "target": "uiux", "group": "UI/UX" },
+                { "label": "Figma", "target": "uiux", "group": "UI/UX" },
+                { "label": "UI/UX 디자인", "target": "uiux", "group": "UI/UX" },
+                { "label": "AI 바이브코딩", "target": "ai_agent_advanced", "group": "AI 심화" },
+                { "label": "UI/UX 포트폴리오", "target": "uiux", "group": "UI/UX" }
             ]
         },
         {
