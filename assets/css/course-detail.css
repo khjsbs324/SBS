@@ -1252,7 +1252,7 @@ ol {
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
     .cd-course-grid {
         grid-template-columns: 1fr;
     }
@@ -1281,3 +1281,4 @@ ol {
         transform: none;
     }
 }
+
