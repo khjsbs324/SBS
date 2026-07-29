@@ -61,8 +61,8 @@
 
         <header class="cd-hdr">
             <div class="cd-wrap cd-hdr-in">
-                <a class="cd-logo" href="../index.html" aria-label="SBS아카데미 메인으로 이동">
-                    <img src="${logoUrl}" alt="SBS아카데미">
+                <a class="cd-logo" href="../index.html" aria-label="SBS아카데미AIX 메인으로 이동">
+                    <img src="${logoUrl}" alt="SBS아카데미AIX">
                 </a>
 
                 <nav class="cd-nav" aria-label="${escapeHtml(page.name)} 상세페이지 메뉴">
@@ -209,9 +209,9 @@
         <footer class="cd-footer">
             <div class="cd-wrap cd-footer-in">
                 <a class="cd-logo cd-logo-footer" href="../index.html">
-                    <img src="${logoUrl}" alt="SBS아카데미">
+                    <img src="${logoUrl}" alt="SBS아카데미AIX">
                 </a>
-                <p>SBS아카데미컴퓨터아트학원 대전점</p>
+                <p>SBS아카데미AIX학원 대전점</p>
                 <address>대전광역시 서구 대덕대로 179 굿모닝어학원빌딩 9층</address>
                 <a href="tel:0427198383">042-719-8383</a>
             </div>

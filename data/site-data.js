@@ -6,7 +6,7 @@
  */
 window.SBSSiteData = Object.freeze({
     "brand": {
-        "logoUrl": "https://se.sbsart.com/2022/img/common/logo.svg"
+        "logoUrl": "https://cdn.jsdelivr.net/gh/khjsbs324/SBS@2592241df5f9582dc39d9e697b673a50606dabf5/logo/logo_aix.png"
     },
     "shortcuts": [
         {
@@ -281,7 +281,7 @@ window.SBSSiteData = Object.freeze({
     "reviews": {
         "hero": {
             "type": "수강생 취업자 특강",
-            "title": "\"SBS아카데미컴퓨터아트학원 대전지점 취업자 현직자 특강\"",
+            "title": "\"SBS아카데미AIX학원 대전점 취업자 현직자 특강\"",
             "subtitle": "[컴퓨터 대전] UIUX 현직자 특강",
             "year": "2026",
             "name": "김선민"
@@ -315,11 +315,11 @@ window.SBSSiteData = Object.freeze({
     },
     "location": {
         "mapImage": "https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Map/Map_Img.png",
-        "mapAlt": "SBS아카데미컴퓨터아트학원 대전점 위치 지도",
-        "academyName": "SBS아카데미컴퓨터아트학원 대전점",
+        "mapAlt": "SBS아카데미AIX학원 대전점 위치 지도",
+        "academyName": "SBS아카데미AIX학원 대전점",
         "addressLines": [
             "대덕대로 179 굿모닝어학원빌딩 9층",
-            "sbs아카데미컴퓨터아트학원 대전점"
+            "SBS아카데미AIX학원 대전점"
         ],
         "subway": "시청역 2번 출구에서 타임월드 방향으로 10분거리",
         "phone": "042-719-8383"
