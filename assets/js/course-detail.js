@@ -38,7 +38,7 @@
             note.className = 'cd-course-note';
 
             number.textContent = String(index + 1).padStart(2, '0');
-            group.textContent = item.group ?? 'AI 디자인';
+            group.textContent = item.group ?? menuData.title;
             title.textContent = item.label;
             note.textContent = '과정별 세부 구성과 수강 일정은 상담 시 안내합니다.';
 

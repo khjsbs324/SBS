@@ -16,7 +16,8 @@ window.SBSSiteData = Object.freeze({
             "description": [
                 "AI 자동화, 바이브코딩"
             ],
-            "ariaLabel": "AI Master 교육과정 바로가기"
+            "ariaLabel": "AI Master 교육과정 바로가기",
+            "detailUrl": "./courses/ai-master.html"
         },
         {
             "target": "uiux",
@@ -36,7 +37,8 @@ window.SBSSiteData = Object.freeze({
             "description": [
                 "유튜브/영상편집"
             ],
-            "ariaLabel": "AI 모션·CG 교육과정 바로가기"
+            "ariaLabel": "AI 모션·CG 교육과정 바로가기",
+            "detailUrl": "./courses/ai-motion-cg.html"
         },
         {
             "target": "webtoon",
@@ -45,7 +47,8 @@ window.SBSSiteData = Object.freeze({
             "description": [
                 "미술 기초, 디지털드로잉"
             ],
-            "ariaLabel": "AI 웹툰·드로잉 교육과정 바로가기"
+            "ariaLabel": "AI 웹툰·드로잉 교육과정 바로가기",
+            "detailUrl": "./courses/ai-webtoon-drawing.html"
         },
         {
             "target": "archi",
@@ -54,7 +57,8 @@ window.SBSSiteData = Object.freeze({
             "description": [
                 "인테리어/기계,제품"
             ],
-            "ariaLabel": "AI 인테리어·제품 교육과정 바로가기"
+            "ariaLabel": "AI 인테리어·제품 교육과정 바로가기",
+            "detailUrl": "./courses/ai-interior-product.html"
         },
         {
             "target": "cert",
@@ -63,7 +67,8 @@ window.SBSSiteData = Object.freeze({
             "description": [
                 "디자인/사무/AI자격증"
             ],
-            "ariaLabel": "AI 자격증 교육과정 바로가기"
+            "ariaLabel": "AI 자격증 교육과정 바로가기",
+            "detailUrl": "./courses/certificate.html"
         }
     ],
     "courseMenu": [
