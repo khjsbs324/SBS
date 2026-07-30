@@ -320,7 +320,7 @@ window.SBSSiteData = Object.freeze({
         ]
     },
     "location": {
-        "mapImage": "https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Map/Map_Img.png",
+        "mapImage": "/Map/Map_Img.png",
         "mapAlt": "SBS아카데미AIX학원 대전점 위치 지도",
         "academyName": "SBS아카데미AIX학원 대전점",
         "addressLines": [

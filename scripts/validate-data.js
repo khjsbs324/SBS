@@ -27,11 +27,24 @@ function isHttpUrl(value) {
     }
 }
 
+function isRootRelativeUrl(value) {
+    return typeof value === 'string'
+        && /^\/(?!\/)/.test(value)
+        && !value.includes('..');
+}
+
 function checkRepoImage(url, label) {
     const prefix = 'https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/';
     if (!url.startsWith(prefix)) return;
 
     const relativePath = decodeURIComponent(url.slice(prefix.length));
+    assert(fs.existsSync(path.join(root, relativePath)), `${label}: 저장소 파일이 없습니다. (${relativePath})`);
+}
+
+function checkRootRelativeFile(url, label) {
+    if (!isRootRelativeUrl(url)) return;
+
+    const relativePath = decodeURIComponent(url.replace(/^\/+/, ''));
     assert(fs.existsSync(path.join(root, relativePath)), `${label}: 저장소 파일이 없습니다. (${relativePath})`);
 }
 
@@ -137,8 +150,12 @@ if (site) {
     });
 
     if (site.location?.mapImage) {
-        assert(isHttpUrl(site.location.mapImage), '지도 이미지 URL이 올바르지 않습니다.');
+        assert(
+            isHttpUrl(site.location.mapImage) || isRootRelativeUrl(site.location.mapImage),
+            '지도 이미지 URL이 올바르지 않습니다.',
+        );
         checkRepoImage(site.location.mapImage, '지도 이미지');
+        checkRootRelativeFile(site.location.mapImage, '지도 이미지');
     }
 
     site.seminars?.items?.forEach((item, index) => {
