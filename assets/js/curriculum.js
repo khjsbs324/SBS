@@ -39,6 +39,21 @@
             }
         });
 
+        function findCourseDetailUrl(subject) {
+            const groups = window.SBSSiteData?.courseMenu || [];
+
+            for (const group of groups) {
+                const item = group.items.find((course) => (
+                    course.detailUrl
+                    && (course.curriculumLabel === subject || course.label === subject)
+                ));
+
+                if (item) return item.detailUrl;
+            }
+
+            return '';
+        }
+
         function renderCards(targetCategory) {
             const cardsContainer = document.getElementById('curriculum-cards');
             cardsContainer.innerHTML = '';
@@ -55,7 +70,13 @@
             // Generate Cards
             subjects.forEach((subject, index) => {
                 const hasImages = subjectImages[subject] && subjectImages[subject].length > 0;
-                const card = document.createElement('div');
+                const detailUrl = findCourseDetailUrl(subject);
+                const card = document.createElement(detailUrl ? 'a' : 'div');
+
+                if (detailUrl) {
+                    card.href = detailUrl;
+                    card.setAttribute('aria-label', `${subject} 상세페이지로 이동`);
+                }
 
                 if (hasImages) {
                     card.className="curc-box group";
@@ -87,7 +108,11 @@
                         </div>
                     `;
                 }
-                card.onclick = () => window.openModal(targetCategory, index);
+
+                if (!detailUrl) {
+                    card.onclick = () => window.openModal(targetCategory, index);
+                }
+
                 cardsContainer.appendChild(card);
             });
         }

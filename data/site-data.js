@@ -77,7 +77,13 @@ window.SBSSiteData = Object.freeze({
             "title": "AI MASTER",
             "target": "ai_agent_basic",
             "items": [
-                { "label": "AI 에이전트(클로드)", "target": "ai_agent_basic" },
+                {
+                    "label": "AI 에이전트(클로드)",
+                    "target": "ai_agent_basic",
+                    "curriculumLabel": "AI 에이전트 기초/심화",
+                    "slug": "ai-agent",
+                    "detailUrl": "/courses/ai-agent.html"
+                },
                 { "label": "AI 프롬프트 엔지니어링", "target": "ai_agent_basic" },
                 { "label": "AI-POT", "target": "cert_field" },
                 { "label": "AI 바이브코딩", "target": "ai_agent_advanced" },

@@ -55,13 +55,20 @@
 
                 group.items.forEach((item) => {
                     const listItem = document.createElement('li');
-                    const button = document.createElement('button');
+                    const control = document.createElement(item.detailUrl ? 'a' : 'button');
 
-                    button.className = 'm2-lnk';
-                    button.type = 'button';
-                    button.textContent = item.label;
-                    button.dataset.target = item.target;
-                    listItem.appendChild(button);
+                    control.className = 'm2-lnk';
+                    control.textContent = item.label;
+
+                    if (item.detailUrl) {
+                        control.href = item.detailUrl;
+                        control.setAttribute('aria-label', `${item.label} 상세페이지로 이동`);
+                    } else {
+                        control.type = 'button';
+                        control.dataset.target = item.target;
+                    }
+
+                    listItem.appendChild(control);
                     list.appendChild(listItem);
                 });
 
