@@ -72,8 +72,7 @@
 }
 
 .menu-box2.is-active { opacity: 1; }
-.menu-box3.is-active { --sbs-translate-y: 0; }
-.menu-box5.is-active { --sbs-translate-y: 0; opacity: 1; }
+.menu-panel.is-active { transform: translateX(0); }
 
 /* 헤더·스크롤·플로팅 상태 */
 .hdr-hdr.is-scrolled {

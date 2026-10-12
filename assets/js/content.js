@@ -28,49 +28,25 @@
 
     const shortcutsGrid = document.getElementById('curriculum-shortcuts-grid');
     shortcutsGrid.innerHTML = data.shortcuts.map((item, index) => {
-        const description = item.description.length > 1
-            ? item.description.map((line) => `<span class="cnt-tag">${escapeHtml(line)}</span>`).join('')
-            : escapeHtml(item.description[0]);
+        const description = item.description
+            .map(escapeHtml)
+            .join(', ');
 
         return `
-            <button type="button" data-shortcut-target="${escapeHtml(item.target)}" data-shortcut-url="${escapeHtml(item.detailUrl || '')}" aria-label="${escapeHtml(item.ariaLabel)}" class="cnt-btn group">
+            <article class="cnt-btn">
                 <div class="cnt-box">
                     <span class="cnt-tag2">${String(index + 1).padStart(2, '0')}</span>
-                    <svg class="cnt-ico" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                 </div>
                 <div>
                     <span class="cnt-tag3">${escapeHtml(item.label)}</span>
                     <h3 class="cnt-tit">${escapeHtml(item.title)}</h3>
                     <p class="cnt-txt">${description}</p>
                 </div>
-            </button>
+            </article>
         `;
     }).join('');
 
-    shortcutsGrid.querySelectorAll('[data-shortcut-target]').forEach((button) => {
-        button.addEventListener('click', () => {
-            const detailUrl = safeUrl(button.dataset.shortcutUrl);
-            if (detailUrl) {
-                window.location.assign(detailUrl);
-                return;
-            }
-            window.goToCurriculum(button.dataset.shortcutTarget);
-        });
-    });
-
-    const portfolioGrid = document.getElementById('portfolio-grid');
-    portfolioGrid.innerHTML = data.portfolio.map((item, index) => `
-        <div data-portfolio-index="${index}" class="cnt-box2">
-            <img src="${safeUrl(item.thumbnail)}" alt="${escapeHtml(item.alt)}" class="cnt-img">
-        </div>
-    `).join('');
-
-    portfolioGrid.querySelectorAll('[data-portfolio-index]').forEach((card) => {
-        card.addEventListener('click', () => {
-            const item = data.portfolio[Number(card.dataset.portfolioIndex)];
-            window.openPortfolioModal(item.detailImage);
-        });
-    });
+    // 수강생 작품은 home-portfolio.js에서 공용 시트 데이터로 렌더링합니다.
 
     const hero = data.reviews.hero;
     document.getElementById('reviews-content').innerHTML = `

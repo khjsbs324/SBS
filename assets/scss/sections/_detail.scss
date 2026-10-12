@@ -136,6 +136,9 @@
 
 .dtl-tag2 {
   font-size: 12px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
   font-weight: 700;
   --sbs-text-opacity: 1;
   color: rgb(156 163 175 / var(--sbs-text-opacity, 1))

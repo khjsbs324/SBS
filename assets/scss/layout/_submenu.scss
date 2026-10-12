@@ -5,10 +5,58 @@
 }
 
 .hdr-crs {
+  position: relative;
   display: inline-flex;
   cursor: pointer;
   align-items: center;
   gap: 0.35rem;
+}
+
+.hdr-course-bubble {
+  position: absolute;
+  bottom: calc(100% + 7px);
+  left: 50%;
+  z-index: 2;
+  border-radius: 8px;
+  background: var(--color-brand);
+  padding: 0.38rem 0.58rem;
+  color: #fff;
+  box-shadow: 0 7px 16px rgb(13 130 255 / 0.22);
+  visibility: hidden;
+  pointer-events: none;
+  font-size: 0.65rem;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  opacity: 0;
+  transform: translate(-50%, 4px);
+  transition:
+    visibility var(--motion-fast) ease,
+    opacity var(--motion-fast) ease,
+    transform var(--motion-fast) ease;
+  white-space: nowrap;
+}
+
+.hdr-course-bubble::after {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: var(--color-brand);
+  content: '';
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.hdr-mn:hover .hdr-course-bubble,
+.hdr-mn:focus-within .hdr-course-bubble,
+.hdr-crs[aria-expanded='true'] .hdr-course-bubble {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
 @media (max-width: 1279px) {
@@ -24,6 +72,9 @@
     background: rgb(13 130 255 / 0.06);
     color: #075db8;
     font-size: 0.84rem;
+    @media (min-width: 768px) {
+      font-size: 14px;
+    }
   }
 }
 
@@ -127,6 +178,9 @@
 .m2-cnt {
   color: #7b8492;
   font-size: 0.72rem;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
   font-weight: 600;
 }
 
@@ -190,6 +244,9 @@
   padding: 7px 24px 7px 0;
   color: #4b5563;
   font-size: 0.78rem;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
   font-weight: 520;
   line-height: 1.35;
   text-align: left;
@@ -313,6 +370,9 @@
 
   .m2-lnk {
     font-size: 0.72rem;
+    @media (min-width: 768px) {
+      font-size: 14px;
+    }
   }
 }
 
@@ -321,7 +381,8 @@
   .m2-box,
   .m2-tit,
   .m2-lnk,
-  .m2-lnk::after {
+  .m2-lnk::after,
+  .hdr-course-bubble {
     transition: none;
   }
 }

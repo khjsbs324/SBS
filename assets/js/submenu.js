@@ -55,13 +55,20 @@
 
                 group.items.forEach((item) => {
                     const listItem = document.createElement('li');
-                    const button = document.createElement('button');
+                    const control = document.createElement(item.detailUrl ? 'a' : 'button');
 
-                    button.className = 'm2-lnk';
-                    button.type = 'button';
-                    button.textContent = item.label;
-                    button.dataset.target = item.target;
-                    listItem.appendChild(button);
+                    control.className = 'm2-lnk';
+                    control.textContent = item.label;
+
+                    if (item.detailUrl) {
+                        control.href = item.detailUrl;
+                        control.setAttribute('aria-label', `${item.label} 상세페이지로 이동`);
+                    } else {
+                        control.type = 'button';
+                        control.dataset.target = item.target;
+                    }
+
+                    listItem.appendChild(control);
                     list.appendChild(listItem);
                 });
 
@@ -134,6 +141,10 @@
 
         function moveToCurriculum(target) {
             closeMenu();
+            if (!document.getElementById('curriculum')) {
+                window.location.href = './index.html#curriculum';
+                return;
+            }
             if (typeof window.selectCurriculumCategory === 'function') {
                 window.selectCurriculumCategory(target);
             } else if (typeof window.goToCurriculum === 'function') {
@@ -207,9 +218,11 @@
             link.addEventListener('focus', () => closeMenu());
         });
 
-        document.querySelectorAll('.hdr-btn, .hdr-btn2').forEach((button) => {
+        document.querySelectorAll('[aria-controls="full-menu"]').forEach((button) => {
             button.addEventListener('click', () => closeMenu());
         });
+
+        document.addEventListener('fullmenu:opened', () => closeMenu());
 
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && menu.classList.contains('is-open')) {

@@ -4,6 +4,7 @@
  */
 
 @use 'abstracts/tokens';
+@use 'base/fonts';
 @use 'base/reset';
 @use 'base/page';
 @use 'layout/header';
@@ -12,6 +13,7 @@
 @use 'layout/floating';
 @use 'layout/menu';
 @use 'layout/scroll';
+@use 'sections/support-banner';
 @use 'sections/hero';
 @use 'sections/stats';
 @use 'sections/why';
@@ -23,6 +25,8 @@
 @use 'sections/academy';
 @use 'sections/location';
 @use 'sections/seminar';
+@use 'pages/about';
+@use 'pages/portfolio' as portfolio-page;
 @use 'components/content';
 @use 'components/course';
 @use 'components/seminar-modal';

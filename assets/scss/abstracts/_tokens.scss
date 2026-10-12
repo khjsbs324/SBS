@@ -11,3 +11,9 @@
   --motion-normal: 300ms;
   --motion-slow: 500ms;
 }
+
+@media (min-width: 1280px) {
+  :root {
+    --header-height: 92px;
+  }
+}

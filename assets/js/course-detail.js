@@ -24,27 +24,37 @@
         const fragment = document.createDocumentFragment();
 
         menuData.items.forEach((item, index) => {
-            const card = document.createElement('li');
+            const listItem = document.createElement('li');
+            const card = document.createElement(item.detailUrl ? 'a' : 'article');
             const number = document.createElement('span');
             const copy = document.createElement('div');
             const group = document.createElement('p');
             const title = document.createElement('h3');
             const note = document.createElement('p');
 
+            listItem.className = 'cd-course-entry';
             card.className = 'cd-course-card reveal';
             number.className = 'cd-course-no';
             copy.className = 'cd-course-copy';
             group.className = 'cd-course-group';
             note.className = 'cd-course-note';
 
+            if (item.detailUrl) {
+                card.href = item.detailUrl;
+                card.setAttribute('aria-label', `${item.label} 상세페이지로 이동`);
+            }
+
             number.textContent = String(index + 1).padStart(2, '0');
             group.textContent = item.group ?? menuData.title;
             title.textContent = item.label;
-            note.textContent = '과정별 세부 구성과 수강 일정은 상담 시 안내합니다.';
+            note.textContent = item.detailUrl
+                ? '과정 소개와 커리큘럼 자세히 보기 →'
+                : '과정별 세부 구성과 수강 일정은 상담 시 안내합니다.';
 
             copy.append(group, title, note);
             card.append(number, copy);
-            fragment.append(card);
+            listItem.append(card);
+            fragment.append(listItem);
         });
 
         courseList.append(fragment);

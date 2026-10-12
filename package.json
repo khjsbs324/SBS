@@ -8,7 +8,8 @@
         "watch:styles": "sass ./assets/scss/main.scss ./assets/css/main.css --watch --style=expanded --no-source-map",
         "validate:data": "node ./scripts/validate-data.js",
         "validate:styles": "node ./scripts/validate-styles.js",
-        "validate": "npm run validate:data && npm run validate:styles"
+        "validate:portfolio-sync": "node ./scripts/validate-portfolio-sync.js",
+        "validate": "npm run validate:data && npm run validate:styles && npm run validate:portfolio-sync"
     },
     "devDependencies": {
         "sass": "1.101.0"
