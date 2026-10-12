@@ -1,10 +1,8 @@
-/** 공개 읽기 전용 시트. A:I = ID/작성일/순서/학과/작품명/공개/메인/썸네일/상세 링크. J열 메모는 요청하지 않습니다. */
+/** 공개 읽기 전용 시트. A:L = ID/작성일/순서/학과/작품명/공개/메인/유형/썸네일/상세 이미지/영상/원본 링크. 영상 URL은 사이트에서 요청하지 않습니다. */
 window.SBSPortfolioConfig = {
     spreadsheetId: '1RrApzQTiIABG8bLxi0xElfboOE3WLoWlz_iN7msw7Ho',
     sheetId: '1255958363',
-    range: 'A4:I',
-    mediaSheetId: '1',
-    mediaRange: 'A1:E',
+    range: 'A4:L',
     refreshMs: 60000,
     cacheMaxAgeMs: 3600000,
     title: '포트폴리오',

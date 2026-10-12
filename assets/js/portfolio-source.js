@@ -1,6 +1,6 @@
 /** 메인/서브페이지 공용 읽기 전용 Google Sheets 연결. 쓰기 권한/토큰 불필요. */
 ((root) => {
-    const headers = ['작품 ID', '공개 여부', '학과', '작품명', '작성일', '썸네일 URL', '원본 상세 링크', '메인 노출', '노출 순서'];
+    const headers = ['작품 ID', '공개 여부', '학과', '작품명', '작성일', '썸네일 URL', '원본 상세 링크', '메인 노출', '노출 순서', '상세 이미지 URL'];
     function safeUrl(value) {
         try {
             const url = new URL(value);
@@ -22,7 +22,7 @@
     function normalize(rows, categories) {
         const ids = new Set();
         return rows.flatMap((row) => {
-            const [rawId, visibility, label, title, date, thumbnail, url, featured, order] = row;
+            const [rawId, visibility, label, title, date, thumbnail, url, featured, order, detailImage] = row;
             if (visibility !== '공개') return [];
             const id = String(rawId).trim();
             const category = categories.find((item) => item.id !== 'all' && item.label === String(label).trim());
@@ -32,7 +32,7 @@
             const parts = String(date).match(/^Date\((\d{4}),(\d{1,2}),(\d{1,2})(?:,.*)?\)$/);
             const normalizedDate = parts ? `${parts[1]}-${String(Number(parts[2]) + 1).padStart(2, '0')}-${parts[3].padStart(2, '0')}` : String(date);
             return [{ id, category: category.id, title: String(title).trim(), date: normalizedDate,
-                thumbnail: safeUrl(thumbnail), url: safeUrl(url), featured: featured === '예',
+                thumbnail: safeUrl(thumbnail), url: safeUrl(url), detailImage: safeUrl(detailImage), featured: featured === '예',
                 order: String(order).trim() && Number.isFinite(Number(order)) && Number(order) >= 0 ? Number(order) : Number.MAX_SAFE_INTEGER }];
         }).sort((a, b) => a.order - b.order || b.date.localeCompare(a.date) || b.id.localeCompare(a.id, undefined, { numeric: true }));
     }
@@ -65,7 +65,7 @@
             try {
                 const url = new URL(`https://docs.google.com/spreadsheets/d/${config.spreadsheetId}/gviz/tq`);
                 url.search = new URLSearchParams({ gid: config.sheetId, range: config.range, headers: '1',
-                    tqx: 'out:json', tq: "select A,F,D,E,B,H,I,G,C where F = '공개'", _: String(Date.now()) });
+                    tqx: 'out:json', tq: "select A,F,D,E,B,I,L,G,C,J where F = '공개'", _: String(Date.now()) });
                 const response = await fetch(url, { signal: controller.signal, credentials: 'omit', cache: 'no-store' });
                 if (!response.ok) throw new Error('시트 연결 실패');
                 const rows = parse(await response.text());
@@ -92,18 +92,7 @@
         subscribe(listener) { listeners.add(listener); listener(state); return () => listeners.delete(listener); },
         refresh,
         async detailImage(id) {
-            if (!state.items.some((item) => item.id === id && item.featured)) return '';
-            const url = new URL(`https://docs.google.com/spreadsheets/d/${config.spreadsheetId}/gviz/tq`);
-            url.search = new URLSearchParams({ gid: config.mediaSheetId, range: config.mediaRange, headers: '1',
-                tqx: 'out:json', tq: `select A,B,C,D,E where A = '${id}' and C = '이미지' order by B limit 1` });
-            const controller = new AbortController();
-            const timeout = setTimeout(() => controller.abort(), 8000);
-            try {
-                const response = await fetch(url, { signal: controller.signal, credentials: 'omit', cache: 'no-store' });
-                if (!response.ok) return '';
-                const rows = parse(await response.text(), ['작품 ID', '표시 순서', '유형', '미디어 URL', '대체 텍스트']);
-                return safeUrl(rows[0]?.[3]);
-            } catch { return ''; } finally { clearTimeout(timeout); }
+            return state.items.find((item) => item.id === id && item.featured)?.detailImage || '';
         },
         getState() { return state; }
     };
