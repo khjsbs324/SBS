@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>미래를 선도할 인재 양성, SBS아카데미AIX학원</title>
     <!-- 섹션·컴포넌트별 SCSS에서 빌드된 정적 CSS -->
-    <!-- Pretendard Font -->
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <!-- 부드러운 스크롤을 위한 Lenis 라이브러리 -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <link rel="stylesheet" href="./assets/css/main.css">
@@ -33,26 +31,22 @@
                 <nav class="hdr-nav">
                     <div id="course-menu-root" class="hdr-mn">
                         <button id="course-menu-trigger" class="hdr-lnk hdr-crs" type="button" aria-expanded="false" aria-controls="course-submenu">
-                            교육과정
+                            <span class="hdr-course-bubble" aria-hidden="true">로드맵 / 커리큘럼</span>
+                            <span>교육과정</span>
                             <svg class="hdr-arr" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9 6 6 6-6"></path></svg>
                         </button>
                     </div>
-                    <a href="#curriculum-detail" class="hdr-lnk">커리큘럼</a>
-                    <a href="#roadmap" class="hdr-lnk">국비지원</a>
-                    <a href="#seminar" class="hdr-lnk">세미나&특강</a>
+                    <a href="./about.html" class="hdr-lnk">SBS소개</a>
+                    <a href="./portfolio.html" class="hdr-lnk">포트폴리오</a>
+                    <a href="#seminar" class="hdr-lnk">세미나</a>
+                    <span class="hdr-lnk">자료실</span>
+                    <span class="hdr-lnk">교재 구매</span>
+                    <span class="hdr-lnk">자격증 일정</span>
                 </nav>
-
-                <!-- Right Utility -->
-                <div class="hdr-box4">
-                    <button onclick="openFullMenu()" class="hdr-btn">
-                        <span class="hdr-tag"></span>
-                        전체메뉴 열기
-                    </button>
-                </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="hdr-box5">
-                    <button onclick="openFullMenu()" class="hdr-btn2">
+                    <button onclick="openFullMenu({ interaction: event.detail === 0 ? 'keyboard' : 'pointer' })" class="hdr-btn2" aria-label="전체메뉴 열기" aria-expanded="false" aria-controls="full-menu">
                         <svg class="hdr-ico" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </button>
                 </div>
@@ -67,174 +61,42 @@
         </div>
     </div>
 
-    <!-- 2. 메인 배너 섹션 (Hero Section) -->
-    <section class="hero-sec">
-        <div class="hero-box">
-            <div class="hero-box2">
-                <span class="hero-tag animate-slide-up delay-100">END TO END</span>
-            </div>
-            
-            <h1 class="hero-tit">
-                <!-- Slide Up 영역과 Fill 영역의 분리 -->
-                <div class="hero-box3">
-                    <div class="animate-slide-up delay-200">
-                        <span class="text-fill-animation delay-fill-1">미래를 선도할 인재 양성</span>
-                    </div>
-                </div>
-                <div class="hero-box3">
-                    <div class="animate-slide-up delay-300">
-                        <span class="text-fill-animation delay-fill-2">SBS아카데미AIX</span>
-                    </div>
-                </div>
-            </h1>
-            
-            <div class="hero-box4">
-                <p class="hero-txt animate-slide-up delay-400">
-                    디자인 기초부터 AI 적용, 실무 포트폴리오, 취업 매칭까지<br class="hero-br">
-                    당신의 커리어 여정을 End-to-End로 책임집니다.
-                </p>
-            </div>
-
-            <div class="hero-box5 animate-slide-up delay-500">
-                <div class="hero-box6">
-                    <span class="hero-tag2">✦</span>
-                    <span class="hero-tag3">SBS아카데미AIX에 대해 궁금한 점을 찾아보세요!</span>
-                </div>
-                <div class="hero-box7">
-                    <a href="#curriculum" class="hero-lnk">
-                        전체 교육과정 보기
-                    </a>
-                    <a href="https://www.work24.go.kr/hr/a/a/1100/trnnCrsInf.do?dghtSe=A&traingMthCd=A&endDate=20270511&trng_prd=A&pageSize=10&startDate_datepicker=2026-05-11&topMenuYn=&tracseId=AIG20240000493819&totamtSuptYn=A&crseTracseSeNum=&keyword=sbs&area=30170%7C%EB%8C%80%EC%A0%84+%EC%84%9C%EA%B5%AC&orderKey=2&kdgLinkYn=&srchType=all_type&crseTracseSe=A%7C%ED%9B%88%EB%A0%A8%EC%9C%A0%ED%98%95+%EC%A0%84%EC%B2%B4&tranRegister=&trng_type=A&mberId=&pageId=2&noTrngPay=Y&endDate_datepicker=2027-05-11&monthGubun=&pageOrder=2ASC&startTrngPay=&startDate=20260511&endTrngPay=&tracseTme=2&keyword1=&keyword2=&orderBy=ASC&currentTab=1&pop=&pageRow=10&ncsSearchKeyword=&keywordTrngNm=&keywordType=1&gb=&kDgtlYn=&mberSe=&max_trng=&totTraingTime=A&i2=A&areaSearchKeyword=&programMenuIdentification=EBG020000000310&min_trng=&pageIndex=1&chkNoTrngPay=Y&bgrlInstYn=&crseTracseSeKDT=&ncs=&gvrnInstt=&selectNCSKeyword=&compareArgArr=&action=trnnCrsInfPost.do" target="_blank" rel="noopener noreferrer" class="hero-box8">
-                        국비 지원 받기
-                        <svg class="hero-ico" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </a>
-                </div>
-            </div>
+    <!-- 2. 로드맵 메인 배너 -->
+    <section id="home" class="hero-sec" data-page-number="1">
+        <div class="hero-shell">
+            <article id="home-roadmap-content" class="hero-roadmap" aria-roledescription="carousel" aria-label="14개 학과 교육과정 로드맵">
+                <div id="home-roadmap-slide" class="hero-roadmap-slide"></div>
+            </article>
+            <aside class="hero-rail" aria-label="학원 연락처 및 바로가기"></aside>
         </div>
+        <div class="hero-roadmap-toolbar">
+            <div id="home-roadmap-dots" class="hero-roadmap-dots" aria-label="로드맵 페이지 선택"></div>
+        </div>
+        <p id="home-roadmap-status" class="hero-sr-only" aria-live="polite"></p>
     </section>
 
-    <!-- 2-1. 취업 성과 통계 섹션 (Statistics) -->
-    <section class="stats-sec">
-        <div class="stats-box reveal">
-            <h2 class="stats-tit">
-                2025년 압도적인 수치로<br>증명한 취업 성과
-            </h2>
-            
-            <div class="stats-box2">
-                <div class="stats-box3">
-                    <p class="stats-txt">우수기관</p>
-                    <div class="stats-box4">
-                        <span class="stats-tag counter" data-target="5" data-decimal="0">0</span>
-                        <span class="stats-tag2">년 연속</span>
-                    </div>
+    <!-- 3. 국비지원 과정 띠배너 -->
+    <section class="sup-sec" aria-label="국비지원 교육 안내">
+        <div class="sup-shell">
+            <div id="support-banner-content" class="sup-intro"></div>
+            <div id="support-course-slider" class="sup-slider" aria-roledescription="carousel" aria-label="국비지원 과정">
+                <div id="support-course-slide" class="sup-course-slide"></div>
+                <div class="sup-slider-toolbar">
+                    <div id="support-course-dots" class="sup-dots" aria-label="과정 선택"></div>
                 </div>
-                <div class="stats-box3">
-                    <p class="stats-txt">국비 최대 만족도</p>
-                    <div class="stats-box4">
-                        <span class="stats-tag counter" data-target="4.9" data-decimal="1">0.0</span>
-                    </div>
-                </div>
-                <div class="stats-box3">
-                    <p class="stats-txt">취업률</p>
-                    <div class="stats-box4">
-                        <span class="stats-tag3">최대</span>
-                        <span class="stats-tag counter" data-target="90" data-decimal="0">0</span>
-                        <span class="stats-tag2">%</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEW 1. SBS 선택하는 이유 (#why-sbs) -->
-    <section id="why-sbs" class="why-sec">
-        <div class="why-box">
-            <div class="why-box2 reveal">
-                <span class="why-tag">WHY SBS</span>
-                <h2 class="why-tit">SBS아카데미AIX를 선택하는 이유</h2>
-            </div>
-            <div class="why-box3">
-                <div class="why-box4 reveal">
-                    <span class="why-tag2">01</span>
-                    <h3 class="why-tit2">최고 수준의<br>전임 강사진</h3>
-                    <p class="why-txt">시간 강사가 아닌, 실무 경험이 풍부한 전임 강사진이 직접 교육하여 수업의 책임감과 퀄리티를 최상으로 유지합니다.</p>
-                </div>
-                <div class="why-box4 reveal delay-100">
-                    <span class="why-tag2">02</span>
-                    <h3 class="why-tit2">1:1 밀착<br>멘토링 시스템</h3>
-                    <p class="why-txt">학원 등록부터 수강, 취업에 이르기까지 1:1 멘토가 배정되어 출결 및 진로 고민 등 철저한 개별 관리를 진행합니다.</p>
-                </div>
-                <div class="why-box4 reveal delay-200">
-                    <span class="why-tag2">03</span>
-                    <h3 class="why-tit2">독보적인<br>취업 전문 부서</h3>
-                    <p class="why-txt">취업 전담 부서를 독립적으로 운영하여 이력서 첨삭, 모의 면접, 우수 기업 매칭 등 체계적인 취업 솔루션을 제공합니다.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEW 2. 로드맵 (#roadmap) -->
-    <section id="roadmap" class="road-sec">
-        <div class="road-box">
-            <div class="road-box2 reveal">
-                <span class="road-tag">ROADMAP</span>
-                <h2 class="road-tit">비전공자도 성공하는 학습 로드맵</h2>
-            </div>
-            
-            <div class="road-box3">
-                <!-- 연결 선 -->
-                <div class="road-box4 reveal delay-100"></div>
-                
-                <div class="road-box5">
-                    <!-- Step 1 -->
-                    <div class="road-box6 group reveal delay-200">
-                        <div class="road-box7">
-                            <span class="road-tag2"></span>
-                            BASIC
-                        </div>
-                        <h3 class="road-tit2">기초 역량 강화</h3>
-                        <p class="road-txt">이론 및 툴 학습</p>
-                    </div>
-                    <!-- Step 2 -->
-                    <div class="road-box6 group reveal delay-400">
-                        <div class="road-box7">
-                            <span class="road-tag2"></span>
-                            ADV.
-                        </div>
-                        <h3 class="road-tit2">심화 및 응용</h3>
-                        <p class="road-txt">실무 테크닉 체득</p>
-                    </div>
-                    <!-- Step 3 -->
-                    <div class="road-box6 group reveal delay-600">
-                        <div class="road-box7">
-                            <span class="road-tag2"></span>
-                            PROJ.
-                        </div>
-                        <h3 class="road-tit2">프로젝트 기획</h3>
-                        <p class="road-txt">실무 포트폴리오</p>
-                    </div>
-                    <!-- Step 4 -->
-                    <div class="road-box6 group reveal delay-800">
-                        <div class="road-box8">
-                            <span class="road-tag3"></span>
-                            JOB
-                        </div>
-                        <h3 class="road-tit2">취업 컨설팅</h3>
-                        <p class="road-txt">면접 및 이력서 지원</p>
-                    </div>
-                </div>
+                <p id="support-course-status" class="sup-sr-only" aria-live="polite"></p>
             </div>
         </div>
     </section>
 
     <!-- 3. 주요 교육과정 (Curriculum) -->
-    <section id="curriculum" class="cur-sec">
+    <section id="curriculum" class="cur-sec" data-page-number="2">
         <!-- 교육과정 바로가기 -->
         <div id="curriculum-shortcuts" class="cur-box">
             <div class="cur-box2">
                 <span class="cur-tag">PROGRAMS</span>
                 <h2 class="cur-tit">교육과정 바로가기</h2>
-                <p class="cur-txt">원하는 분야를 선택하고 상세 커리큘럼을 확인하세요.</p>
+                <p class="cur-txt">관심 있는 학과와 주요 교육과정을 확인해 보세요.</p>
             </div>
 
             <div id="curriculum-shortcuts-grid" class="cur-box3"></div>
@@ -305,66 +167,8 @@
         </div>
     </section>
 
-    <!-- NEW 3. 커리큘럼 상세 (#curriculum-detail) -->
-    <section id="curriculum-detail" class="dtl-sec">
-        <div class="dtl-box">
-            <div class="dtl-box2 reveal">
-                <span class="dtl-tag">DETAIL</span>
-                <h2 class="dtl-tit">체계적인 실무 중심 커리큘럼</h2>
-                <p class="dtl-txt">비전공자도 전문가로 성장할 수 있도록 촘촘하게 설계되었습니다.</p>
-            </div>
-
-            <div class="dtl-box3">
-                <!-- Phase 1 -->
-                <div class="dtl-box4 reveal delay-200">
-                    <div class="dtl-box5">
-                        <span class="dtl-tag2">STEP</span>
-                        <span class="dtl-tag3">01</span>
-                    </div>
-                    <div class="dtl-box6">
-                        <h4 class="dtl-tit2">기초 지식 및 툴 숙지</h4>
-                        <p class="dtl-txt2">디자인 및 IT 분야의 필수 툴(Photoshop, Illustrator, AutoCAD, 기본 언어 등)의 인터페이스와 기초 활용법을 익히고, 작업에 필요한 기본 이론을 단단하게 다집니다.</p>
-                    </div>
-                </div>
-                <!-- Phase 2 -->
-                <div class="dtl-box4 reveal delay-400">
-                    <div class="dtl-box5">
-                        <span class="dtl-tag2">STEP</span>
-                        <span class="dtl-tag3">02</span>
-                    </div>
-                    <div class="dtl-box6">
-                        <h4 class="dtl-tit2">심화 기능 및 실무 응용</h4>
-                        <p class="dtl-txt2">기초에서 배운 툴을 응용하여 복합적인 예제를 실습합니다. 실무에서 자주 발생하는 문제 해결 능력을 기르고, 작업 속도와 퀄리티를 한 단계 높이는 테크닉을 배웁니다.</p>
-                    </div>
-                </div>
-                <!-- Phase 3 -->
-                <div class="dtl-box4 reveal delay-600">
-                    <div class="dtl-box5">
-                        <span class="dtl-tag2">STEP</span>
-                        <span class="dtl-tag3">03</span>
-                    </div>
-                    <div class="dtl-box6">
-                        <h4 class="dtl-tit2">개인 및 팀 프로젝트 기획</h4>
-                        <p class="dtl-txt2">실무와 동일한 프로세스로 프로젝트 기획합니다. 아이디어 도출, 레퍼런스 수집, 기획안 작성 등 최종 포트폴리오의 기반이 되는 방향성을 확립합니다.</p>
-                    </div>
-                </div>
-                <!-- Phase 4 -->
-                <div class="dtl-box4 reveal delay-800">
-                    <div class="dtl-box7">
-                        <span class="dtl-tag2">STEP</span>
-                        <span class="dtl-tag4">04</span>
-                    </div>
-                    <div class="dtl-box6">
-                        <h4 class="dtl-tit3">포트폴리오 완성 & 취업 준비</h4>
-                        <p class="dtl-txt3">수강생 고유의 개성과 실무 역량이 담긴 퀄리티 높은 포트폴리오를 최종 완성합니다. 전문 강사님의 1:1 크리틱, 모의 면접, 이력서 첨삭 등 본격적인 취업 준비를 함께합니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- NEW 4. 수강생 작품 (Creative Portfolio) -->
-    <section id="portfolio" class="port-sec">
+    <section id="portfolio" class="port-sec" data-page-number="3">
         <div class="port-box">
             <!-- Header Area -->
             <div class="port-box2 reveal">
@@ -378,7 +182,7 @@
                         획일화된 포트폴리오가 아닌 크리에이티브를 고민하는<br>
                         진정한 디자이너를 양성합니다.
                     </p>
-                    <a href="#" class="port-lnk">
+                    <a href="./portfolio.html" class="port-lnk">
                         자세히 보기 <span class="port-tag2">→</span>
                     </a>
                 </div>
@@ -390,7 +194,7 @@
     </section>
 
     <!-- 5. 수강생 후기 (Reviews) -->
-    <section id="reviews" class="rev-sec">
+    <section id="reviews" class="rev-sec" data-page-number="4">
         <div class="rev-box">
             <div class="rev-box2 reveal">
                 <div>
@@ -406,69 +210,8 @@
         </div>
     </section>
 
-    <!-- 7. 학원 정보 (특별전략 TOP5) -->
-    <section id="academy-info" class="info-sec">
-        <div class="info-box">
-            <div class="info-box2">
-                <!-- 좌측: Sticky 타이틀 영역 -->
-                <div class="info-box3 reveal">
-                    <span class="info-tag">STRATEGY</span>
-                    <h2 class="info-tit">
-                        SBS아카데미AIX만의<br><span class="info-tag2">특별전략 TOP5</span>
-                    </h2>
-                    <!-- 부드러운 배경 빛 효과 -->
-                    <div class="info-box4"></div>
-                </div>
-                
-                <!-- 우측: 5가지 전략 리스트 -->
-                <div class="info-box5">
-                    <!-- Item 1 -->
-                    <div class="info-box6 reveal">
-                        <span class="info-tag3">1</span>
-                        <div>
-                            <h3 class="info-tit2">대상별 특화된 체계적인 교육과정</h3>
-                            <p class="info-txt">비전공자, 전공자 및 국비 지원 대상자별로 교육과정을 구성해 디자인에 쉽게 접근할 수 있도록 체계적으로 준비되어 있습니다.</p>
-                        </div>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="info-box7 reveal">
-                        <span class="info-tag3">2</span>
-                        <div>
-                            <h3 class="info-tit2">컴퓨터 교육 핵심 노하우</h3>
-                            <p class="info-txt">기초 교재를 통한 이론교육부터 피드백으로 만들어가는 포트폴리오 수업까지 수강생에게 맞춘 교육과정으로 만족스러운 수업을 경험하실 수 있습니다.</p>
-                        </div>
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="info-box8 reveal">
-                        <span class="info-tag3">3</span>
-                        <div>
-                            <h3 class="info-tit2">혁신적인 수강생 서비스</h3>
-                            <p class="info-txt">학원의 각종 서비스 및 공지사항, 알람을 실시간으로 확인 할 수 있고 세미나 및 특강, 채용상담 등 다양한 정보를 손쉽게 모아 볼 수 있습니다.</p>
-                        </div>
-                    </div>
-                    <!-- Item 4 -->
-                    <div class="info-box9 reveal">
-                        <span class="info-tag3">4</span>
-                        <div>
-                            <h3 class="info-tit2">1:1 멘토 맞춤 학습관리 시스템</h3>
-                            <p class="info-txt">수강생과 멘토의 1:1 학습관리 시스템으로 수강생이 원하는 취업/진학과 관련한 정보를 제공받을 수 있습니다.</p>
-                        </div>
-                    </div>
-                    <!-- Item 5 -->
-                    <div class="info-box10 reveal">
-                        <span class="info-tag3">5</span>
-                        <div>
-                            <h3 class="info-tit2">온라인 강좌로 반복 학습</h3>
-                            <p class="info-txt">처음 배우는 과정이라도 온라인 학습 플랫폼 따즈아를 통해 언제나 어디서나 반복 학습을 할 수 있습니다.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- 8. 오시는 길 (#location) -->
-    <section id="location" class="loc-sec">
+    <section id="location" class="loc-sec" data-page-number="5">
         <div class="loc-box">
             <div class="loc-box2 reveal">
                 <span class="loc-tag">LOCATION</span>
@@ -481,7 +224,7 @@
     </section>
 
     <!-- 9. 세미나 & 특강 (Seminar / Insight) -->
-    <section id="seminar" class="sem-sec">
+    <section id="seminar" class="sem-sec" data-page-number="6">
         <div class="sem-box">
             <div class="sem-box2 reveal">
                 <span class="sem-tag">SEMINAR</span>
@@ -639,47 +382,46 @@
         </div>
     </div>
 
-    <!-- 전체메뉴 (Full Screen Menu) -->
-    <div id="full-menu" class="menu-box">
-        <!-- Background -->
-        <div class="menu-box2" id="full-menu-bg"></div>
-        
-        <!-- Header -->
-        <div class="menu-box3" id="full-menu-header">
-            <div class="menu-box4" onclick="closeFullMenu(); scrollToTop();">
-                <img data-site-logo alt="SBS아카데미AIX" class="menu-img">
-            </div>
-            <button onclick="closeFullMenu()" class="menu-btn">
-                <svg class="menu-ico" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-        </div>
+    <!-- 스크롤 중 노출되는 데스크톱 전체메뉴 버튼 -->
+    <button id="side-menu-trigger" class="side-menu-btn" type="button" onclick="openFullMenu({ interaction: event.detail === 0 ? 'keyboard' : 'pointer' })" aria-label="전체메뉴 열기, 현재 페이지 01" aria-expanded="false" aria-controls="full-menu" aria-hidden="true" tabindex="-1">
+        <span class="side-menu-pages" aria-hidden="true">
+            <span class="side-menu-page" data-page-edge="first">01</span>
+            <span class="side-menu-page" data-page-offset="-1">06</span>
+            <span class="side-menu-page is-current" data-page-offset="0">01</span>
+            <span class="side-menu-page" data-page-offset="1">02</span>
+            <span class="side-menu-page" data-page-edge="last">06</span>
+        </span>
+    </button>
 
-        <!-- Content -->
-        <div class="menu-box5" id="full-menu-content">
-            <nav class="menu-nav">
-                <!-- Column 1 -->
-                <div class="menu-box6">
-                    <h4 class="menu-tit">Program</h4>
-                    <a href="#curriculum" class="menu-lnk" onclick="closeFullMenuAndScroll(this)">주요 교육과정</a>
-                    <a href="#curriculum-detail" class="menu-lnk" onclick="closeFullMenuAndScroll(this)">상세 커리큘럼</a>
-                    <a href="#portfolio" class="menu-lnk2" onclick="closeFullMenuAndScroll(this)">수강생 작품</a>
-                </div>
-                <!-- Column 2 -->
-                <div class="menu-box6">
-                    <h4 class="menu-tit">Guide</h4>
-                    <a href="#roadmap" class="menu-lnk" onclick="closeFullMenuAndScroll(this)">학습 로드맵</a>
-                    <a href="#why-sbs" class="menu-lnk" onclick="closeFullMenuAndScroll(this)">SBS 선택 이유</a>
-                    <a href="#academy-info" class="menu-lnk2" onclick="closeFullMenuAndScroll(this)">특별전략 TOP5</a>
-                </div>
-                <!-- Column 3 -->
-                <div class="menu-box6">
-                    <h4 class="menu-tit">Community</h4>
-                    <a href="#reviews" class="menu-lnk" onclick="closeFullMenuAndScroll(this)">수강생 후기</a>
-                    <a href="#seminar" class="menu-lnk" onclick="closeFullMenuAndScroll(this)">세미나 & 특강</a>
-                    <a href="#location" class="menu-lnk2" onclick="closeFullMenuAndScroll(this)">오시는 길</a>
-                </div>
-            </nav>
-        </div>
+    <!-- 전체메뉴 (Right Sidebar Menu) -->
+    <div id="full-menu" class="menu-box" aria-hidden="true">
+        <button class="menu-box2" id="full-menu-bg" type="button" aria-label="전체메뉴 닫기" onclick="closeFullMenu()"></button>
+
+        <aside id="full-menu-panel" class="menu-panel" role="dialog" aria-modal="true" aria-labelledby="full-menu-title" tabindex="-1">
+            <div class="menu-box3" id="full-menu-header">
+                <button class="menu-box4" type="button" onclick="closeFullMenu(); scrollToTop();" aria-label="홈페이지 상단으로 이동">
+                    <img data-site-logo alt="SBS아카데미AIX" class="menu-img">
+                </button>
+                <h2 id="full-menu-title" class="menu-sr-only">전체메뉴</h2>
+                <button onclick="closeFullMenu()" class="menu-btn" type="button" aria-label="전체메뉴 닫기">
+                    <svg class="menu-ico" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <div class="menu-box5" id="full-menu-content" data-lenis-prevent>
+                <nav class="menu-nav" aria-label="전체메뉴">
+                    <div class="menu-box6">
+                        <h4 class="menu-tit">Main Page</h4>
+                        <a href="#home" class="menu-lnk" data-section-link="home" onclick="closeFullMenuAndScroll(this)">01 메인 비주얼</a>
+                        <a href="#curriculum" class="menu-lnk" data-section-link="curriculum" onclick="closeFullMenuAndScroll(this)">02 교육과정</a>
+                        <a href="#portfolio" class="menu-lnk" data-section-link="portfolio" onclick="closeFullMenuAndScroll(this)">03 포트폴리오</a>
+                        <a href="#reviews" class="menu-lnk" data-section-link="reviews" onclick="closeFullMenuAndScroll(this)">04 수강생 후기</a>
+                        <a href="#location" class="menu-lnk" data-section-link="location" onclick="closeFullMenuAndScroll(this)">05 오시는 길</a>
+                        <a href="#seminar" class="menu-lnk2" data-section-link="seminar" onclick="closeFullMenuAndScroll(this)">06 세미나 &amp; 특강</a>
+                    </div>
+                </nav>
+            </div>
+        </aside>
     </div>
 
     <!-- 최상단/최하단 이동 버튼 (스마트 스크롤) -->
@@ -692,7 +434,12 @@
     <!-- 분리된 데이터 및 기능 스크립트 -->
     <script src="./data/curriculum-data.js"></script>
     <script src="./data/site-data.js"></script>
+    <script src="./data/home-banner-data.js"></script>
     <script src="./assets/js/content.js"></script>
+    <script src="./data/portfolio-config.js"></script>
+    <script src="./assets/js/portfolio-source.js"></script>
+    <script src="./assets/js/home-portfolio.js"></script>
+    <script src="./assets/js/home-banner.js"></script>
     <script src="./assets/js/scroll.js"></script>
     <script src="./assets/js/curriculum.js"></script>
     <script src="./assets/js/submenu.js"></script>

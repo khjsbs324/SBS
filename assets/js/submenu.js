@@ -141,6 +141,10 @@
 
         function moveToCurriculum(target) {
             closeMenu();
+            if (!document.getElementById('curriculum')) {
+                window.location.href = './index.html#curriculum';
+                return;
+            }
             if (typeof window.selectCurriculumCategory === 'function') {
                 window.selectCurriculumCategory(target);
             } else if (typeof window.goToCurriculum === 'function') {
@@ -214,9 +218,11 @@
             link.addEventListener('focus', () => closeMenu());
         });
 
-        document.querySelectorAll('.hdr-btn, .hdr-btn2').forEach((button) => {
+        document.querySelectorAll('[aria-controls="full-menu"]').forEach((button) => {
             button.addEventListener('click', () => closeMenu());
         });
+
+        document.addEventListener('fullmenu:opened', () => closeMenu());
 
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && menu.classList.contains('is-open')) {

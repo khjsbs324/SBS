@@ -10,65 +10,104 @@ window.SBSSiteData = Object.freeze({
     },
     "shortcuts": [
         {
-            "target": "ai_agent",
-            "label": "AI Master",
-            "title": "AI Master",
+            "id": "artwork-webtoon",
+            "label": "ARTWORK / WEBTOON",
+            "title": "아트웍/웹툰 학과",
             "description": [
-                "AI 자동화, 바이브코딩"
-            ],
-            "ariaLabel": "AI Master 교육과정 바로가기",
-            "detailUrl": "./courses/ai-master.html"
+                "디지털 드로잉",
+                "색채학/발상과 표현/해부학",
+                "웹툰"
+            ]
         },
         {
-            "target": "uiux",
-            "label": "HOT",
-            "title": "AI 디자인",
+            "id": "advertising-design",
+            "label": "ADVERTISING DESIGN",
+            "title": "광고편집 학과",
             "description": [
-                "AI 디자인",
-                "웹 UIUX, 시각편집"
-            ],
-            "ariaLabel": "AI 디자인 교육과정 바로가기",
-            "detailUrl": "./courses/ai-design.html"
+                "포토샵/일러스트",
+                "인디자인",
+                "인포그래픽"
+            ]
         },
         {
-            "target": "motion",
-            "label": "AI 모션·CG",
-            "title": "AI 모션/CG",
+            "id": "uiux-vibe-coding",
+            "label": "UIUX / VIBE CODING",
+            "title": "UIUX바이브코딩 학과",
             "description": [
-                "유튜브/영상편집"
-            ],
-            "ariaLabel": "AI 모션·CG 교육과정 바로가기",
-            "detailUrl": "./courses/ai-motion-cg.html"
+                "웹디자인",
+                "UI/UX",
+                "바이브코딩"
+            ]
         },
         {
-            "target": "webtoon",
-            "label": "AI 웹툰/드로잉",
-            "title": "AI 웹툰/드로잉",
+            "id": "motion",
+            "label": "MOTION GRAPHICS",
+            "title": "모션 학과",
             "description": [
-                "미술 기초, 디지털드로잉"
-            ],
-            "ariaLabel": "AI 웹툰·드로잉 교육과정 바로가기",
-            "detailUrl": "./courses/ai-webtoon-drawing.html"
+                "애프터이펙트",
+                "프리미어프로",
+                "시네마4D"
+            ]
         },
         {
-            "target": "archi",
-            "label": "AI 인테리어",
-            "title": "AI 인테리어/제품",
+            "id": "ai-skillup",
+            "label": "AI SKILL UP",
+            "title": "AI스킬업",
             "description": [
-                "인테리어/기계,제품"
-            ],
-            "ariaLabel": "AI 인테리어·제품 교육과정 바로가기",
-            "detailUrl": "./courses/ai-interior-product.html"
+                "AI 프롬프트 엔지니어링",
+                "AI 에이전트",
+                "AI 마케팅 콘텐츠"
+            ]
         },
         {
-            "target": "cert",
-            "label": "AI 자격증",
+            "id": "interior",
+            "label": "INTERIOR",
+            "title": "인테리어 학과",
+            "description": [
+                "CAD",
+                "3ds Max",
+                "Revit BIM",
+                "스케치업"
+            ]
+        },
+        {
+            "id": "cg",
+            "label": "CG / VFX",
+            "title": "CG학과",
+            "description": [
+                "Maya/VFX",
+                "Unreal/ZBrush",
+                "Blender"
+            ]
+        },
+        {
+            "id": "youtube-creator",
+            "label": "YOUTUBE",
+            "title": "유튜브 크리에이터",
+            "description": [
+                "영상 크리에이터",
+                "유튜브 크리에이터"
+            ]
+        },
+        {
+            "id": "certificate",
+            "label": "CERTIFICATE",
             "title": "자격증",
             "description": [
-                "디자인/사무/AI자격증"
-            ],
-            "ariaLabel": "AI 자격증 교육과정 바로가기",
-            "detailUrl": "./courses/certificate.html"
+                "디자인 자격증",
+                "사무/회계 자격증",
+                "건축/기계 자격증"
+            ]
+        },
+        {
+            "id": "ai-software",
+            "label": "AI SOFTWARE",
+            "title": "인공지능융합 SW학과",
+            "description": [
+                "AI 파이썬",
+                "머신러닝",
+                "기초 코딩"
+            ]
         }
     ],
     "courseMenu": [
