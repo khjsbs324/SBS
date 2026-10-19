@@ -166,6 +166,17 @@
   white-space: nowrap;
 }
 
+.hero-department-head a,
+.hero-course-name {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero-department-head a:hover,
+.hero-course-name:hover {
+  text-decoration: underline;
+}
+
 .hero-rail {
   display: flex;
   flex-direction: column;

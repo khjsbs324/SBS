@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자격증 시험 일정 | SBS아카데미AIX학원</title>
+    <meta name="description" content="SBS아카데미AIX학원 대전지점의 분야별 자격증 시험 일정 안내와 주관기관 공식 일정 바로가기">
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body class="base-page exam-page">
+    <header id="header" class="hdr-hdr glass-header">
+        <div class="hdr-box"><div class="hdr-box2">
+            <div class="hdr-box3" onclick="window.location.href='./index.html'"><img data-site-logo alt="SBS아카데미AIX" class="hdr-img"></div>
+            <nav class="hdr-nav" aria-label="주 메뉴">
+                <div id="course-menu-root" class="hdr-mn">
+                    <button id="course-menu-trigger" class="hdr-lnk hdr-crs" type="button" aria-expanded="false" aria-controls="course-submenu">
+                        <span class="hdr-course-bubble" aria-hidden="true">로드맵 / 커리큘럼</span><span>교육과정</span>
+                        <svg class="hdr-arr" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9 6 6 6-6"></path></svg>
+                    </button>
+                </div>
+                <a href="./about.html" class="hdr-lnk">SBS소개</a>
+                <a href="./portfolio.html" class="hdr-lnk">포트폴리오</a>
+                <a href="./seminar.html" class="hdr-lnk">세미나</a>
+                <span class="hdr-lnk">자료실</span>
+                <a href="./books.html" class="hdr-lnk">교재 구매</a>
+                <a href="./exam-schedule.html" class="hdr-lnk is-current" aria-current="page">자격증 일정</a>
+            </nav>
+            <div class="hdr-box5"><button onclick="openFullMenu({ interaction: event.detail === 0 ? 'keyboard' : 'pointer' })" class="hdr-btn2" type="button" aria-label="전체메뉴 열기" aria-expanded="false" aria-controls="full-menu">
+                <svg class="hdr-ico" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button></div>
+        </div></div>
+    </header>
+    <div id="course-submenu" class="m2-box" aria-hidden="true" data-lenis-prevent><div class="m2-pan"><nav id="course-submenu-grid" class="m2-nav" aria-label="교육과정 상세 메뉴"></nav></div></div>
+
+    <div class="pf-breadcrumb"><div><a href="./index.html">홈</a><span aria-hidden="true">›</span><span>자격증 일정</span></div></div>
+    <main id="exam-content" class="pf-main ex-main" data-page-number="1">
+        <header class="pf-heading">
+            <h1>자격증 시험 일정</h1>
+            <p>분야와 종목을 선택해 시험 방식을 확인하고 주관기관의 최신 일정을 조회하세요.</p>
+        </header>
+        <nav id="ex-categories" class="pf-filters ex-categories" aria-label="자격증 분야"></nav>
+        <div class="ex-layout">
+            <section class="ex-subjects" aria-labelledby="ex-subject-heading">
+                <div class="ex-panel-heading"><span>01 / SUBJECT</span><h2 id="ex-subject-heading">종목 선택</h2></div>
+                <div id="ex-subject-list" class="ex-subject-list"></div>
+            </section>
+            <section id="ex-detail" class="ex-detail" aria-labelledby="ex-detail-title" aria-live="polite">
+                <div class="ex-panel-heading"><span>02 / SCHEDULE</span><h2 id="ex-detail-title">시험 일정</h2></div>
+                <div id="ex-detail-content"></div>
+            </section>
+        </div>
+        <p class="ex-disclaimer">시험 회차·접수기간·시험장 운영은 주관기관 사정에 따라 변경될 수 있습니다. 접수 전 반드시 공식 일정을 확인하세요.</p>
+        <noscript><p class="ex-disclaimer">종목별 일정 안내를 이용하려면 JavaScript를 활성화해 주세요.</p></noscript>
+    </main>
+
+    <footer class="ftr-ftr"><div class="ftr-box">
+        <div class="ftr-box2">
+            <div class="ftr-box3"><img data-site-logo alt="SBS아카데미AIX학원" class="ftr-img"><div class="ftr-box4">
+                <p><strong class="ftr-bold">사업자:</strong> 주식회사 에스비에스아카데미컴퓨터아트학원</p>
+                <p><strong class="ftr-bold">주소:</strong> 대전광역시 서구 대덕대로 179, 9·10층</p>
+                <p><strong class="ftr-bold">지점 블로그:</strong> <a id="footer-blog-link" href="#" target="_blank" rel="noopener noreferrer" class="ftr-lnk"></a></p>
+            </div></div>
+            <div class="ftr-box5"><h4 class="ftr-tit">고객상담센터</h4><ul class="ftr-list">
+                <li>전화 문의: <span id="footer-phone" class="ftr-tag2"></span></li>
+                <li>이메일: <span id="footer-email"></span></li>
+            </ul></div>
+        </div>
+        <div class="ftr-box7"><p class="ftr-txt">© SBS ACADEMY COMPUTER ART. All Rights Reserved.</p></div>
+    </div></footer>
+
+    <div id="full-menu" class="menu-box" aria-hidden="true">
+        <button class="menu-box2" id="full-menu-bg" type="button" aria-label="전체메뉴 닫기" onclick="closeFullMenu()"></button>
+        <aside id="full-menu-panel" class="menu-panel" role="dialog" aria-modal="true" aria-labelledby="full-menu-title" tabindex="-1">
+            <div class="menu-box3" id="full-menu-header">
+                <button class="menu-box4" type="button" onclick="window.location.href='./index.html'" aria-label="메인페이지로 이동"><img data-site-logo alt="SBS아카데미AIX" class="menu-img"></button>
+                <h2 id="full-menu-title" class="menu-sr-only">전체메뉴</h2>
+                <button onclick="closeFullMenu()" class="menu-btn" type="button" aria-label="전체메뉴 닫기"><svg class="menu-ico" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            </div>
+            <div class="menu-box5" id="full-menu-content" data-lenis-prevent><nav class="menu-nav" aria-label="전체메뉴"><div class="menu-box6">
+                <h4 class="menu-tit">Exam Schedule</h4>
+                <a href="#exam-content" class="menu-lnk" data-section-link="exam-content" onclick="closeFullMenuAndScroll(this)">01 자격증 시험 일정</a>
+                <a href="./index.html" class="menu-lnk">메인페이지</a>
+                <a href="./curriculum.html" class="menu-lnk">교육과정</a>
+                <a href="./about.html" class="menu-lnk">SBS소개</a>
+                <a href="./portfolio.html" class="menu-lnk">포트폴리오</a>
+                <a href="./seminar.html" class="menu-lnk">세미나</a>
+                <a href="./books.html" class="menu-lnk">교재 구매</a>
+            </div></nav></div>
+        </aside>
+    </div>
+
+    <script src="./data/site-data.js"></script>
+    <script src="./data/exam-schedule-data.js"></script>
+    <script src="./assets/js/about.js"></script>
+    <script src="./assets/js/exam-schedule.js"></script>
+    <script src="./assets/js/scroll.js"></script>
+    <script src="./assets/js/submenu.js"></script>
+    <script src="./assets/js/modals.js"></script>
+</body>
+</html>

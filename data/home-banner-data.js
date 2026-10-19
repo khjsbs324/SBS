@@ -163,7 +163,7 @@ window.SBSHomeBannerData = Object.freeze({
         "phone": "042-719-8383",
         "hours": ["평일 09:00 - 22:00", "주말 및 공휴일 09:00 - 18:00"],
         "links": [
-            { "label": "세미나", "href": "./index.html#seminar", "icon": "https://cdn.jsdelivr.net/gh/khjsbs324/SBS@4dc4dfb7a758a4006f0c7a5a2bea6280644b2d8a/assets/images/quick-menu/icon_quick_ncs.webp" },
+            { "label": "세미나", "href": "./seminar.html", "icon": "https://cdn.jsdelivr.net/gh/khjsbs324/SBS@4dc4dfb7a758a4006f0c7a5a2bea6280644b2d8a/assets/images/quick-menu/icon_quick_ncs.webp" },
             { "label": "만족도 조사", "href": "https://st.koreaedugroup.com/", "icon": "https://cdn.jsdelivr.net/gh/khjsbs324/SBS@4dc4dfb7a758a4006f0c7a5a2bea6280644b2d8a/assets/images/quick-menu/icon_quick_satisfaction.png", "newTab": true },
             { "label": "위치 조회", "href": "./index.html#location", "icon": "https://cdn.jsdelivr.net/gh/khjsbs324/SBS@4dc4dfb7a758a4006f0c7a5a2bea6280644b2d8a/assets/images/quick-menu/icon_quick_type.webp" }
         ]

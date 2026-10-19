@@ -137,7 +137,8 @@ if (site) {
     });
     assert(Array.isArray(site.portfolio) && site.portfolio.length > 0, '포트폴리오 데이터가 없습니다.');
     assert(Array.isArray(site.reviews?.items), '후기 데이터가 올바르지 않습니다.');
-    assert(Array.isArray(site.seminars?.items), '세미나 데이터가 올바르지 않습니다.');
+    assert(site.seminars?.applicationMethod && site.seminars?.all?.url === './seminar.html'
+        && fs.existsSync(path.join(root, 'seminar.html')), '세미나 공통 정보가 올바르지 않습니다.');
     assert(Array.isArray(site.courseMenu) && site.courseMenu.length > 0, '교육과정 2차 메뉴 데이터가 없습니다.');
 
     const curriculumTargets = new Set(Object.keys(curriculum?.curriculumData || {}));
@@ -193,10 +194,6 @@ if (site) {
         checkRootRelativeFile(site.location.mapImage, '지도 이미지');
     }
 
-    site.seminars?.items?.forEach((item, index) => {
-        assert(isHttpUrl(item.image), `세미나 이미지 URL이 올바르지 않습니다. (${index + 1})`);
-        checkRepoImage(item.image, `세미나 ${index + 1}`);
-    });
 }
 
 if (homeBanner) {
@@ -370,5 +367,5 @@ console.log('\n검증 완료');
 console.log(`- 교육과정 카테고리: ${Object.keys(curriculum.curriculumData).length}개`);
 console.log(`- 과목별 이미지 매핑: ${Object.keys(curriculum.subjectImages).length}개`);
 console.log(`- 포트폴리오: ${site.portfolio.length}개`);
-console.log(`- 세미나: ${site.seminars.items.length}개`);
+console.log('- 세미나: Google Sheets 연동');
 console.log(`- 정적 HTML ID: ${staticIdCount}개`);

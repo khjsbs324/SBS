@@ -26,10 +26,10 @@
                     </div>
                     <a href="./about.html" class="hdr-lnk">SBS소개</a>
                     <a href="./portfolio.html" class="hdr-lnk is-current" aria-current="page">포트폴리오</a>
-                    <a href="./index.html#seminar" class="hdr-lnk">세미나</a>
+                    <a href="./seminar.html" class="hdr-lnk">세미나</a>
                     <span class="hdr-lnk">자료실</span>
-                    <span class="hdr-lnk">교재 구매</span>
-                    <span class="hdr-lnk">자격증 일정</span>
+                    <a href="./books.html" class="hdr-lnk">교재 구매</a>
+                    <a href="./exam-schedule.html" class="hdr-lnk">자격증 일정</a>
                 </nav>
 
                 <div class="hdr-box5">
@@ -108,10 +108,6 @@
         </div>
     </div>
 
-    <button id="side-menu-trigger" class="side-menu-btn" type="button" onclick="openFullMenu({ interaction: event.detail === 0 ? 'keyboard' : 'pointer' })" aria-label="전체메뉴 열기, 현재 페이지 01" aria-expanded="false" aria-controls="full-menu" aria-hidden="true" tabindex="-1">
-        <span class="side-menu-pages" aria-hidden="true"><span class="side-menu-page is-current" data-page-offset="0">01</span></span>
-    </button>
-
     <div id="full-menu" class="menu-box" aria-hidden="true">
         <button class="menu-box2" id="full-menu-bg" type="button" aria-label="전체메뉴 닫기" onclick="closeFullMenu()"></button>
         <aside id="full-menu-panel" class="menu-panel" role="dialog" aria-modal="true" aria-labelledby="full-menu-title" tabindex="-1">
@@ -131,7 +127,9 @@
                         <a href="#portfolio-content" class="menu-lnk" data-section-link="portfolio-content" onclick="closeFullMenuAndScroll(this)">01 포트폴리오</a>
                         <a href="./index.html" class="menu-lnk">메인페이지</a>
                         <a href="./about.html" class="menu-lnk">SBS소개</a>
-                        <a href="./index.html#seminar" class="menu-lnk">세미나</a>
+                        <a href="./seminar.html" class="menu-lnk">세미나</a>
+                        <a href="./books.html" class="menu-lnk">교재 구매</a>
+                        <a href="./exam-schedule.html" class="menu-lnk">자격증 일정</a>
                     </div>
                 </nav>
             </div>

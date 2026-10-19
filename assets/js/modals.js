@@ -160,13 +160,33 @@ window.openSeminarModal = function(title, bgClass, imageUrl) {
     const container = document.getElementById('seminar-modal-container');
     const imageArea = document.getElementById('seminar-modal-image');
 
-    // Set placeholder background and title or display image
-    if (imageUrl) {
-        imageArea.className=`modc-box`;
-        imageArea.innerHTML = `<img src="${imageUrl}" alt="${title}" class="modc-img">`;
+    // 시트 문구·URL은 HTML로 해석하지 않고 안전한 노드로 표시합니다.
+    let safeImage = '';
+    try {
+        const url = new URL(String(imageUrl));
+        if (['http:', 'https:'].includes(url.protocol)) safeImage = url.href;
+    } catch { /* 이미지 URL이 없으면 포스터 자리표시자를 사용합니다. */ }
+    imageArea.replaceChildren();
+    if (safeImage) {
+        imageArea.className = 'modc-box';
+        const image = document.createElement('img');
+        image.src = safeImage;
+        image.alt = String(title);
+        image.className = 'modc-img';
+        imageArea.append(image);
     } else {
-        imageArea.className = `modc-box is-placeholder ${bgClass}`;
-        imageArea.innerHTML = `<span id="seminar-modal-title" class="modc-tag"><span class="modc-tag2">Seminar Poster</span><span class="modc-tag3">${title}</span></span>`;
+        imageArea.className = `modc-box is-placeholder ${/^[a-z0-9-]+$/.test(bgClass) ? bgClass : ''}`;
+        const tag = document.createElement('span');
+        tag.id = 'seminar-modal-title';
+        tag.className = 'modc-tag';
+        const label = document.createElement('span');
+        label.className = 'modc-tag2';
+        label.textContent = 'Seminar Poster';
+        const heading = document.createElement('span');
+        heading.className = 'modc-tag3';
+        heading.textContent = String(title);
+        tag.append(label, heading);
+        imageArea.append(tag);
     }
 
     // Open Animation

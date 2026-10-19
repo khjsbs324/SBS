@@ -105,9 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 스크롤 버튼 활성화 로직
         if (currentScrollY > 300) {
-            scrollControls.classList.add('is-visible');
+            scrollControls?.classList.add('is-visible');
         } else {
-            scrollControls.classList.remove('is-visible');
+            scrollControls?.classList.remove('is-visible');
         }
 
         // 스크롤 방향에 따른 아이콘 및 동작 변경
@@ -131,17 +131,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const floatingCta = document.getElementById('floating-cta');
     let scrollTimeout;
 
-    window.addEventListener('scroll', () => {
-        floatingCta.classList.add('is-visible');
+    if (floatingCta) {
+        window.addEventListener('scroll', () => {
+            floatingCta.classList.add('is-visible');
 
-        if (scrollTimeout) {
-            clearTimeout(scrollTimeout);
-        }
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
 
-        scrollTimeout = setTimeout(() => {
-            floatingCta.classList.remove('is-visible');
-        }, 1500);
-    });
+            scrollTimeout = setTimeout(() => {
+                floatingCta.classList.remove('is-visible');
+            }, 1500);
+        });
+    }
 
     // 스크롤 중 노출되는 우측 전체메뉴 버튼
     const sideMenuTrigger = document.getElementById('side-menu-trigger');

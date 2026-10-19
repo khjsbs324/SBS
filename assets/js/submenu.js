@@ -141,19 +141,46 @@
 
         function moveToCurriculum(target) {
             closeMenu();
-            if (!document.getElementById('curriculum')) {
-                window.location.href = './index.html#curriculum';
-                return;
-            }
-            if (typeof window.selectCurriculumCategory === 'function') {
-                window.selectCurriculumCategory(target);
-            } else if (typeof window.goToCurriculum === 'function') {
-                window.goToCurriculum(target);
-            }
+            const departments = {
+                design_basic: 'artwork', artwork: 'artwork', webtoon: 'webtoon',
+                ai_agent_basic: 'ai-skillup', ai_agent_advanced: 'ai-skillup',
+                ai_sw: 'ai-sw', archi: 'interior', motion: 'motion', cg_vfx: 'cg-vfx',
+                youtube: 'youtube', cert_oa: 'office', uiux: 'uiux', visual: 'visual',
+                product_cert: 'mechanical', senior: 'senior', cert_field: 'field-cert',
+                national: 'all'
+            };
+            const department = departments[target] || 'artwork';
+            window.location.href = `./curriculum.html?department=${encodeURIComponent(department)}`;
         }
 
         renderMenu();
         syncResponsiveGroups();
+
+        const header = document.getElementById('header');
+        if (header) {
+            let lastHeaderScrollY = window.scrollY;
+            const showHeader = () => {
+                header.classList.remove('is-hidden');
+                document.body.classList.remove('is-header-hidden');
+                lastHeaderScrollY = window.scrollY;
+            };
+
+            window.addEventListener('scroll', () => {
+                const currentScrollY = Math.max(0, window.scrollY);
+                if (currentScrollY <= 8) {
+                    showHeader();
+                    return;
+                }
+                const movement = currentScrollY - lastHeaderScrollY;
+                if (Math.abs(movement) < 6) return;
+                lastHeaderScrollY = currentScrollY;
+                const hide = movement > 0 && currentScrollY > header.offsetHeight;
+                if (hide) closeMenu();
+                header.classList.toggle('is-hidden', hide);
+                document.body.classList.toggle('is-header-hidden', hide);
+            }, { passive: true });
+            header.addEventListener('focusin', showHeader);
+        }
 
         function isInsideCourseMenu(target) {
             return root.contains(target) || menu.contains(target);
@@ -166,14 +193,7 @@
             if (desktop.matches && !isRestoringFocus) openMenu();
         });
         trigger.addEventListener('click', () => {
-            if (desktop.matches) {
-                if (isPinned) closeMenu();
-                else openMenu({ pin: true });
-                return;
-            }
-
-            if (menu.classList.contains('is-open')) closeMenu();
-            else openMenu();
+            window.location.href = './curriculum.html';
         });
 
         root.addEventListener('mouseenter', cancelClose);

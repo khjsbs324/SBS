@@ -33,10 +33,10 @@
                     </div>
                     <a href="./about.html" class="hdr-lnk is-current" aria-current="page">SBS소개</a>
                     <a href="./portfolio.html" class="hdr-lnk">포트폴리오</a>
-                    <a href="./index.html#seminar" class="hdr-lnk">세미나</a>
+                    <a href="./seminar.html" class="hdr-lnk">세미나</a>
                     <span class="hdr-lnk">자료실</span>
-                    <span class="hdr-lnk">교재 구매</span>
-                    <span class="hdr-lnk">자격증 일정</span>
+                    <a href="./books.html" class="hdr-lnk">교재 구매</a>
+                    <a href="./exam-schedule.html" class="hdr-lnk">자격증 일정</a>
                 </nav>
 
                 <div class="hdr-box5">
@@ -272,16 +272,6 @@
         </div>
     </div>
 
-    <button id="side-menu-trigger" class="side-menu-btn" type="button" onclick="openFullMenu({ interaction: event.detail === 0 ? 'keyboard' : 'pointer' })" aria-label="전체메뉴 열기, 현재 페이지 01" aria-expanded="false" aria-controls="full-menu" aria-hidden="true" tabindex="-1">
-        <span class="side-menu-pages" aria-hidden="true">
-            <span class="side-menu-page" data-page-edge="first">01</span>
-            <span class="side-menu-page" data-page-offset="-1">06</span>
-            <span class="side-menu-page is-current" data-page-offset="0">01</span>
-            <span class="side-menu-page" data-page-offset="1">02</span>
-            <span class="side-menu-page" data-page-edge="last">06</span>
-        </span>
-    </button>
-
     <div id="full-menu" class="menu-box" aria-hidden="true">
         <button class="menu-box2" id="full-menu-bg" type="button" aria-label="전체메뉴 닫기" onclick="closeFullMenu()"></button>
         <aside id="full-menu-panel" class="menu-panel" role="dialog" aria-modal="true" aria-labelledby="full-menu-title" tabindex="-1">
@@ -304,6 +294,8 @@
                         <a href="#roadmap" class="menu-lnk" data-section-link="roadmap" onclick="closeFullMenuAndScroll(this)">04 학습 로드맵</a>
                         <a href="#curriculum-detail" class="menu-lnk" data-section-link="curriculum-detail" onclick="closeFullMenuAndScroll(this)">05 실무 커리큘럼</a>
                         <a href="#academy-info" class="menu-lnk2" data-section-link="academy-info" onclick="closeFullMenuAndScroll(this)">06 특별전략 TOP5</a>
+                        <a href="./books.html" class="menu-lnk">교재 구매</a>
+                        <a href="./exam-schedule.html" class="menu-lnk">자격증 일정</a>
                     </div>
                 </nav>
             </div>

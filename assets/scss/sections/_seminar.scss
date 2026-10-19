@@ -63,3 +63,48 @@
   overflow-x: auto;
   padding-bottom: 3rem
 }
+
+.sem-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin: -3rem 0 1.5rem;
+}
+
+.sem-tab {
+  border: 1px solid #dbe3ef;
+  border-radius: 999px;
+  background: #fff;
+  color: #475569;
+  padding: 0.625rem 1.25rem;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sem-tab:hover,
+.sem-tab.is-active {
+  border-color: #0d82ff;
+  background: #0d82ff;
+  color: #fff;
+}
+
+.sem-tab:focus-visible,
+.sem-card:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: 3px;
+}
+
+.sem-status {
+  margin-bottom: 1rem;
+  color: #475569;
+  font-size: 16px;
+}
+
+.sem-card {
+  text-align: left;
+  font: inherit;
+}
+
+@media (max-width: 767px) {
+  .sem-tabs { margin-top: -3rem; }
+}

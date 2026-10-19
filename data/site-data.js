@@ -371,39 +371,10 @@ window.SBSSiteData = Object.freeze({
     },
     "seminars": {
         "applicationMethod": "스마트러닝 앱 → 메인페이지 화면 중앙(특강 및 세미나) → 원하는 세미나 클릭! → 하단 (특강&세미나) 신청",
-        "items": [
-            {
-                "branch": "[대전지점]",
-                "title": "인스타툰으로 시작하는 나만의 콘텐츠 브랜딩 세미나",
-                "description": "퍼스널 브랜딩부터 실전 드로잉, 채널 성장 노하우까지 현업 작가에게 직접 배웁니다.",
-                "date": "2026. 04. 29 (수) 16:00",
-                "applicationPeriod": "2026. 04. 01 ~ 2026. 04. 28",
-                "image": "https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/seminar/seminar1.jpg",
-                "backgroundClass": "poster-lilac"
-            },
-            {
-                "branch": "[대전지점]",
-                "title": "AI가 대신 일하는 시대, AI에이전트 실전 세미나",
-                "description": "Claude Code로 만드는 자동화 워크플로우 실무 활용 및 확장 전략을 배웁니다.",
-                "date": "2026. 04. 30 (목) 14:00 - 16:00",
-                "applicationPeriod": "2026. 04. 01 ~ 2026. 04. 29",
-                "image": "https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/seminar/seminar2.jpg",
-                "backgroundClass": "poster-night"
-            },
-            {
-                "branch": "[대전지점]",
-                "title": "인테리어 AI 크리에이터 신규과정 런칭",
-                "description": "신규과정 소개와 인테리어 분야에서의 AI전망 및 연계 방법을 알아봅니다.",
-                "date": "2025. 11. 28 (금) 13:00 - 15:00",
-                "applicationPeriod": "~ 2025. 11. 27",
-                "image": "https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/seminar/seminar3.jpg",
-                "backgroundClass": "poster-clay"
-            }
-        ],
         "all": {
             "title": "Xgen / ACP 자격증 등",
             "label": "특강 전체보기 →",
-            "url": "https://se.sbsart.com/community/seminar.asp?placeSeq=12"
+            "url": "./seminar.html"
         }
     },
     "contact": {

@@ -106,9 +106,14 @@ ol {
     left: 0;
     border-bottom: 1px solid rgb(229 231 235 / 0.7);
     background: rgb(255 255 255 / 0.82);
-    transition: box-shadow 0.25s ease, background 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
     -webkit-backdrop-filter: blur(18px);
     backdrop-filter: blur(18px);
+}
+
+.cd-hdr.is-hidden {
+    pointer-events: none;
+    transform: translateY(-100%);
 }
 
 .cd-hdr.is-scrolled {

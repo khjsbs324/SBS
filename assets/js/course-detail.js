@@ -95,12 +95,33 @@
         if (window.innerWidth > 820) closeMobileMenu();
     });
 
+    let lastHeaderScrollY = window.scrollY;
+    function showHeader() {
+        header?.classList.remove('is-hidden');
+        document.body.classList.remove('is-header-hidden');
+        lastHeaderScrollY = window.scrollY;
+    }
+
     function updateHeader() {
-        header?.classList.toggle('is-scrolled', window.scrollY > 20);
+        const currentScrollY = Math.max(0, window.scrollY);
+        header?.classList.toggle('is-scrolled', currentScrollY > 20);
+        if (!header) return;
+        if (currentScrollY <= 8) {
+            showHeader();
+            return;
+        }
+        const movement = currentScrollY - lastHeaderScrollY;
+        if (Math.abs(movement) < 6) return;
+        lastHeaderScrollY = currentScrollY;
+        const hide = movement > 0 && currentScrollY > header.offsetHeight;
+        if (hide) closeMobileMenu();
+        header.classList.toggle('is-hidden', hide);
+        document.body.classList.toggle('is-header-hidden', hide);
     }
 
     updateHeader();
     window.addEventListener('scroll', updateHeader, { passive: true });
+    header?.addEventListener('focusin', showHeader);
 
     if ('IntersectionObserver' in window) {
         const revealObserver = new IntersectionObserver((entries, observer) => {

@@ -27,6 +27,10 @@
 @use 'sections/seminar';
 @use 'pages/about';
 @use 'pages/portfolio' as portfolio-page;
+@use 'pages/seminar' as seminar-page;
+@use 'pages/books' as books-page;
+@use 'pages/department' as department-page;
+@use 'pages/exam' as exam-page;
 @use 'components/content';
 @use 'components/course';
 @use 'components/seminar-modal';

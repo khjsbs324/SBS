@@ -124,6 +124,12 @@
     const roadmapDots = document.getElementById('home-roadmap-dots');
     const roadmapStatus = document.getElementById('home-roadmap-status');
     const roadmapSourcePages = data.roadmap?.pages ?? [];
+    const departmentByNumber = {
+        '01': 'artwork', '02': 'webtoon', '03': 'ai-skillup', '04': 'uiux',
+        '05': 'ai-sw', '06': 'visual', '07': 'interior', '08': 'motion',
+        '09': 'cg-vfx', '10': 'youtube', '11': 'mechanical', '12': 'senior',
+        '13': 'office', '14': 'field-cert'
+    };
 
     if (roadmap && roadmapSlide && roadmapDots && roadmapSourcePages.length) {
         const departments = roadmapSourcePages.flatMap((page) => page.departments ?? []);
@@ -137,14 +143,14 @@
                 <article class="hero-department${department.wide ? ' is-wide' : ''}">
                     <header class="hero-department-head">
                         <strong>${escapeHtml(department.number)}</strong>
-                        <h2>${escapeHtml(department.title)}</h2>
+                        <h2><a href="./curriculum.html?department=${departmentByNumber[department.number]}">${escapeHtml(department.title)}</a></h2>
                         ${department.offset ? '<small>계속</small>' : ''}
                     </header>
                     <ol class="hero-course-list">
                         ${courses.map((course, index) => `
                             <li class="hero-course${index + (department.offset || 0) === (department.total || courses.length) - 1 ? ' is-final' : ''}">
                                 <span class="hero-course-index">${String(index + 1 + (department.offset || 0)).padStart(2, '0')}</span>
-                                <span class="hero-course-name">${escapeHtml(course)}</span>
+                                <a class="hero-course-name" href="./curriculum.html?department=${departmentByNumber[department.number]}&amp;course=${index + 1 + (department.offset || 0)}">${escapeHtml(course)}</a>
                             </li>
                         `).join('')}
                     </ol>

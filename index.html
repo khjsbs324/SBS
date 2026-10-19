@@ -38,10 +38,10 @@
                     </div>
                     <a href="./about.html" class="hdr-lnk">SBS소개</a>
                     <a href="./portfolio.html" class="hdr-lnk">포트폴리오</a>
-                    <a href="#seminar" class="hdr-lnk">세미나</a>
+                    <a href="./seminar.html" class="hdr-lnk">세미나</a>
                     <span class="hdr-lnk">자료실</span>
-                    <span class="hdr-lnk">교재 구매</span>
-                    <span class="hdr-lnk">자격증 일정</span>
+                    <a href="./books.html" class="hdr-lnk">교재 구매</a>
+                    <a href="./exam-schedule.html" class="hdr-lnk">자격증 일정</a>
                 </nav>
 
                 <!-- Mobile Menu Button -->
@@ -231,6 +231,11 @@
                 <h2 class="sem-tit">현업 실무자들의 특강, 세미나로<br>발상의 전환을 이끌어 보세요!</h2>
             </div>
 
+            <div id="seminar-tabs" class="sem-tabs" role="group" aria-label="세미나 상태">
+                <button type="button" class="sem-tab" data-seminar-tab="ongoing" aria-pressed="false">진행 중</button>
+                <button type="button" class="sem-tab" data-seminar-tab="ended" aria-pressed="false">종료</button>
+            </div>
+            <p id="seminar-status" class="sem-status" role="status" hidden></p>
             <!-- Horizontal Scrollable Cards -->
             <div id="seminar-list" class="sem-box3 no-scrollbar reveal delay-100"></div>
         </div>
@@ -418,6 +423,8 @@
                         <a href="#reviews" class="menu-lnk" data-section-link="reviews" onclick="closeFullMenuAndScroll(this)">04 수강생 후기</a>
                         <a href="#location" class="menu-lnk" data-section-link="location" onclick="closeFullMenuAndScroll(this)">05 오시는 길</a>
                         <a href="#seminar" class="menu-lnk2" data-section-link="seminar" onclick="closeFullMenuAndScroll(this)">06 세미나 &amp; 특강</a>
+                        <a href="./books.html" class="menu-lnk">교재 구매</a>
+                        <a href="./exam-schedule.html" class="menu-lnk">자격증 일정</a>
                     </div>
                 </nav>
             </div>
@@ -436,6 +443,9 @@
     <script src="./data/site-data.js"></script>
     <script src="./data/home-banner-data.js"></script>
     <script src="./assets/js/content.js"></script>
+    <script src="./data/seminar-config.js"></script>
+    <script src="./assets/js/seminar-source.js"></script>
+    <script src="./assets/js/home-seminars.js"></script>
     <script src="./data/portfolio-config.js"></script>
     <script src="./assets/js/portfolio-source.js"></script>
     <script src="./assets/js/home-portfolio.js"></script>

@@ -9,6 +9,11 @@
   transition-duration: 300ms
 }
 
+.hdr-hdr.is-hidden {
+  pointer-events: none;
+  transform: translateY(-100%);
+}
+
 .hdr-box {
   margin-left: auto;
   margin-right: auto;
