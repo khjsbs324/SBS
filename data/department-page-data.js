@@ -1,6 +1,10 @@
 /** 교육과정 서브페이지의 표시 순서와 기존 데이터 연결표. */
 window.SBSDepartmentPageData = Object.freeze({
     defaultDepartment: 'artwork',
+    materials: [
+        { label: '컬러리스트', url: './resources.html?category=colorist' },
+        { label: '스토리보드', url: './resources.html?category=storyboard' }
+    ],
     departments: [
         { id: 'artwork', label: '아트웍(드로잉)', roadmapNumber: '01', portfolio: 'artwork', books: ['1340', '1339', '1280', '1217'] },
         { id: 'ai-skillup', label: 'AI스킬업', roadmapNumber: '03', portfolio: '', books: ['1390', '1392'] },

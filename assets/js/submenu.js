@@ -3,6 +3,25 @@
  */
 (() => {
     document.addEventListener('DOMContentLoaded', () => {
+        const resources = window.SBSSiteData?.resourcesPage;
+        if (resources) {
+            const resourcesUrl = new URL(resources.url, location.href);
+            if (['http:', 'https:'].includes(resourcesUrl.protocol) && resourcesUrl.origin === location.origin) {
+                const mobileGroup = document.querySelector('.menu-nav .menu-box6');
+                if (mobileGroup && !mobileGroup.querySelector('[data-resources-link]')) {
+                    const link = document.createElement('a');
+                    link.className = 'menu-lnk';
+                    link.setAttribute('data-resources-link', '');
+                    mobileGroup.append(link);
+                }
+                document.querySelectorAll('[data-resources-link]').forEach((link) => {
+                    link.href = resourcesUrl.href;
+                    link.textContent = resources.label;
+                    if (location.pathname === resourcesUrl.pathname) link.setAttribute('aria-current', 'page');
+                });
+            }
+        }
+
         const root = document.getElementById('course-menu-root');
         const trigger = document.getElementById('course-menu-trigger');
         const menu = document.getElementById('course-submenu');

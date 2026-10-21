@@ -13,7 +13,8 @@
         "validate:books": "node ./scripts/validate-books.js",
         "validate:department": "node ./scripts/validate-department.js",
         "validate:exams": "node ./scripts/validate-exams.js",
-        "validate": "npm run validate:data && npm run validate:styles && npm run validate:portfolio-sync && npm run validate:seminar-sync && npm run validate:books && npm run validate:department && npm run validate:exams"
+        "validate:resources": "node ./scripts/validate-resources.js",
+        "validate": "npm run validate:data && npm run validate:styles && npm run validate:portfolio-sync && npm run validate:seminar-sync && npm run validate:books && npm run validate:department && npm run validate:exams && npm run validate:resources"
     },
     "devDependencies": {
         "sass": "1.101.0"

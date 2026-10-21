@@ -67,6 +67,22 @@
         return String(value).padStart(2, '0');
     }
 
+    const materials = document.getElementById('department-materials');
+    if (materials) {
+        const fragment = document.createDocumentFragment();
+        (config.materials || []).forEach((item) => {
+            const url = safeUrl(item.url);
+            if (!url) return;
+            const entry = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = url;
+            link.textContent = item.label;
+            entry.append(link);
+            fragment.append(entry);
+        });
+        materials.replaceChildren(fragment);
+    }
+
     function courseAt(id, index = 0) {
         const department = byId.get(id);
         if (!department || !Number.isInteger(index) || !department.courses[index]) return null;

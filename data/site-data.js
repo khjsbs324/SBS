@@ -5,6 +5,10 @@
  * 이 파일에서만 수정합니다.
  */
 window.SBSSiteData = Object.freeze({
+    "resourcesPage": {
+        "label": "자료실",
+        "url": "/resources.html"
+    },
     "brand": {
         "logoUrl": "https://cdn.jsdelivr.net/gh/khjsbs324/SBS@2592241df5f9582dc39d9e697b673a50606dabf5/logo/logo_aix.png"
     },
