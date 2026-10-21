@@ -1047,6 +1047,9 @@ ol {
         top: 68px;
         right: 0;
         left: 0;
+        max-height: calc(100dvh - 68px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
         display: grid;
         padding: 18px;
         border-top: 1px solid var(--cd-line);
@@ -1065,13 +1068,9 @@ ol {
         font-weight: 700;
     }
 
-    .cd-mnav a:last-child {
-        margin-top: 9px;
-        padding: 15px 17px;
-        border: 0;
-        border-radius: 12px;
-        background: var(--cd-blue);
-        color: var(--cd-white);
+    .cd-mnav a[aria-current] {
+        color: var(--cd-blue);
+        background: #eff6ff;
     }
 
     .cd-hero {

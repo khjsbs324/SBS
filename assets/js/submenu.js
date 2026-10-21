@@ -7,13 +7,6 @@
         if (resources) {
             const resourcesUrl = new URL(resources.url, location.href);
             if (['http:', 'https:'].includes(resourcesUrl.protocol) && resourcesUrl.origin === location.origin) {
-                const mobileGroup = document.querySelector('.menu-nav .menu-box6');
-                if (mobileGroup && !mobileGroup.querySelector('[data-resources-link]')) {
-                    const link = document.createElement('a');
-                    link.className = 'menu-lnk';
-                    link.setAttribute('data-resources-link', '');
-                    mobileGroup.append(link);
-                }
                 document.querySelectorAll('[data-resources-link]').forEach((link) => {
                     link.href = resourcesUrl.href;
                     link.textContent = resources.label;
@@ -35,6 +28,18 @@
         let closeTimer;
         let isRestoringFocus = false;
         let isPinned = false;
+        let keyboardNavigation = false;
+        const navigationKey = 'sbs:course-menu-navigation';
+        const navigationType = performance.getEntriesByType('navigation')[0]?.type;
+        let suppressArrivalHover = root.matches(':hover')
+            || navigationType === 'reload'
+            || navigationType === 'back_forward';
+        try {
+            suppressArrivalHover ||= sessionStorage.getItem(navigationKey) === location.pathname;
+            sessionStorage.removeItem(navigationKey);
+        } catch {
+            // 저장소가 제한되어도 현재 포인터와 탐색 유형으로 초기 열림을 제어합니다.
+        }
 
         function renderMenu() {
             const fragment = document.createDocumentFragment();
@@ -158,8 +163,18 @@
             closeTimer = window.setTimeout(() => closeMenu(), 180);
         }
 
-        function moveToCurriculum(target) {
+        function navigateToCurriculum(url) {
             closeMenu();
+            suppressArrivalHover = true;
+            try {
+                sessionStorage.setItem(navigationKey, new URL(url, location.href).pathname);
+            } catch {
+                // 저장소 사용 여부와 관계없이 페이지 이동은 유지합니다.
+            }
+            window.location.href = url;
+        }
+
+        function moveToCurriculum(target) {
             const departments = {
                 design_basic: 'artwork', artwork: 'artwork', webtoon: 'webtoon',
                 ai_agent_basic: 'ai-skillup', ai_agent_advanced: 'ai-skillup',
@@ -169,11 +184,13 @@
                 national: 'all'
             };
             const department = departments[target] || 'artwork';
-            window.location.href = `./curriculum.html?department=${encodeURIComponent(department)}`;
+            navigateToCurriculum(`./curriculum.html?department=${encodeURIComponent(department)}`);
         }
 
+        /* 교육과정 2차 메뉴 임시 주석 처리: 재활성화 시 아래 생성·열기 코드를 함께 복구합니다.
         renderMenu();
         syncResponsiveGroups();
+        */
 
         const header = document.getElementById('header');
         if (header) {
@@ -205,18 +222,25 @@
             return root.contains(target) || menu.contains(target);
         }
 
+        /* 교육과정 2차 메뉴 임시 주석 처리: 마우스·키보드 자동 열기
         trigger.addEventListener('mouseenter', () => {
-            if (desktop.matches) openMenu();
+            if (desktop.matches && !suppressArrivalHover) openMenu();
         });
         trigger.addEventListener('focus', () => {
-            if (desktop.matches && !isRestoringFocus) openMenu();
+            if (desktop.matches && keyboardNavigation && !isRestoringFocus) openMenu();
         });
+        */
         trigger.addEventListener('click', () => {
-            window.location.href = './curriculum.html';
+            navigateToCurriculum('./curriculum.html');
         });
 
+        // 페이지 이동 뒤 같은 자리에 남은 포인터는 재진입으로 취급하지 않습니다.
+        document.addEventListener('pointermove', (event) => {
+            if (!root.contains(event.target)) suppressArrivalHover = false;
+        }, { passive: true });
         root.addEventListener('mouseenter', cancelClose);
         root.addEventListener('mouseleave', () => {
+            suppressArrivalHover = false;
             if (desktop.matches) scheduleClose();
         });
         panel?.addEventListener('mouseenter', cancelClose);
@@ -264,13 +288,27 @@
         document.addEventListener('fullmenu:opened', () => closeMenu());
 
         document.addEventListener('keydown', (event) => {
+            if (event.key === 'Tab') keyboardNavigation = true;
             if (event.key === 'Escape' && menu.classList.contains('is-open')) {
                 closeMenu({ restoreFocus: true });
             }
         });
 
         document.addEventListener('pointerdown', (event) => {
+            keyboardNavigation = false;
             if (menu.classList.contains('is-open') && !isInsideCourseMenu(event.target)) closeMenu();
+        });
+
+        window.addEventListener('pagehide', () => {
+            closeMenu();
+            suppressArrivalHover = true;
+            keyboardNavigation = false;
+        });
+        window.addEventListener('pageshow', (event) => {
+            if (!event.persisted) return;
+            closeMenu();
+            suppressArrivalHover = true;
+            keyboardNavigation = false;
         });
 
         desktop.addEventListener('change', () => {

@@ -5,6 +5,15 @@
  * 이 파일에서만 수정합니다.
  */
 window.SBSSiteData = Object.freeze({
+    "navigation": [
+        { "label": "교육과정", "url": "curriculum.html" },
+        { "label": "SBS소개", "url": "about.html" },
+        { "label": "포트폴리오", "url": "portfolio.html" },
+        { "label": "세미나", "url": "seminar.html" },
+        { "label": "자료실", "url": "resources.html" },
+        { "label": "교재 구매", "url": "books.html" },
+        { "label": "자격증 일정", "url": "exam-schedule.html" }
+    ],
     "resourcesPage": {
         "label": "자료실",
         "url": "/resources.html"

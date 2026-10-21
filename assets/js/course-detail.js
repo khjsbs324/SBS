@@ -67,20 +67,27 @@
         .map((link) => document.querySelector(link.getAttribute('href')))
         .filter(Boolean);
 
-    function closeMobileMenu() {
+    function closeMobileMenu({ restoreFocus = false } = {}) {
         if (!menuButton || !mobileNavigation) return;
+        const wasOpen = !mobileNavigation.hidden;
         menuButton.setAttribute('aria-expanded', 'false');
         menuButton.querySelector('.sr-only').textContent = '메뉴 열기';
         mobileNavigation.hidden = true;
         document.body.classList.remove('cd-menu-open');
+        if (wasOpen && restoreFocus) menuButton.focus({ preventScroll: true });
     }
 
     menuButton?.addEventListener('click', () => {
         const willOpen = menuButton.getAttribute('aria-expanded') !== 'true';
+        if (!willOpen) {
+            closeMobileMenu({ restoreFocus: true });
+            return;
+        }
         menuButton.setAttribute('aria-expanded', String(willOpen));
         menuButton.querySelector('.sr-only').textContent = willOpen ? '메뉴 닫기' : '메뉴 열기';
         mobileNavigation.hidden = !willOpen;
         document.body.classList.toggle('cd-menu-open', willOpen);
+        mobileNavigation.querySelector('a')?.focus({ preventScroll: true });
     });
 
     mobileNavigation?.querySelectorAll('a').forEach((link) => {
@@ -88,7 +95,22 @@
     });
 
     document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') closeMobileMenu();
+        if (!mobileNavigation || mobileNavigation.hidden) return;
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            closeMobileMenu({ restoreFocus: true });
+        }
+        if (event.key === 'Tab') {
+            const links = [...mobileNavigation.querySelectorAll('a[href]')];
+            const last = links[links.length - 1] || menuButton;
+            if (event.shiftKey && document.activeElement === menuButton) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                menuButton.focus();
+            }
+        }
     });
 
     window.addEventListener('resize', () => {

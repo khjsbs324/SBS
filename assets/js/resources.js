@@ -27,10 +27,6 @@
         } catch { return ''; }
     }
 
-    function thumbnailPath(path) {
-        return `assets/images/resources/${path.replace(/\.png$/, '.webp')}`;
-    }
-
     function itemCount(category) {
         return category.sections.reduce((total, section) => total + section.items.length, 0);
     }
@@ -75,7 +71,7 @@
             media.setAttribute('aria-label', `${item.name} ${data.ui.enlarge}`);
             media.setAttribute('aria-haspopup', 'dialog');
             const image = node('img');
-            image.src = imageUrl(thumbnailPath(item.image));
+            image.src = imageUrl(item.thumbnail);
             image.alt = `${item.name} 참고 이미지`;
             image.width = 640;
             image.height = 640;

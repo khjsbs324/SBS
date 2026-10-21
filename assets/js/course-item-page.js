@@ -149,13 +149,7 @@
                 </button>
             </div>
 
-            <nav id="mobile-navigation" class="cd-mnav" aria-label="모바일 상세페이지 메뉴" hidden>
-                <a href="#overview">과정 소개</a>
-                <a href="#curriculum">커리큘럼</a>
-                <a href="#outcomes">결과물</a>
-                <a href="#faq">FAQ</a>
-                <a href="${phoneHref}">상담 문의 ${phone}</a>
-            </nav>
+            <nav id="mobile-navigation" class="cd-mnav" aria-label="모바일 주요 메뉴" hidden data-site-navigation></nav>
         </header>
 
         <main id="main-content">

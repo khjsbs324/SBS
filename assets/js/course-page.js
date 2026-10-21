@@ -82,12 +82,7 @@
                 </button>
             </div>
 
-            <nav id="mobile-navigation" class="cd-mnav" aria-label="모바일 상세페이지 메뉴" hidden>
-                <a href="#overview">과정 소개</a>
-                <a href="#curriculum">전체 교육과정</a>
-                <a href="#target">선택 이유</a>
-                <a href="tel:0427198383">상담 문의 042-719-8383</a>
-            </nav>
+            <nav id="mobile-navigation" class="cd-mnav" aria-label="모바일 주요 메뉴" hidden data-site-navigation></nav>
         </header>
 
         <main id="main-content">

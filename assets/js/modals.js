@@ -5,10 +5,12 @@
 // 전체메뉴 (Full Menu) 로직
 // ==========================================
 const FULL_MENU_TRANSITION_MS = 350;
+const fullMenuDesktop = window.matchMedia('(min-width: 1280px)');
 let fullMenuCloseTimer;
 let fullMenuReturnFocus;
 let fullMenuLeaveTimer;
 let fullMenuKeyboardMode = false;
+let fullMenuResumeLenis = false;
 
 document.addEventListener('pointerdown', () => {
     fullMenuKeyboardMode = false;
@@ -42,23 +44,28 @@ window.openFullMenu = function({ focusPanel = true, interaction = 'auto' } = {})
         : null;
 
     menu.classList.add('is-open');
+    document.body.classList.add('full-menu-open');
+    fullMenuResumeLenis = typeof lenis !== 'undefined' && lenis && !lenis.isStopped;
+    if (fullMenuResumeLenis) lenis.stop();
     menu.setAttribute('aria-hidden', 'false');
     setFullMenuTriggerState(true);
     document.dispatchEvent(new CustomEvent('fullmenu:opened'));
 
     requestAnimationFrame(() => {
+        if (!menu.classList.contains('is-open')) return;
         bg.classList.add('is-active');
         panel.classList.add('is-active');
         if (focusPanel) panel.querySelector('.menu-btn')?.focus({ preventScroll: true });
     });
 };
 
-window.closeFullMenu = function({ restoreFocus = true } = {}) {
+window.closeFullMenu = function({ restoreFocus = true, immediate = false } = {}) {
     const menu = document.getElementById('full-menu');
     const bg = document.getElementById('full-menu-bg');
     const panel = document.getElementById('full-menu-panel');
 
     if (!menu || !bg || !panel || !menu.classList.contains('is-open')) return;
+    if (fullMenuCloseTimer) window.clearTimeout(fullMenuCloseTimer);
     if (fullMenuLeaveTimer) {
         window.clearTimeout(fullMenuLeaveTimer);
         fullMenuLeaveTimer = undefined;
@@ -68,19 +75,31 @@ window.closeFullMenu = function({ restoreFocus = true } = {}) {
     panel.classList.remove('is-active');
     setFullMenuTriggerState(false);
 
-    fullMenuCloseTimer = window.setTimeout(() => {
+    const finishClose = () => {
         menu.classList.remove('is-open');
         menu.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('full-menu-open');
+        if (fullMenuResumeLenis && typeof lenis !== 'undefined' && lenis) lenis.start();
+        fullMenuResumeLenis = false;
 
         if (restoreFocus && fullMenuReturnFocus?.isConnected) {
             fullMenuReturnFocus.focus({ preventScroll: true });
         }
         document.dispatchEvent(new CustomEvent('fullmenu:closed'));
         fullMenuCloseTimer = undefined;
-    }, FULL_MENU_TRANSITION_MS);
+    };
+    if (immediate) finishClose();
+    else fullMenuCloseTimer = window.setTimeout(finishClose, FULL_MENU_TRANSITION_MS);
 };
 
 const fullMenuPanel = document.getElementById('full-menu-panel');
+
+fullMenuDesktop.addEventListener('change', (event) => {
+    if (!event.matches) return;
+    const moveFocus = fullMenuPanel?.contains(document.activeElement);
+    closeFullMenu({ restoreFocus: false, immediate: true });
+    if (moveFocus) document.querySelector('.hdr-nav > a[href]')?.focus({ preventScroll: true });
+});
 
 fullMenuPanel?.addEventListener('pointerenter', () => {
     if (!fullMenuLeaveTimer) return;
@@ -89,6 +108,7 @@ fullMenuPanel?.addEventListener('pointerenter', () => {
 });
 
 fullMenuPanel?.addEventListener('pointerleave', (event) => {
+    if (!fullMenuDesktop.matches) return;
     if (event.pointerType && event.pointerType !== 'mouse') return;
     if (fullMenuKeyboardMode && fullMenuPanel.contains(document.activeElement)) return;
 
@@ -97,24 +117,6 @@ fullMenuPanel?.addEventListener('pointerleave', (event) => {
         fullMenuLeaveTimer = undefined;
     }, 150);
 });
-
-window.closeFullMenuAndScroll = function(element) {
-    const targetId = element.getAttribute('href');
-    closeFullMenu({ restoreFocus: false });
-    if (!targetId?.startsWith('#')) return;
-    window.setTimeout(() => {
-        if (targetId && targetId !== '#') {
-            const headerHeight = Number.parseFloat(
-                getComputedStyle(document.documentElement).getPropertyValue('--header-height'),
-            ) || 80;
-            if (typeof lenis !== 'undefined' && lenis) {
-                lenis.scrollTo(targetId, { offset: -headerHeight });
-            } else {
-                document.querySelector(targetId)?.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    }, FULL_MENU_TRANSITION_MS);
-};
 
 document.addEventListener('keydown', (event) => {
     const menu = document.getElementById('full-menu');

@@ -190,44 +190,31 @@
     background: #f5f8fc;
   }
   .dp-image {
-    display: grid;
-    place-items: center;
-    min-height: 350px;
-    max-height: 680px;
-    overflow: auto;
-
-    img { display: block; max-width: 100%; width: auto; height: auto; max-height: 680px; object-fit: contain; }
-    p { max-width: 340px; padding: 32px; color: #64748b; font-size: 16px; line-height: 1.6; text-align: center; }
-  }
-  .dp-image-open {
+    position: relative;
     display: grid;
     place-items: center;
     width: 100%;
-    min-height: 350px;
+    aspect-ratio: 1024 / 725;
+    min-height: 240px;
+    max-height: min(680px, calc(100dvh - 180px));
+    overflow: hidden;
+
+    img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    p { max-width: 340px; padding: 32px; color: #64748b; font-size: 16px; line-height: 1.6; text-align: center; }
+  }
+  .dp-image-open {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
     padding: 0;
     background: transparent;
     cursor: zoom-in;
 
     &:focus-visible { outline: 3px solid #1674ed; outline-offset: -3px; }
-  }
-  .dp-viewer.is-artwork {
-    .dp-image {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 1024 / 725;
-      min-height: 240px;
-      max-height: min(680px, calc(100dvh - 180px));
-      overflow: hidden;
-    }
-
-    .dp-image-open {
-      position: absolute;
-      inset: 0;
-      height: 100%;
-      min-height: 0;
-    }
-
-    .dp-image img { width: 100%; height: 100%; max-height: none; }
   }
   .dp-zoom {
     position: fixed;
@@ -392,7 +379,6 @@
     .dp-course-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .dp-course-unavailable { width: 100%; min-width: 0; }
     .dp-course { width: 100%; min-width: 0; }
-    .dp-image, .dp-image-open { min-height: 240px; }
     .dp-zoom-head { min-height: 56px; padding-right: 12px; padding-left: 16px; }
     .dp-zoom-head h2 { font-size: 15px; }
     .dp-zoom-stage { position: relative; grid-template-columns: minmax(0, 1fr); padding: 8px; }

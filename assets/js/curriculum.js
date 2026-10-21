@@ -15,6 +15,7 @@
     let currentTotalImages = 3;
 
     document.addEventListener('DOMContentLoaded', () => {
+        if (!document.getElementById('curriculum-cards')) return;
         // Curriculum Tabs Logic
         const mainTabBtns = document.querySelectorAll('.tab-btn');
         const subTabsContainer = document.getElementById('sub-tabs-container');
