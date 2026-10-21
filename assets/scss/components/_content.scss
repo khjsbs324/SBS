@@ -327,6 +327,8 @@
 
 .cnt-box11 {
   position: relative;
+  display: flex;
+  align-items: center;
   min-height: 300px;
   overflow: hidden;
   border-bottom-width: 1px;
@@ -346,12 +348,11 @@
 }
 
 .cnt-img2 {
-  position: absolute;
-  inset: 0px;
-  height: 100%;
+  display: block;
+  height: auto;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover
+  -o-object-fit: contain;
+     object-fit: contain
 }
 
 .cnt-box12 {

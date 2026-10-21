@@ -16,6 +16,14 @@ const site = window.SBSSiteData;
 const homeBanner = window.SBSHomeBannerData;
 const courseDetails = window.SBSCourseDetailData;
 
+const navigation = site.navigation || [];
+assert(navigation.length === 7, '공통 메뉴는 7개 항목이어야 합니다.');
+assert(new Set(navigation.map((item) => item.url)).size === navigation.length, '공통 메뉴 주소가 중복됩니다.');
+navigation.forEach((item) => {
+    assert(typeof item.label === 'string' && item.label.trim(), '공통 메뉴 이름이 없습니다.');
+    assert(/^[a-z-]+\.html$/.test(item.url) && fs.existsSync(path.join(root, item.url)), `공통 메뉴 이동 페이지가 없습니다: ${item.url}`);
+});
+
 function assert(condition, message) {
     if (!condition) errors.push(message);
 }
@@ -272,7 +280,7 @@ if (courseDetails) {
 }
 
 const htmlPath = path.join(root, 'index.html');
-const html = fs.readFileSync(htmlPath, 'utf8');
+const html = fs.readFileSync(htmlPath, 'utf8').replace(/<!--[\s\S]*?-->/g, '');
 const aboutHtmlPath = path.join(root, 'about.html');
 assert(fs.existsSync(aboutHtmlPath), 'SBS소개 서브페이지가 없습니다. (about.html)');
 const aboutHtml = fs.existsSync(aboutHtmlPath) ? fs.readFileSync(aboutHtmlPath, 'utf8') : '';
@@ -289,7 +297,6 @@ const requiredIds = [
     'reviews-content',
     'location-content',
     'seminar-list',
-    'curriculum-cards',
     'course-modal',
     'seminar-modal',
     'portfolio-modal',
@@ -300,11 +307,11 @@ requiredIds.forEach((id) => {
 });
 
 const movedSections = [
-    ['stats', '2'],
-    ['why-sbs', '3'],
-    ['roadmap', '4'],
-    ['curriculum-detail', '5'],
-    ['academy-info', '6'],
+    ['stats', '1'],
+    ['why-sbs', '2'],
+    ['roadmap', '3'],
+    ['curriculum-detail', '4'],
+    ['academy-info', '5'],
 ];
 
 movedSections.forEach(([id, pageNumber]) => {
@@ -318,7 +325,7 @@ movedSections.forEach(([id, pageNumber]) => {
 
 const pageSectionSequences = [
     ['index.html', html, ['home', 'curriculum', 'portfolio', 'reviews', 'location', 'seminar']],
-    ['about.html', aboutHtml, ['about-intro', 'stats', 'why-sbs', 'roadmap', 'curriculum-detail', 'academy-info']],
+    ['about.html', aboutHtml, ['stats', 'why-sbs', 'roadmap', 'curriculum-detail', 'academy-info']],
 ];
 
 pageSectionSequences.forEach(([fileName, pageHtml, sectionIds]) => {
@@ -328,10 +335,6 @@ pageSectionSequences.forEach(([fileName, pageHtml, sectionIds]) => {
             `<section\\b(?=[^>]*\\bid="${id}")(?=[^>]*\\bdata-page-number="${pageNumber}")[^>]*>`,
         );
         assert(sectionPattern.test(pageHtml), `${fileName}의 페이지 번호가 올바르지 않습니다. (#${id}: ${pageNumber})`);
-        assert(
-            pageHtml.includes(`data-section-link="${id}"`),
-            `${fileName}의 사이드바에 섹션 링크가 없습니다. (#${id})`,
-        );
     });
 });
 

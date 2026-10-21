@@ -231,7 +231,6 @@
         const images = activeCourse ? courseImages(activeCourse) : [];
         const total = images.length;
         const isArtwork = activeCourse?.departmentId === 'artwork';
-        viewer.classList.toggle('is-artwork', isArtwork);
         imageBox.replaceChildren();
         imageIndex = Math.min(imageIndex, Math.max(0, total - 1));
         if (!isArtwork || !total) artworkPreloads.clear();

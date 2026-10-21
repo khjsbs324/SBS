@@ -42,11 +42,11 @@
         <nav id="ex-categories" class="pf-filters ex-categories" aria-label="자격증 분야"></nav>
         <div class="ex-layout">
             <section class="ex-subjects" aria-labelledby="ex-subject-heading">
-                <div class="ex-panel-heading"><span>01 / SUBJECT</span><h2 id="ex-subject-heading">종목 선택</h2></div>
+                <div class="ex-panel-heading"><h2 id="ex-subject-heading">종목 선택</h2></div>
                 <div id="ex-subject-list" class="ex-subject-list"></div>
             </section>
             <section id="ex-detail" class="ex-detail" aria-labelledby="ex-detail-title" aria-live="polite">
-                <div class="ex-panel-heading"><span>02 / SCHEDULE</span><h2 id="ex-detail-title">시험 일정</h2></div>
+                <div class="ex-panel-heading"><h2 id="ex-detail-title">시험 일정</h2></div>
                 <div id="ex-detail-content"></div>
             </section>
         </div>
@@ -77,16 +77,7 @@
                 <h2 id="full-menu-title" class="menu-sr-only">전체메뉴</h2>
                 <button onclick="closeFullMenu()" class="menu-btn" type="button" aria-label="전체메뉴 닫기"><svg class="menu-ico" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
             </div>
-            <div class="menu-box5" id="full-menu-content" data-lenis-prevent><nav class="menu-nav" aria-label="전체메뉴"><div class="menu-box6">
-                <h4 class="menu-tit">Exam Schedule</h4>
-                <a href="#exam-content" class="menu-lnk" data-section-link="exam-content" onclick="closeFullMenuAndScroll(this)">01 자격증 시험 일정</a>
-                <a href="./index.html" class="menu-lnk">메인페이지</a>
-                <a href="./curriculum.html" class="menu-lnk">교육과정</a>
-                <a href="./about.html" class="menu-lnk">SBS소개</a>
-                <a href="./portfolio.html" class="menu-lnk">포트폴리오</a>
-                <a href="./seminar.html" class="menu-lnk">세미나</a>
-                <a href="./books.html" class="menu-lnk">교재 구매</a>
-            </div></nav></div>
+            <div class="menu-box5" id="full-menu-content" data-lenis-prevent><nav class="menu-nav" aria-label="전체메뉴"><div class="menu-box6" data-site-navigation></div></nav></div>
         </aside>
     </div>
 
@@ -95,6 +86,7 @@
     <script src="./assets/js/about.js"></script>
     <script src="./assets/js/exam-schedule.js"></script>
     <script src="./assets/js/scroll.js"></script>
+    <script src="./assets/js/site-navigation.js"></script>
     <script src="./assets/js/submenu.js"></script>
     <script src="./assets/js/modals.js"></script>
 </body>

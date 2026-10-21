@@ -9,6 +9,7 @@ const data = window.SBSResourcesData;
 assert(data?.title && data.description && data.imageNote, '자료실 공통 안내가 없습니다.');
 assert.deepEqual(data.categories.map((category) => category.id), ['colorist', 'storyboard']);
 
+const cdnBase = 'https://6ad875c0a739f93be2a4929a--sbs-daejeon.netlify.app/';
 const ids = new Set();
 const images = new Set();
 let total = 0;
@@ -22,15 +23,19 @@ for (const category of data.categories) {
         ids.add(item.id);
         assert(item.name?.trim() && item.description?.trim(), `준비물 이름 또는 설명 누락: ${item.id}`);
         if (!item.image) continue;
-        assert.match(item.image, /^(colorist|storyboard)-supplies\/[a-z0-9-]+\.png$/, `이미지 경로 오류: ${item.id}`);
-        assert(item.image.startsWith(`${category.id}-supplies/`), `다른 과정의 이미지가 연결됨: ${item.id}`);
-        const source = fs.readFileSync(path.join(root, item.image));
+        assert(item.image.startsWith(cdnBase), `고정 배포 CDN 주소 오류: ${item.id}`);
+        const imagePath = item.image.slice(cdnBase.length);
+        const thumbnailPath = `assets/images/resources/${imagePath.replace(/\.png$/, '.webp')}`;
+        assert.equal(item.thumbnail, `${cdnBase}${thumbnailPath}`, `썸네일 CDN 주소 오류: ${item.id}`);
+        assert.match(imagePath, /^(colorist|storyboard)-supplies\/[a-z0-9-]+\.png$/, `이미지 경로 오류: ${item.id}`);
+        assert(imagePath.startsWith(`${category.id}-supplies/`), `다른 과정의 이미지가 연결됨: ${item.id}`);
+        const source = fs.readFileSync(path.join(root, imagePath));
         assert.equal(source.subarray(1, 4).toString(), 'PNG', `PNG 파일 오류: ${item.image}`);
-        const thumbnail = fs.readFileSync(path.join(root, 'assets/images/resources', item.image.replace(/\.png$/, '.webp')));
+        const thumbnail = fs.readFileSync(path.join(root, thumbnailPath));
         assert.equal(thumbnail.toString('ascii', 0, 4), 'RIFF', `썸네일 파일 오류: ${item.image}`);
         assert.equal(thumbnail.toString('ascii', 8, 12), 'WEBP', `WebP 형식 오류: ${item.image}`);
         assert(thumbnail.length < source.length, `썸네일 크기 최적화 확인: ${item.image}`);
-        images.add(item.image);
+        images.add(imagePath);
     }
 }
 
