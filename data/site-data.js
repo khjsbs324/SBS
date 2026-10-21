@@ -10,65 +10,104 @@ window.SBSSiteData = Object.freeze({
     },
     "shortcuts": [
         {
-            "target": "ai_agent",
-            "label": "AI Master",
-            "title": "AI Master",
+            "id": "artwork-webtoon",
+            "label": "ARTWORK / WEBTOON",
+            "title": "아트웍/웹툰 학과",
             "description": [
-                "AI 자동화, 바이브코딩"
-            ],
-            "ariaLabel": "AI Master 교육과정 바로가기",
-            "detailUrl": "./courses/ai-master.html"
+                "디지털 드로잉",
+                "색채학/발상과 표현/해부학",
+                "웹툰"
+            ]
         },
         {
-            "target": "uiux",
-            "label": "HOT",
-            "title": "AI 디자인",
+            "id": "advertising-design",
+            "label": "ADVERTISING DESIGN",
+            "title": "광고편집 학과",
             "description": [
-                "AI 디자인",
-                "웹 UIUX, 시각편집"
-            ],
-            "ariaLabel": "AI 디자인 교육과정 바로가기",
-            "detailUrl": "./courses/ai-design.html"
+                "포토샵/일러스트",
+                "인디자인",
+                "인포그래픽"
+            ]
         },
         {
-            "target": "motion",
-            "label": "AI 모션·CG",
-            "title": "AI 모션/CG",
+            "id": "uiux-vibe-coding",
+            "label": "UIUX / VIBE CODING",
+            "title": "UIUX바이브코딩 학과",
             "description": [
-                "유튜브/영상편집"
-            ],
-            "ariaLabel": "AI 모션·CG 교육과정 바로가기",
-            "detailUrl": "./courses/ai-motion-cg.html"
+                "웹디자인",
+                "UI/UX",
+                "바이브코딩"
+            ]
         },
         {
-            "target": "webtoon",
-            "label": "AI 웹툰/드로잉",
-            "title": "AI 웹툰/드로잉",
+            "id": "motion",
+            "label": "MOTION GRAPHICS",
+            "title": "모션 학과",
             "description": [
-                "미술 기초, 디지털드로잉"
-            ],
-            "ariaLabel": "AI 웹툰·드로잉 교육과정 바로가기",
-            "detailUrl": "./courses/ai-webtoon-drawing.html"
+                "애프터이펙트",
+                "프리미어프로",
+                "시네마4D"
+            ]
         },
         {
-            "target": "archi",
-            "label": "AI 인테리어",
-            "title": "AI 인테리어/제품",
+            "id": "ai-skillup",
+            "label": "AI SKILL UP",
+            "title": "AI스킬업",
             "description": [
-                "인테리어/기계,제품"
-            ],
-            "ariaLabel": "AI 인테리어·제품 교육과정 바로가기",
-            "detailUrl": "./courses/ai-interior-product.html"
+                "AI 프롬프트 엔지니어링",
+                "AI 에이전트",
+                "AI 마케팅 콘텐츠"
+            ]
         },
         {
-            "target": "cert",
-            "label": "AI 자격증",
+            "id": "interior",
+            "label": "INTERIOR",
+            "title": "인테리어 학과",
+            "description": [
+                "CAD",
+                "3ds Max",
+                "Revit BIM",
+                "스케치업"
+            ]
+        },
+        {
+            "id": "cg",
+            "label": "CG / VFX",
+            "title": "CG학과",
+            "description": [
+                "Maya/VFX",
+                "Unreal/ZBrush",
+                "Blender"
+            ]
+        },
+        {
+            "id": "youtube-creator",
+            "label": "YOUTUBE",
+            "title": "유튜브 크리에이터",
+            "description": [
+                "영상 크리에이터",
+                "유튜브 크리에이터"
+            ]
+        },
+        {
+            "id": "certificate",
+            "label": "CERTIFICATE",
             "title": "자격증",
             "description": [
-                "디자인/사무/AI자격증"
-            ],
-            "ariaLabel": "AI 자격증 교육과정 바로가기",
-            "detailUrl": "./courses/certificate.html"
+                "디자인 자격증",
+                "사무/회계 자격증",
+                "건축/기계 자격증"
+            ]
+        },
+        {
+            "id": "ai-software",
+            "label": "AI SOFTWARE",
+            "title": "인공지능융합 SW학과",
+            "description": [
+                "AI 파이썬",
+                "머신러닝",
+                "기초 코딩"
+            ]
         }
     ],
     "courseMenu": [
@@ -77,7 +116,13 @@ window.SBSSiteData = Object.freeze({
             "title": "AI MASTER",
             "target": "ai_agent_basic",
             "items": [
-                { "label": "AI 에이전트(클로드)", "target": "ai_agent_basic" },
+                {
+                    "label": "AI 에이전트(클로드)",
+                    "target": "ai_agent_basic",
+                    "curriculumLabel": "AI 에이전트 기초/심화",
+                    "slug": "ai-agent",
+                    "detailUrl": "/courses/ai-agent.html"
+                },
                 { "label": "AI 프롬프트 엔지니어링", "target": "ai_agent_basic" },
                 { "label": "AI-POT", "target": "cert_field" },
                 { "label": "AI 바이브코딩", "target": "ai_agent_advanced" },
@@ -314,7 +359,7 @@ window.SBSSiteData = Object.freeze({
         ]
     },
     "location": {
-        "mapImage": "https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/Map/Map_Img.png",
+        "mapImage": "/Map/Map_Img.png",
         "mapAlt": "SBS아카데미AIX학원 대전점 위치 지도",
         "academyName": "SBS아카데미AIX학원 대전점",
         "addressLines": [
@@ -326,39 +371,10 @@ window.SBSSiteData = Object.freeze({
     },
     "seminars": {
         "applicationMethod": "스마트러닝 앱 → 메인페이지 화면 중앙(특강 및 세미나) → 원하는 세미나 클릭! → 하단 (특강&세미나) 신청",
-        "items": [
-            {
-                "branch": "[대전지점]",
-                "title": "인스타툰으로 시작하는 나만의 콘텐츠 브랜딩 세미나",
-                "description": "퍼스널 브랜딩부터 실전 드로잉, 채널 성장 노하우까지 현업 작가에게 직접 배웁니다.",
-                "date": "2026. 04. 29 (수) 16:00",
-                "applicationPeriod": "2026. 04. 01 ~ 2026. 04. 28",
-                "image": "https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/seminar/seminar1.jpg",
-                "backgroundClass": "poster-lilac"
-            },
-            {
-                "branch": "[대전지점]",
-                "title": "AI가 대신 일하는 시대, AI에이전트 실전 세미나",
-                "description": "Claude Code로 만드는 자동화 워크플로우 실무 활용 및 확장 전략을 배웁니다.",
-                "date": "2026. 04. 30 (목) 14:00 - 16:00",
-                "applicationPeriod": "2026. 04. 01 ~ 2026. 04. 29",
-                "image": "https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/seminar/seminar2.jpg",
-                "backgroundClass": "poster-night"
-            },
-            {
-                "branch": "[대전지점]",
-                "title": "인테리어 AI 크리에이터 신규과정 런칭",
-                "description": "신규과정 소개와 인테리어 분야에서의 AI전망 및 연계 방법을 알아봅니다.",
-                "date": "2025. 11. 28 (금) 13:00 - 15:00",
-                "applicationPeriod": "~ 2025. 11. 27",
-                "image": "https://cdn.jsdelivr.net/gh/sbsweb35-tech/SBS@main/seminar/seminar3.jpg",
-                "backgroundClass": "poster-clay"
-            }
-        ],
         "all": {
             "title": "Xgen / ACP 자격증 등",
             "label": "특강 전체보기 →",
-            "url": "https://se.sbsart.com/community/seminar.asp?placeSeq=12"
+            "url": "./seminar.html"
         }
     },
     "contact": {

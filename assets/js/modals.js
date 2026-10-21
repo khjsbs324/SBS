@@ -4,54 +4,153 @@
 // ==========================================
 // 전체메뉴 (Full Menu) 로직
 // ==========================================
-window.openFullMenu = function() {
+const FULL_MENU_TRANSITION_MS = 350;
+let fullMenuCloseTimer;
+let fullMenuReturnFocus;
+let fullMenuLeaveTimer;
+let fullMenuKeyboardMode = false;
+
+document.addEventListener('pointerdown', () => {
+    fullMenuKeyboardMode = false;
+}, true);
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Tab' || event.key === 'Enter' || event.key === ' ') {
+        fullMenuKeyboardMode = true;
+    }
+}, true);
+
+function setFullMenuTriggerState(isExpanded) {
+    document.querySelectorAll('[aria-controls="full-menu"]').forEach((trigger) => {
+        trigger.setAttribute('aria-expanded', String(isExpanded));
+    });
+}
+
+window.openFullMenu = function({ focusPanel = true, interaction = 'auto' } = {}) {
     const menu = document.getElementById('full-menu');
     const bg = document.getElementById('full-menu-bg');
-    const header = document.getElementById('full-menu-header');
-    const content = document.getElementById('full-menu-content');
+    const panel = document.getElementById('full-menu-panel');
+
+    if (!menu || !bg || !panel || menu.classList.contains('is-open')) return;
+    if (fullMenuCloseTimer) window.clearTimeout(fullMenuCloseTimer);
+    if (fullMenuLeaveTimer) window.clearTimeout(fullMenuLeaveTimer);
+    if (interaction === 'pointer') fullMenuKeyboardMode = false;
+    if (interaction === 'keyboard') fullMenuKeyboardMode = true;
+
+    fullMenuReturnFocus = document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
 
     menu.classList.add('is-open');
-    document.body.classList.add('modal-open');
-    if(lenis) lenis.stop();
+    menu.setAttribute('aria-hidden', 'false');
+    setFullMenuTriggerState(true);
+    document.dispatchEvent(new CustomEvent('fullmenu:opened'));
 
     requestAnimationFrame(() => {
         bg.classList.add('is-active');
-        header.classList.add('is-active');
-        content.classList.add('is-active');
+        panel.classList.add('is-active');
+        if (focusPanel) panel.querySelector('.menu-btn')?.focus({ preventScroll: true });
     });
 };
 
-window.closeFullMenu = function() {
+window.closeFullMenu = function({ restoreFocus = true } = {}) {
     const menu = document.getElementById('full-menu');
     const bg = document.getElementById('full-menu-bg');
-    const header = document.getElementById('full-menu-header');
-    const content = document.getElementById('full-menu-content');
+    const panel = document.getElementById('full-menu-panel');
+
+    if (!menu || !bg || !panel || !menu.classList.contains('is-open')) return;
+    if (fullMenuLeaveTimer) {
+        window.clearTimeout(fullMenuLeaveTimer);
+        fullMenuLeaveTimer = undefined;
+    }
 
     bg.classList.remove('is-active');
-    header.classList.remove('is-active');
-    content.classList.remove('is-active');
+    panel.classList.remove('is-active');
+    setFullMenuTriggerState(false);
 
-    setTimeout(() => {
+    fullMenuCloseTimer = window.setTimeout(() => {
         menu.classList.remove('is-open');
+        menu.setAttribute('aria-hidden', 'true');
 
-        if (!document.getElementById('course-modal').classList.contains('is-open') &&
-            !document.getElementById('seminar-modal').classList.contains('is-open') &&
-            !document.getElementById('portfolio-modal').classList.contains('is-open')) {
-            document.body.classList.remove('modal-open');
-            if(lenis) lenis.start();
+        if (restoreFocus && fullMenuReturnFocus?.isConnected) {
+            fullMenuReturnFocus.focus({ preventScroll: true });
         }
-    }, 500);
+        document.dispatchEvent(new CustomEvent('fullmenu:closed'));
+        fullMenuCloseTimer = undefined;
+    }, FULL_MENU_TRANSITION_MS);
 };
+
+const fullMenuPanel = document.getElementById('full-menu-panel');
+
+fullMenuPanel?.addEventListener('pointerenter', () => {
+    if (!fullMenuLeaveTimer) return;
+    window.clearTimeout(fullMenuLeaveTimer);
+    fullMenuLeaveTimer = undefined;
+});
+
+fullMenuPanel?.addEventListener('pointerleave', (event) => {
+    if (event.pointerType && event.pointerType !== 'mouse') return;
+    if (fullMenuKeyboardMode && fullMenuPanel.contains(document.activeElement)) return;
+
+    fullMenuLeaveTimer = window.setTimeout(() => {
+        closeFullMenu({ restoreFocus: false });
+        fullMenuLeaveTimer = undefined;
+    }, 150);
+});
 
 window.closeFullMenuAndScroll = function(element) {
     const targetId = element.getAttribute('href');
-    closeFullMenu();
-    setTimeout(() => {
-        if(targetId && targetId !== '#') {
-            if(lenis) lenis.scrollTo(targetId, { offset: -80 });
+    closeFullMenu({ restoreFocus: false });
+    if (!targetId?.startsWith('#')) return;
+    window.setTimeout(() => {
+        if (targetId && targetId !== '#') {
+            const headerHeight = Number.parseFloat(
+                getComputedStyle(document.documentElement).getPropertyValue('--header-height'),
+            ) || 80;
+            if (typeof lenis !== 'undefined' && lenis) {
+                lenis.scrollTo(targetId, { offset: -headerHeight });
+            } else {
+                document.querySelector(targetId)?.scrollIntoView({ behavior: 'smooth' });
+            }
         }
-    }, 500);
-}
+    }, FULL_MENU_TRANSITION_MS);
+};
+
+document.addEventListener('keydown', (event) => {
+    const menu = document.getElementById('full-menu');
+    const panel = document.getElementById('full-menu-panel');
+
+    if (!menu?.classList.contains('is-open') || !panel) return;
+
+    if (event.key === 'Escape') {
+        event.preventDefault();
+        closeFullMenu();
+        return;
+    }
+
+    if (event.key !== 'Tab') return;
+
+    const focusable = [...panel.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    )].filter((element) => !element.hidden && element.getClientRects().length > 0);
+
+    if (focusable.length === 0) {
+        event.preventDefault();
+        panel.focus({ preventScroll: true });
+        return;
+    }
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+    }
+});
 
 // ==========================================
 // 2. 세미나 상세 이미지 팝업 모달 스크립트
@@ -61,13 +160,33 @@ window.openSeminarModal = function(title, bgClass, imageUrl) {
     const container = document.getElementById('seminar-modal-container');
     const imageArea = document.getElementById('seminar-modal-image');
 
-    // Set placeholder background and title or display image
-    if (imageUrl) {
-        imageArea.className=`modc-box`;
-        imageArea.innerHTML = `<img src="${imageUrl}" alt="${title}" class="modc-img">`;
+    // 시트 문구·URL은 HTML로 해석하지 않고 안전한 노드로 표시합니다.
+    let safeImage = '';
+    try {
+        const url = new URL(String(imageUrl));
+        if (['http:', 'https:'].includes(url.protocol)) safeImage = url.href;
+    } catch { /* 이미지 URL이 없으면 포스터 자리표시자를 사용합니다. */ }
+    imageArea.replaceChildren();
+    if (safeImage) {
+        imageArea.className = 'modc-box';
+        const image = document.createElement('img');
+        image.src = safeImage;
+        image.alt = String(title);
+        image.className = 'modc-img';
+        imageArea.append(image);
     } else {
-        imageArea.className = `modc-box is-placeholder ${bgClass}`;
-        imageArea.innerHTML = `<span id="seminar-modal-title" class="modc-tag"><span class="modc-tag2">Seminar Poster</span><span class="modc-tag3">${title}</span></span>`;
+        imageArea.className = `modc-box is-placeholder ${/^[a-z0-9-]+$/.test(bgClass) ? bgClass : ''}`;
+        const tag = document.createElement('span');
+        tag.id = 'seminar-modal-title';
+        tag.className = 'modc-tag';
+        const label = document.createElement('span');
+        label.className = 'modc-tag2';
+        label.textContent = 'Seminar Poster';
+        const heading = document.createElement('span');
+        heading.className = 'modc-tag3';
+        heading.textContent = String(title);
+        tag.append(label, heading);
+        imageArea.append(tag);
     }
 
     // Open Animation

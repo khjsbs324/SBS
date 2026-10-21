@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오 | SBS아카데미AIX학원</title>
+    <meta name="description" content="SBS아카데미AIX학원 수강생 포트폴리오를 만나보세요.">
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body class="base-page portfolio-page">
+<header id="header" class="hdr-hdr glass-header">
+        <div class="hdr-box">
+            <div class="hdr-box2">
+                <div class="hdr-box3" onclick="window.location.href='./index.html'">
+                    <img data-site-logo alt="SBS아카데미AIX" class="hdr-img">
+                </div>
+
+                <nav class="hdr-nav">
+                    <div id="course-menu-root" class="hdr-mn">
+                        <button id="course-menu-trigger" class="hdr-lnk hdr-crs" type="button" aria-expanded="false" aria-controls="course-submenu">
+                            <span class="hdr-course-bubble" aria-hidden="true">로드맵 / 커리큘럼</span>
+                            <span>교육과정</span>
+                            <svg class="hdr-arr" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9 6 6 6-6"></path></svg>
+                        </button>
+                    </div>
+                    <a href="./about.html" class="hdr-lnk">SBS소개</a>
+                    <a href="./portfolio.html" class="hdr-lnk is-current" aria-current="page">포트폴리오</a>
+                    <a href="./seminar.html" class="hdr-lnk">세미나</a>
+                    <span class="hdr-lnk">자료실</span>
+                    <a href="./books.html" class="hdr-lnk">교재 구매</a>
+                    <a href="./exam-schedule.html" class="hdr-lnk">자격증 일정</a>
+                </nav>
+
+                <div class="hdr-box5">
+                    <button onclick="openFullMenu({ interaction: event.detail === 0 ? 'keyboard' : 'pointer' })" class="hdr-btn2" aria-label="전체메뉴 열기" aria-expanded="false" aria-controls="full-menu">
+                        <svg class="hdr-ico" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="course-submenu" class="m2-box" aria-hidden="true" data-lenis-prevent>
+        <div class="m2-pan">
+            <nav id="course-submenu-grid" class="m2-nav" aria-label="교육과정 세부 메뉴"></nav>
+        </div>
+    </div>
+
+    <div class="pf-breadcrumb"><div><a href="./index.html">홈</a><span aria-hidden="true">›</span><span>포트폴리오</span></div></div>
+    <main id="portfolio-content" class="pf-main" data-page-number="1">
+        <header class="pf-heading">
+            <h1 id="pf-title"></h1>
+            <p id="pf-description"></p>
+        </header>
+        <nav id="pf-filters" class="pf-filters" aria-label="포트폴리오 분야"></nav>
+        <form id="pf-search" class="pf-search" role="search">
+            <label for="pf-query" class="menu-sr-only">작품명 검색</label>
+            <input id="pf-query" type="search" placeholder="작품명으로 검색하세요" maxlength="100">
+            <button type="submit">검색</button>
+        </form>
+        <p id="pf-count" class="pf-count" role="status" aria-live="polite"></p>
+        <div id="pf-grid" class="pf-grid"></div>
+        <p id="pf-empty" class="pf-empty" hidden>등록된 작품이 없습니다.</p>
+        <button id="pf-more" class="pf-more" type="button" hidden><span aria-hidden="true">＋</span> 더보기</button>
+        <noscript>작품 목록을 보려면 자바스크립트를 활성화해 주세요.</noscript>
+    </main>
+
+    <footer class="ftr-ftr">
+        <div class="ftr-box">
+            <div class="ftr-box2">
+                <div class="ftr-box3">
+                    <img data-site-logo alt="SBS아카데미AIX학원" class="ftr-img">
+                    <div class="ftr-box4">
+                        <p><strong class="ftr-bold">사업자(법인)명:</strong> 주식회사 에스씨에이아카데미대전 <span class="ftr-tag">|</span> <strong class="ftr-bold">사업자등록번호:</strong> 822-81-00224</p>
+                        <p><strong class="ftr-bold">대표:</strong> 정해승 <span class="ftr-tag">|</span> <strong class="ftr-bold">개인정보책임자:</strong> 오도윤 <span class="ftr-tag">|</span> <strong class="ftr-bold">통신판매업번호:</strong> 제2015-대전서구-0647 호</p>
+                        <p><strong class="ftr-bold">주소:</strong> 대전광역시 서구 대덕대로 179, 9·10층 (둔산동, 엠제이피부과굿모닝어학원빌딩)</p>
+                        <p><strong class="ftr-bold">학원명:</strong> 에스비에스(SBS)아카데미컴퓨터아트학원 <span class="ftr-tag">|</span> <strong class="ftr-bold">교육담당:</strong> 대전지점</p>
+                        <p><strong class="ftr-bold">지점 대표 블로그:</strong> <a id="footer-blog-link" href="#" target="_blank" class="ftr-lnk"></a></p>
+                    </div>
+                </div>
+                <div class="ftr-box5">
+                    <h4 class="ftr-tit">고객상담센터</h4>
+                    <ul class="ftr-list">
+                        <li>대표문의전화: <span id="footer-phone" class="ftr-tag2"></span></li>
+                        <li>대표이메일: <span id="footer-email"></span></li>
+                    </ul>
+                </div>
+                <div class="ftr-box6">
+                    <h4 class="ftr-tit2">Legal</h4>
+                    <ul class="ftr-list">
+                        <li><a href="#" class="ftr-lnk2">수강료안내</a></li>
+                        <li><a href="#" class="ftr-lnk3">개인정보처리방침</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ftr-box7">
+                <p>학원등록번호: 대전서부 제서4019호</p>
+                <p class="ftr-txt">© SBS ACADEMY COMPUTER ART. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="floating-cta" class="float-box">
+        <div class="float-box2">
+            <div class="float-box3"><span class="float-tag">다양한 주요 교육과정을 확인해보세요</span></div>
+            <a href="./index.html#curriculum" class="float-btn">주요 교육과정 보기</a>
+        </div>
+    </div>
+
+    <div id="full-menu" class="menu-box" aria-hidden="true">
+        <button class="menu-box2" id="full-menu-bg" type="button" aria-label="전체메뉴 닫기" onclick="closeFullMenu()"></button>
+        <aside id="full-menu-panel" class="menu-panel" role="dialog" aria-modal="true" aria-labelledby="full-menu-title" tabindex="-1">
+            <div class="menu-box3" id="full-menu-header">
+                <button class="menu-box4" type="button" onclick="window.location.href='./index.html'" aria-label="메인페이지로 이동">
+                    <img data-site-logo alt="SBS아카데미AIX" class="menu-img">
+                </button>
+                <h2 id="full-menu-title" class="menu-sr-only">전체메뉴</h2>
+                <button onclick="closeFullMenu()" class="menu-btn" type="button" aria-label="전체메뉴 닫기">
+                    <svg class="menu-ico" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="menu-box5" id="full-menu-content" data-lenis-prevent>
+                <nav class="menu-nav" aria-label="전체메뉴">
+                    <div class="menu-box6">
+                        <h4 class="menu-tit">Portfolio</h4>
+                        <a href="#portfolio-content" class="menu-lnk" data-section-link="portfolio-content" onclick="closeFullMenuAndScroll(this)">01 포트폴리오</a>
+                        <a href="./index.html" class="menu-lnk">메인페이지</a>
+                        <a href="./about.html" class="menu-lnk">SBS소개</a>
+                        <a href="./seminar.html" class="menu-lnk">세미나</a>
+                        <a href="./books.html" class="menu-lnk">교재 구매</a>
+                        <a href="./exam-schedule.html" class="menu-lnk">자격증 일정</a>
+                    </div>
+                </nav>
+            </div>
+        </aside>
+    </div>
+
+    <div id="scroll-controls" class="scroll-box">
+        <button id="btn-smart-scroll" onclick="handleSmartScroll()" class="scroll-btn group">
+            <svg id="smart-scroll-icon" class="scroll-ico" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path></svg>
+        </button>
+    </div>
+
+    <script src="./data/site-data.js"></script>
+    <script src="./assets/js/about.js"></script>
+    <script src="./data/portfolio-config.js"></script>
+    <script src="./assets/js/portfolio-source.js"></script>
+    <script src="./assets/js/portfolio.js"></script>
+    <script src="./assets/js/scroll.js"></script>
+    <script src="./assets/js/submenu.js"></script>
+    <script src="./assets/js/modals.js"></script>
+</body>
+</html>

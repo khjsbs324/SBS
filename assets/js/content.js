@@ -27,50 +27,38 @@
     });
 
     const shortcutsGrid = document.getElementById('curriculum-shortcuts-grid');
+    const shortcutDepartments = {
+        'artwork-webtoon': 'artwork',
+        'advertising-design': 'visual',
+        'uiux-vibe-coding': 'uiux',
+        motion: 'motion',
+        'ai-skillup': 'ai-skillup',
+        interior: 'interior',
+        cg: 'cg-vfx',
+        'youtube-creator': 'youtube',
+        certificate: 'office',
+        'ai-software': 'ai-sw'
+    };
     shortcutsGrid.innerHTML = data.shortcuts.map((item, index) => {
-        const description = item.description.length > 1
-            ? item.description.map((line) => `<span class="cnt-tag">${escapeHtml(line)}</span>`).join('')
-            : escapeHtml(item.description[0]);
+        const description = item.description
+            .map(escapeHtml)
+            .join(', ');
 
         return `
-            <button type="button" data-shortcut-target="${escapeHtml(item.target)}" data-shortcut-url="${escapeHtml(item.detailUrl || '')}" aria-label="${escapeHtml(item.ariaLabel)}" class="cnt-btn group">
+            <a class="cnt-btn" href="./curriculum.html?department=${encodeURIComponent(shortcutDepartments[item.id] || 'artwork')}" aria-label="${escapeHtml(item.title)} 교육과정 보기">
                 <div class="cnt-box">
                     <span class="cnt-tag2">${String(index + 1).padStart(2, '0')}</span>
-                    <svg class="cnt-ico" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                 </div>
                 <div>
                     <span class="cnt-tag3">${escapeHtml(item.label)}</span>
                     <h3 class="cnt-tit">${escapeHtml(item.title)}</h3>
                     <p class="cnt-txt">${description}</p>
                 </div>
-            </button>
+            </a>
         `;
     }).join('');
 
-    shortcutsGrid.querySelectorAll('[data-shortcut-target]').forEach((button) => {
-        button.addEventListener('click', () => {
-            const detailUrl = safeUrl(button.dataset.shortcutUrl);
-            if (detailUrl) {
-                window.location.assign(detailUrl);
-                return;
-            }
-            window.goToCurriculum(button.dataset.shortcutTarget);
-        });
-    });
-
-    const portfolioGrid = document.getElementById('portfolio-grid');
-    portfolioGrid.innerHTML = data.portfolio.map((item, index) => `
-        <div data-portfolio-index="${index}" class="cnt-box2">
-            <img src="${safeUrl(item.thumbnail)}" alt="${escapeHtml(item.alt)}" class="cnt-img">
-        </div>
-    `).join('');
-
-    portfolioGrid.querySelectorAll('[data-portfolio-index]').forEach((card) => {
-        card.addEventListener('click', () => {
-            const item = data.portfolio[Number(card.dataset.portfolioIndex)];
-            window.openPortfolioModal(item.detailImage);
-        });
-    });
+    // 수강생 작품은 home-portfolio.js에서 공용 시트 데이터로 렌더링합니다.
 
     const hero = data.reviews.hero;
     document.getElementById('reviews-content').innerHTML = `
@@ -113,41 +101,6 @@
             <button class="cnt-btn2">주소 복사하기</button>
         </div>
     `;
-
-    const seminarList = document.getElementById('seminar-list');
-    seminarList.innerHTML = data.seminars.items.map((item, index) => {
-        const titleStateClass = index < 2 ? ' is-highlighted' : '';
-        return `
-            <div data-seminar-index="${index}" class="cnt-box14 group">
-                <div class="cnt-box15"><img src="${safeUrl(item.image)}" alt="${escapeHtml(item.title)}" class="cnt-img3"></div>
-                <div class="cnt-box16">
-                    <div>
-                        <span class="cnt-tag8">${escapeHtml(item.branch)}</span>
-                        <h3 class="cnt-tit5${titleStateClass}">${escapeHtml(item.title)}</h3>
-                        <p class="cnt-txt8">${escapeHtml(item.description)}</p>
-                    </div>
-                    <div class="cnt-box17">
-                        <div class="cnt-box18"><span class="cnt-tag9">일시</span><span>${escapeHtml(item.date)}</span></div>
-                        <div class="cnt-box18"><span class="cnt-tag9">신청기간</span><span>${escapeHtml(item.applicationPeriod)}</span></div>
-                        <div class="cnt-box18"><span class="cnt-tag9">신청방법</span><span class="cnt-tag10">${escapeHtml(data.seminars.applicationMethod)}</span></div>
-                    </div>
-                </div>
-            </div>
-        `;
-    }).join('') + `
-        <div id="seminar-all-link" class="cnt-box19">
-            <span class="cnt-tag11">${escapeHtml(data.seminars.all.title)}</span>
-            <span class="cnt-tag12">${escapeHtml(data.seminars.all.label)}</span>
-        </div>
-    `;
-
-    seminarList.querySelectorAll('[data-seminar-index]').forEach((card) => {
-        card.addEventListener('click', () => {
-            const item = data.seminars.items[Number(card.dataset.seminarIndex)];
-            window.openSeminarModal(item.title, item.backgroundClass, item.image);
-        });
-    });
-    document.getElementById('seminar-all-link').addEventListener('click', () => window.open(safeUrl(data.seminars.all.url), '_blank'));
 
     const footerPhone = document.getElementById('footer-phone');
     const footerEmail = document.getElementById('footer-email');

@@ -1,0 +1,124 @@
+.books-page {
+  .bk-main { scroll-margin-top: calc(var(--header-height) + 20px); }
+  .bk-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+
+    > div:first-child { min-width: 0; }
+  }
+  .bk-heading-actions { display: flex; align-items: center; flex-shrink: 0; gap: 8px; }
+  .bk-heading-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 11px 20px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .bk-store {
+    border: 1px solid #288cff;
+    color: #176bce;
+
+    &:hover { background: #eff6ff; }
+  }
+  .bk-cart {
+    background: #288cff;
+    color: #fff;
+
+    &:hover { background: #176bce; }
+  }
+  .bk-featured { margin-top: 48px; }
+  .bk-featured-controls { display: none; gap: 8px; }
+  .bk-featured-controls button {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #cbd5e1;
+    border-radius: 50%;
+    color: #176bce;
+    font-size: 28px;
+    line-height: 1;
+
+    &:hover:not(:disabled) { border-color: #288cff; background: #eff6ff; }
+    &:disabled { color: #94a3b8; opacity: .5; cursor: default; }
+  }
+  .bk-featured-track {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .bk-featured-card { min-width: 0; }
+  .bk-grid { row-gap: 38px; }
+  .bk-media {
+    aspect-ratio: 4 / 5;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+
+    img { object-fit: contain; }
+  }
+  .bk-card-info { margin-top: 14px; }
+  .bk-price {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+    color: #64748b;
+    font-size: 14px;
+
+    strong { color: #1e293b; font-size: 16px; font-weight: 700; }
+  }
+  .bk-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 56px;
+
+    a, span {
+      display: grid;
+      place-items: center;
+      min-width: 40px;
+      min-height: 40px;
+      padding: 0 8px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    a { border: 1px solid #cbd5e1; color: #475569; }
+    a:hover { border-color: #288cff; color: #176bce; }
+    a[aria-current] { border-color: #288cff; background: #288cff; color: #fff; font-weight: 700; }
+    span { color: #94a3b8; }
+  }
+  @media (max-width: 1024px) {
+    .bk-featured-controls { display: flex; justify-content: flex-end; margin-top: 16px; }
+    .bk-featured-track {
+      display: flex;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar { display: none; }
+    }
+    .bk-featured-card {
+      flex: 0 0 min(42%, 320px);
+      scroll-snap-align: start;
+    }
+  }
+  @media (max-width: 767px) {
+    .bk-heading { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .bk-heading-actions { flex-wrap: wrap; }
+    .bk-featured { margin-top: 32px; }
+    .bk-featured-card { flex-basis: min(76%, 300px); }
+    .bk-grid { row-gap: 30px; }
+    .bk-pagination { gap: 4px; margin-top: 40px; }
+  }
+}

@@ -24,27 +24,37 @@
         const fragment = document.createDocumentFragment();
 
         menuData.items.forEach((item, index) => {
-            const card = document.createElement('li');
+            const listItem = document.createElement('li');
+            const card = document.createElement(item.detailUrl ? 'a' : 'article');
             const number = document.createElement('span');
             const copy = document.createElement('div');
             const group = document.createElement('p');
             const title = document.createElement('h3');
             const note = document.createElement('p');
 
+            listItem.className = 'cd-course-entry';
             card.className = 'cd-course-card reveal';
             number.className = 'cd-course-no';
             copy.className = 'cd-course-copy';
             group.className = 'cd-course-group';
             note.className = 'cd-course-note';
 
+            if (item.detailUrl) {
+                card.href = item.detailUrl;
+                card.setAttribute('aria-label', `${item.label} 상세페이지로 이동`);
+            }
+
             number.textContent = String(index + 1).padStart(2, '0');
             group.textContent = item.group ?? menuData.title;
             title.textContent = item.label;
-            note.textContent = '과정별 세부 구성과 수강 일정은 상담 시 안내합니다.';
+            note.textContent = item.detailUrl
+                ? '과정 소개와 커리큘럼 자세히 보기 →'
+                : '과정별 세부 구성과 수강 일정은 상담 시 안내합니다.';
 
             copy.append(group, title, note);
             card.append(number, copy);
-            fragment.append(card);
+            listItem.append(card);
+            fragment.append(listItem);
         });
 
         courseList.append(fragment);
@@ -85,12 +95,33 @@
         if (window.innerWidth > 820) closeMobileMenu();
     });
 
+    let lastHeaderScrollY = window.scrollY;
+    function showHeader() {
+        header?.classList.remove('is-hidden');
+        document.body.classList.remove('is-header-hidden');
+        lastHeaderScrollY = window.scrollY;
+    }
+
     function updateHeader() {
-        header?.classList.toggle('is-scrolled', window.scrollY > 20);
+        const currentScrollY = Math.max(0, window.scrollY);
+        header?.classList.toggle('is-scrolled', currentScrollY > 20);
+        if (!header) return;
+        if (currentScrollY <= 8) {
+            showHeader();
+            return;
+        }
+        const movement = currentScrollY - lastHeaderScrollY;
+        if (Math.abs(movement) < 6) return;
+        lastHeaderScrollY = currentScrollY;
+        const hide = movement > 0 && currentScrollY > header.offsetHeight;
+        if (hide) closeMobileMenu();
+        header.classList.toggle('is-hidden', hide);
+        document.body.classList.toggle('is-header-hidden', hide);
     }
 
     updateHeader();
     window.addEventListener('scroll', updateHeader, { passive: true });
+    header?.addEventListener('focusin', showHeader);
 
     if ('IntersectionObserver' in window) {
         const revealObserver = new IntersectionObserver((entries, observer) => {

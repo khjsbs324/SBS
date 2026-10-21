@@ -1,0 +1,41 @@
+.seminar-page {
+  .sm-main { scroll-margin-top: calc(var(--header-height) + 20px); }
+  .sm-status { margin: 0 0 20px; color: #64748b; font-size: 14px; }
+
+  .sm-grid { row-gap: 38px; }
+  .sm-card { display: block; }
+  .sm-media {
+    aspect-ratio: 4 / 5;
+    border: 1px solid #e2e8f0;
+
+    img { object-fit: contain; }
+  }
+  .sm-card-meta { margin-top: 14px; }
+  .sm-card-date { margin-top: 8px; color: #64748b; font-size: 14px; }
+  .sm-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 56px;
+
+    a, span {
+      display: grid;
+      place-items: center;
+      min-width: 40px;
+      min-height: 40px;
+      padding: 0 8px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    a { border: 1px solid #cbd5e1; color: #475569; }
+    a:hover { border-color: #288cff; color: #176bce; }
+    a[aria-current] { border-color: #288cff; background: #288cff; color: #fff; font-weight: 700; }
+    span { color: #94a3b8; }
+  }
+  @media (max-width: 767px) {
+    .sm-grid { row-gap: 30px; }
+    .sm-pagination { gap: 4px; margin-top: 40px; }
+  }
+}
