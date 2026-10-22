@@ -95,55 +95,120 @@
         } catch { return ''; }
     }
 
+    function formatDate(value, year) {
+        const [dateYear, month, day] = value.split('-');
+        return Number(dateYear) === year ? `${month}.${day}` : `${dateYear}.${month}.${day}`;
+    }
+
+    function renderScheduleCell(cell, value, year) {
+        const entries = Array.isArray(value) ? value : [value];
+        entries.forEach((entry) => {
+            const line = document.createElement('span');
+            line.className = 'ex-cell-line';
+            if (typeof entry === 'string') {
+                line.classList.add('ex-cell-text');
+                line.textContent = entry;
+            } else {
+                const start = formatDate(entry.start, year);
+                const period = entry.start === entry.end ? start : `${start} ~ ${formatDate(entry.end, year)}`;
+                if (entry.label) {
+                    const label = document.createElement('small');
+                    label.className = 'ex-cell-label';
+                    label.textContent = entry.label;
+                    line.append(label);
+                }
+                line.append(document.createTextNode(period));
+            }
+            cell.append(line);
+        });
+    }
+
     function renderSchedule(item, root) {
         const schedule = data.schedules[item.schedule];
+        const rows = (schedule?.rows || []).filter((row) =>
+            (!row.stage || row.stage === stage) && (!row.grade || row.grade === grade)
+        ).sort((a, b) => {
+            const start = (row) => (Array.isArray(row.exam) ? row.exam[0] : row.exam)?.start || '';
+            return start(a).localeCompare(start(b));
+        });
         const section = document.createElement('section');
         section.className = 'ex-schedule';
         const heading = document.createElement('h3');
-        heading.textContent = schedule?.title || '시험 일정 확인';
+        heading.textContent = [schedule?.year && `${schedule.year}년`, item.name, grade, stage, schedule?.title || '시험 일정'].filter(Boolean).join(' ');
         section.append(heading);
 
-        if (schedule?.rows?.length) {
-            const scroller = document.createElement('div');
-            scroller.className = 'ex-table-scroll';
-            scroller.setAttribute('tabindex', '0');
-            scroller.setAttribute('role', 'region');
-            scroller.setAttribute('aria-label', `${schedule.title} 표`);
-            const table = document.createElement('table');
-            const head = document.createElement('thead');
-            const headRow = document.createElement('tr');
-            ['회차', '원서접수', '시험일', '합격자 발표'].forEach((label) => {
-                const cell = document.createElement('th');
-                cell.scope = 'col';
-                cell.textContent = label;
-                headRow.append(cell);
+        const scroller = document.createElement('div');
+        scroller.className = 'ex-table-scroll';
+        scroller.setAttribute('tabindex', '0');
+        scroller.setAttribute('role', 'region');
+        scroller.setAttribute('aria-label', `${heading.textContent} 표, 좌우로 스크롤할 수 있습니다`);
+        scroller.setAttribute('data-lenis-prevent', '');
+        const table = document.createElement('table');
+        const caption = document.createElement('caption');
+        caption.className = 'menu-sr-only';
+        caption.textContent = heading.textContent;
+        const head = document.createElement('thead');
+        const headRow = document.createElement('tr');
+        ['회차', '원서접수', '시험일', '합격자 발표'].forEach((label) => {
+            const cell = document.createElement('th');
+            cell.scope = 'col';
+            cell.textContent = label;
+            headRow.append(cell);
+        });
+        head.append(headRow);
+        const body = document.createElement('tbody');
+        rows.forEach((row) => {
+            const tr = document.createElement('tr');
+            const round = document.createElement('th');
+            round.scope = 'row';
+            round.textContent = row.round;
+            tr.append(round);
+            [row.apply, row.exam, row.result].forEach((value) => {
+                const cell = document.createElement('td');
+                renderScheduleCell(cell, value, schedule.year);
+                tr.append(cell);
             });
-            head.append(headRow);
-            const body = document.createElement('tbody');
-            schedule.rows.forEach((row) => {
-                const tr = document.createElement('tr');
-                [row.round, row.apply, row.exam, row.result].forEach((value) => {
-                    const cell = document.createElement('td');
-                    cell.textContent = value;
-                    tr.append(cell);
-                });
-                body.append(tr);
-            });
-            table.append(head, body);
-            scroller.append(table);
-            section.append(scroller);
+            body.append(tr);
+        });
+        if (!rows.length) {
+            const tr = document.createElement('tr');
+            const cell = document.createElement('td');
+            cell.colSpan = 4;
+            cell.className = 'ex-schedule-empty';
+            cell.textContent = '선택한 시험의 일정은 공식 공고 확인 후 안내합니다.';
+            tr.append(cell);
+            body.append(tr);
+        }
+        table.append(caption, head, body);
+        scroller.append(table);
+        section.append(scroller);
+
+        const hasDates = rows.some(row => [row.apply, row.exam, row.result].some(value => typeof value !== 'string'));
+        const notes = [
+            ...(hasDates ? [`연도가 생략된 날짜는 ${schedule.year}년입니다.`] : []),
+            ...(schedule?.notes || []),
+            ...(schedule?.gradeNotes?.[grade] || [])
+        ];
+        notes.forEach((text) => {
             const note = document.createElement('p');
             note.className = 'ex-schedule-note';
-            note.textContent = '표의 연도는 2026년이며, 별도로 표시된 날짜만 2027년입니다.';
+            note.textContent = text;
             section.append(note);
-        } else {
-            const message = document.createElement('p');
-            message.className = 'ex-schedule-message';
-            message.textContent = item.mode === '상시검정'
-                ? '시험장과 날짜를 선택해 접수하는 상시검정입니다. 응시 가능한 일정은 공식 접수처에서 확인하세요.'
-                : '종목·회차에 따라 접수와 시험 날짜가 다릅니다. 공식 일정에서 선택한 종목의 공고를 확인하세요.';
-            section.append(message);
-        }
+        });
+        (schedule?.sources || []).forEach((key) => {
+            const source = data.sources[key];
+            const url = officialUrl(source?.url);
+            if (!url) return;
+            const line = document.createElement('p');
+            line.className = 'ex-schedule-source';
+            const link = document.createElement('a');
+            link.href = url;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.textContent = source.name;
+            line.append(link, document.createTextNode(` · ${source.checkedAt.replaceAll('-', '.')} 확인`));
+            section.append(line);
+        });
         root.append(section);
     }
 

@@ -94,14 +94,27 @@
     &.is-active { border-color: #288cff; background: #288cff; color: #fff; }
   }
   .ex-schedule { margin-top: 36px; padding-top: 28px; border-top: 1px solid #e5ecf4; }
-  .ex-schedule h3 { color: #17243b; font-size: 19px; font-weight: 800; }
-  .ex-table-scroll { max-width: 100%; overflow-x: auto; margin-top: 18px; }
+  .ex-schedule h3 { color: #17243b; font-size: 19px; font-weight: 800; line-height: 1.5; }
+  .ex-table-scroll { max-width: 100%; overflow-x: auto; margin-top: 18px; overscroll-behavior-x: contain; }
   .ex-table-scroll table { width: 100%; min-width: 600px; border-collapse: collapse; text-align: left; }
   .ex-table-scroll th, .ex-table-scroll td { padding: 15px 16px; border-bottom: 1px solid #e5ecf4; font-size: 14px; white-space: nowrap; }
-  .ex-table-scroll th { background: #f3f8fe; color: #47607e; font-weight: 800; }
-  .ex-table-scroll td { color: #27364c; font-weight: 600; }
-  .ex-schedule-note { margin-top: 12px; color: #64748b; font-size: 14px; }
-  .ex-schedule-message { margin-top: 16px; padding: 22px; border-radius: 12px; background: #f5f8fc; color: #52627a; font-size: 15px; line-height: 1.65; }
+  .ex-table-scroll thead th { background: #f3f8fe; color: #47607e; font-weight: 800; }
+  .ex-table-scroll td, .ex-table-scroll tbody th { color: #27364c; font-weight: 600; vertical-align: top; line-height: 1.65; }
+  .ex-cell-line { display: block; }
+  .ex-cell-line + .ex-cell-line { margin-top: 7px; }
+  .ex-cell-label { display: block; color: #64748b; font-size: 12px; font-weight: 500; }
+  .ex-cell-text { min-width: 130px; max-width: 210px; white-space: pre-line; overflow-wrap: anywhere; }
+  .ex-table-scroll .ex-schedule-empty { white-space: normal; }
+  .ex-schedule-note { margin-top: 12px; color: #64748b; font-size: 14px; line-height: 1.65; }
+  .ex-schedule-source {
+    margin-top: 10px;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+
+    a { color: #176bce; text-decoration: underline; text-underline-offset: 3px; }
+  }
   .ex-official-link {
     display: inline-flex;
     align-items: center;
