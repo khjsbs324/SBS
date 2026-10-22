@@ -288,10 +288,7 @@ const requiredIds = [
     'support-banner-content',
     'support-course-slider',
     'support-course-slide',
-    'home-roadmap-content',
-    'home-roadmap-slide',
-    'home-roadmap-dots',
-    'home-roadmap-status',
+    'hero-visual-title',
     'curriculum-shortcuts-grid',
     'portfolio-grid',
     'reviews-content',
@@ -305,6 +302,7 @@ const requiredIds = [
 requiredIds.forEach((id) => {
     assert(html.includes(`id="${id}"`), `필수 화면 컨테이너가 없습니다. (#${id})`);
 });
+assert(html.includes('class="hero-rail"'), '메인 비주얼 사이드바가 없습니다.');
 
 const movedSections = [
     ['stats', '1'],
