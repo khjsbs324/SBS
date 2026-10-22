@@ -1,4 +1,4 @@
-/** 과정별 준비물 목록과 접근 가능한 이미지 확대 보기. */
+/** 과정별 준비물, 구매 안내와 접근 가능한 이미지 확대 보기. */
 (() => {
     const data = window.SBSResourcesData;
     const tabs = document.getElementById('rs-tabs');
@@ -31,21 +31,67 @@
         return category.sections.reduce((total, section) => total + section.items.length, 0);
     }
 
-    function information(item, headingTag = 'h4') {
+    function purchaseLink(item, product, compact = false) {
+        const label = product.label || data.ui.purchase;
+        const link = node('a', 'rs-buy-link', compact && product.label ? label.replace(/ 구매$/, '') : label);
+        link.href = imageUrl(product.url);
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.setAttribute('aria-label', `${item.name}, ${label}, 새 탭에서 열기`);
+        link.title = product.note;
+        const arrow = node('span', '', '↗');
+        arrow.setAttribute('aria-hidden', 'true');
+        link.append(arrow);
+        return link;
+    }
+
+    function purchaseInformation(item, showLinks = true) {
+        const purchase = node('div', 'rs-purchase');
+        if (item.purchase.mode === 'offline') {
+            if (showLinks) purchase.append(node('span', 'rs-offline', data.ui.offline));
+            purchase.append(node('p', 'rs-purchase-note', data.ui.offlineNote));
+            return purchase;
+        }
+        const links = node('ul', 'rs-purchase-links');
+        item.purchase.links.forEach((product) => {
+            const entry = node('li', 'rs-purchase-option');
+            entry.append(node('p', 'rs-purchase-note', product.note));
+            if (showLinks) entry.append(purchaseLink(item, product));
+            links.append(entry);
+        });
+        purchase.append(links);
+        return purchase;
+    }
+
+    function mediaPurchase(item) {
+        const actions = node('div', 'rs-media-actions');
+        if (item.purchase.mode === 'offline') {
+            actions.append(node('span', 'rs-offline', data.ui.offline));
+        } else {
+            item.purchase.links.forEach((product) => {
+                actions.append(purchaseLink(item, product, true));
+            });
+        }
+        return actions;
+    }
+
+    function information(item, headingTag = 'h4', showLinks = true) {
         const copy = node('div', 'rs-card-copy');
-        if (item.usage) copy.append(node('p', 'rs-usage', item.usage));
+        const content = node('div', 'rs-card-content');
+        if (item.usage) content.append(node('p', 'rs-usage', item.usage));
         const heading = node(headingTag, 'rs-card-title', item.name);
         if (headingTag === 'h2') heading.id = 'rs-dialog-title';
-        copy.append(heading);
-        if (item.optional) copy.append(node('span', 'rs-optional', data.ui.optional));
-        if (item.spec) copy.append(node('p', 'rs-spec', item.spec));
+        content.append(heading);
+        if (item.optional) content.append(node('span', 'rs-optional', data.ui.optional));
+        if (item.spec) content.append(node('p', 'rs-spec', item.spec));
         if (item.details) {
             const list = node('ul', 'rs-details');
             item.details.forEach((text) => list.append(node('li', '', text)));
-            copy.append(list);
+            content.append(list);
         }
-        copy.append(node('p', 'rs-description', item.description));
-        if (item.note) copy.append(node('p', 'rs-item-note', item.note));
+        content.append(node('p', 'rs-description', item.description));
+        if (item.note) content.append(node('p', 'rs-item-note', item.note));
+        copy.append(content, purchaseInformation(item, showLinks));
         return copy;
     }
 
@@ -66,6 +112,8 @@
         const entry = node('li', item.image ? 'rs-card' : 'rs-extra-card');
         entry.dataset.resourceId = item.id;
         if (item.image) {
+            const frame = node('div', 'rs-media-frame');
+            if (item.purchase.links?.length > 1) frame.classList.add('rs-media-frame--multiple');
             const media = node('button', 'rs-media');
             media.type = 'button';
             media.setAttribute('aria-label', `${item.name} ${data.ui.enlarge}`);
@@ -91,9 +139,10 @@
             });
             media.addEventListener('click', () => openImage(item, media));
             media.append(image, hint);
-            entry.append(media);
+            frame.append(media, mediaPurchase(item));
+            entry.append(frame);
         }
-        entry.append(information(item, item.image ? 'h4' : 'h5'));
+        entry.append(information(item, item.image ? 'h4' : 'h5', !item.image));
         return entry;
     }
 
@@ -120,6 +169,7 @@
 
     document.getElementById('rs-page-title').textContent = data.title;
     document.getElementById('rs-page-description').textContent = data.description;
+    document.getElementById('rs-store').href = imageUrl(data.storeUrl);
     document.getElementById('rs-image-note').textContent = data.imageNote;
     document.getElementById('rs-dialog-close').setAttribute('aria-label', data.ui.close);
     dialogError.textContent = data.ui.imageError;
@@ -190,8 +240,16 @@
     document.getElementById('rs-dialog-close').addEventListener('click', () => dialog.close());
     dialog.addEventListener('keydown', (event) => {
         if (event.key !== 'Tab') return;
-        event.preventDefault();
-        document.getElementById('rs-dialog-close').focus();
+        const focusable = [...dialog.querySelectorAll('button:not([disabled]), a[href]')].filter((element) => element.getClientRects().length);
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
     });
     let backdropPointer = false;
     function outsideDialog(event) {
