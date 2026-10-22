@@ -60,31 +60,7 @@
 
     // 수강생 작품은 home-portfolio.js에서 공용 시트 데이터로 렌더링합니다.
 
-    const hero = data.reviews.hero;
-    document.getElementById('reviews-content').innerHTML = `
-        <div class="cnt-box3">
-            <div class="cnt-box4 group">
-                <div class="cnt-box5"></div>
-                <div class="cnt-box6">
-                    <span class="cnt-tag4">${escapeHtml(hero.type)}</span>
-                    <h3 class="cnt-tit2">${escapeHtml(hero.title)}</h3>
-                    <p class="cnt-txt2">${escapeHtml(hero.subtitle)}</p>
-                    <div class="cnt-box7"><span class="cnt-tag5">${escapeHtml(hero.year)}</span> <span class="cnt-tag6">|</span> ${escapeHtml(hero.name)}</div>
-                </div>
-            </div>
-        </div>
-        <div class="cnt-box8">
-            ${data.reviews.items.map((item) => `
-                <div class="cnt-box9">
-                    <div>
-                        <div class="cnt-box10">${escapeHtml(item.type)}</div>
-                        <p class="cnt-txt3">${escapeHtml(item.quote)}</p>
-                    </div>
-                    <p class="cnt-txt4"><span class="cnt-tag7">${escapeHtml(item.course)}</span> &nbsp;|&nbsp; ${escapeHtml(item.name)}</p>
-                </div>
-            `).join('')}
-        </div>
-    `;
+    // 인터뷰 슬라이드는 home-reviews.js에서 사진과 함께 렌더링합니다.
 
     const location = data.location;
     document.getElementById('location-content').innerHTML = `

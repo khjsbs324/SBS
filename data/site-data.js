@@ -337,37 +337,46 @@ window.SBSSiteData = Object.freeze({
         }
     ],
     "reviews": {
-        "hero": {
-            "type": "수강생 취업자 특강",
-            "title": "\"SBS아카데미AIX학원 대전점 취업자 현직자 특강\"",
-            "subtitle": "[컴퓨터 대전] UIUX 현직자 특강",
-            "year": "2026",
-            "name": "김선민"
-        },
         "items": [
             {
                 "type": "취업생 인터뷰",
                 "quote": "\"학원에서의 배움을 토대로 현재 디자이너로서 다양한 경험을 하고 있습니다.\"",
+                "description": "포트폴리오 피드백부터 자기소개서와 면접 준비까지 도움을 받았습니다. 학원에서 배운 포토샵과 일러스트레이터를 광고 디자인 실무에 활용하고 있습니다.",
                 "course": "[대전] 웹디자인",
-                "name": "임예나"
+                "name": "임예나",
+                "image": "/assets/images/reviews/daejeon/lim-ye-na.jpg",
+                "imageAlt": "작업 중인 웹디자인 과정 임예나 취업생",
+                "url": "https://sbsart.com/community/interview-view.asp?seq=18&dbType=NEW&iType=EI&interviewType=0&page=1"
             },
             {
                 "type": "취업생 인터뷰",
                 "quote": "\"자소서 작성이나 포트폴리오를 준비할 때에도 첨삭과 피드백을 받을 수 있어 큰 도움이 되었습니다.\"",
+                "description": "자기소개서와 포트폴리오 첨삭을 통해 취업을 준비했습니다. 실무 중심으로 익힌 일러스트레이터와 인디자인은 인쇄물 디자인 업무에 적응하는 데 도움이 되었습니다.",
                 "course": "[대전] 광고편집",
-                "name": "최해인"
+                "name": "최해인",
+                "image": "/assets/images/reviews/daejeon/choi-hae-in.jpg",
+                "imageAlt": "작업 중인 광고편집 과정 최해인 취업생",
+                "url": "https://sbsart.com/community/interview-view.asp?seq=26032&dbType=OLD&iType=OI&interviewType=0&page=1"
             },
             {
                 "type": "수강생 인터뷰",
                 "quote": "\"비전공자도 아트에 관련한 직무 역량을 기초부터 쌓을 수 있도록 체계적으로 커리큘럼이 갖춰져 있다고 느꼈습니다.\"",
+                "description": "마야와 영상편집을 배우며 드로잉과 텍스처링 등 다양한 작업을 경험했습니다. 수강 과정을 함께 관리해 주는 멘토의 도움을 받으며 기초부터 역량을 쌓았습니다.",
                 "course": "[대전] CG",
-                "name": "김동권"
+                "name": "김동권",
+                "image": "/assets/images/reviews/daejeon/kim-dong-gwon.jpg",
+                "imageAlt": "CG 과정 김동권 수강생의 야외 사진",
+                "url": "https://sbsart.com/community/interview-view.asp?seq=26110&dbType=OLD&iType=OI&interviewType=0&page=1"
             },
             {
-                "type": "수강생 인터뷰",
+                "type": "취업생 인터뷰",
                 "quote": "\"일단 훌륭한 강사님께서 수강생 한 명, 한 명의 수준과 속도에 최대한 맞춰가면서 수업을 진행해주신 점이 도움이 되지 않았나 싶습니다.\"",
+                "description": "수강생의 수준에 맞춘 수업과 취업 상담을 통해 진로를 준비했습니다. 영상 제작의 흐름을 익힌 경험은 방송 현장에서 촬영과 오디오 작업을 이해하는 데 도움이 되었습니다.",
                 "course": "[대전] 모션그래픽",
-                "name": "강대솔"
+                "name": "강대솔",
+                "image": "/assets/images/reviews/daejeon/kang-dae-sol.jpg",
+                "imageAlt": "모션그래픽 과정 강대솔 취업생의 야외 사진",
+                "url": "https://sbsart.com/community/interview-view.asp?seq=26087&dbType=OLD&iType=OI&interviewType=0&page=1"
             }
         ]
     },
