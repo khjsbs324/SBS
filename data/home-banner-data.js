@@ -25,46 +25,46 @@ window.SBSHomeBannerData = Object.freeze({
             "duration": "과정별 상이",
             "location": "대전 서구",
             "phone": "042-716-7449",
-            "url": "https://www.work24.go.kr/"
+            "url": "https://www.work24.go.kr/hr/a/a/1100/trnnCrsInf.do?dghtSe=A&traingMthCd=A&tracseTme=1&endDate=20271022&keyword1=&trng_prd=A&keyword2=&pageSize=10&orderBy=ASC&startDate_datepicker=2026-10-22&currentTab=1&topMenuYn=&pop=&tracseId=AIG20260000545340&pageRow=10&totamtSuptYn=A&ncsSearchKeyword=&keywordTrngNm=SBS%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8AIX%ED%95%99%EC%9B%90&crseTracseSeNum=&keywordType=1&gb=&keyword=&kDgtlYn=&area=30%7C%EB%8C%80%EC%A0%84+%EC%A0%84%EC%B2%B4&orderKey=2&mberSe=&kdgLinkYn=&srchType=all_type&max_trng=&totTraingTime=A&tranRegister=&trng_type=A&mberId=&i2=A&pageId=2&areaSearchKeyword=&noTrngPay=Y&programMenuIdentification=EBG020000000310&endDate_datepicker=2027-10-22&min_trng=&monthGubun=&pageOrder=2ASC&pageIndex=1&chkNoTrngPay=Y&bgrlInstYn=&startTrngPay=&startDate=20261022&endTrngPay=&crseTracseSe=&crseTracseSeKDT=&ncs=&gvrnInstt=&selectNCSKeyword=&compareArgArr=&action=trnnCrsInfPost.do"
         },
         {
-            "id": "fullstack",
-            "label": "FULL STACK",
-            "title": "[디지털컨버전스] 공공데이터 융합 풀스택 웹 개발자 양성과정(Next.js & Spring)",
-            "types": ["국가기간전략직종"],
-            "tuition": "훈련비 상담 문의",
-            "copayment": "상담 문의",
-            "period": "모집 일정 상담 문의",
-            "duration": "교육 일정 상담 문의",
+            "id": "video-editing",
+            "label": "VIDEO / YOUTUBE EDITING",
+            "title": "영상편집&유튜브편집제작(프리미어,에프터이펙트)실무자 양성과정",
+            "types": ["국민내일배움카드(구직자)", "재직자도 수강 가능!"],
+            "tuition": "1,872,000원",
+            "copayment": "본인 부담금 842,400원",
+            "period": "2026-10-27 ~ 2027-02-12 (2회차)",
+            "duration": "75일, 총 300시간",
             "location": "대전 서구",
             "phone": "042-716-7449",
-            "url": "https://www.work24.go.kr/"
+            "url": "https://www.work24.go.kr/hr/a/a/1100/trnnCrsInf.do?dghtSe=A&traingMthCd=A&tracseTme=1&endDate=20271022&keyword1=&trng_prd=A&keyword2=&pageSize=10&orderBy=ASC&startDate_datepicker=2026-10-22&currentTab=1&topMenuYn=&pop=&tracseId=AIG20260000545340&pageRow=10&totamtSuptYn=A&ncsSearchKeyword=&keywordTrngNm=SBS%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8AIX%ED%95%99%EC%9B%90&crseTracseSeNum=&keywordType=1&gb=&keyword=&kDgtlYn=&area=30%7C%EB%8C%80%EC%A0%84+%EC%A0%84%EC%B2%B4&orderKey=2&mberSe=&kdgLinkYn=&srchType=all_type&max_trng=&totTraingTime=A&tranRegister=&trng_type=A&mberId=&i2=A&pageId=2&areaSearchKeyword=&noTrngPay=Y&programMenuIdentification=EBG020000000310&endDate_datepicker=2027-10-22&min_trng=&monthGubun=&pageOrder=2ASC&pageIndex=1&chkNoTrngPay=Y&bgrlInstYn=&startTrngPay=&startDate=20261022&endTrngPay=&crseTracseSe=&crseTracseSeKDT=&ncs=&gvrnInstt=&selectNCSKeyword=&compareArgArr=&action=trnnCrsInfPost.do"
         },
         {
-            "id": "uiux",
-            "label": "UIUX / WEB PUBLISHING",
-            "title": "[디지털디자인] AI 기반 UIUX 웹디자인 & 웹퍼블리셔 양성과정(Figma, HTML5, CSS) B",
-            "types": ["국가기간전략직종"],
-            "tuition": "3,709,200원",
+            "id": "interior-certification",
+            "label": "INTERIOR / CERTIFICATION",
+            "title": "[과정평가형] 실내건축기능사 취득과정 (캐드,스케치업)",
+            "types": ["국가기간전략직종", "과정평가형"],
+            "tuition": "3,214,640원",
             "copayment": "본인 부담금 300,000원",
-            "period": "2026-10-13 ~ 2027-04-26 (1회차)",
-            "duration": "133일, 총 660시간",
+            "period": "2026-11-03 ~ 2027-03-11 (1회차)",
+            "duration": "88일, 총 440시간",
             "location": "대전 서구",
             "phone": "042-716-7449",
-            "url": "https://www.work24.go.kr/"
+            "url": "https://www.work24.go.kr/hr/a/a/1100/trnnCrsInf.do?dghtSe=A&traingMthCd=A&tracseTme=1&endDate=20271022&keyword1=&trng_prd=A&keyword2=&pageSize=10&orderBy=ASC&startDate_datepicker=2026-10-22&currentTab=1&topMenuYn=&pop=&tracseId=AIG20260000545340&pageRow=10&totamtSuptYn=A&ncsSearchKeyword=&keywordTrngNm=SBS%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8AIX%ED%95%99%EC%9B%90&crseTracseSeNum=&keywordType=1&gb=&keyword=&kDgtlYn=&area=30%7C%EB%8C%80%EC%A0%84+%EC%A0%84%EC%B2%B4&orderKey=2&mberSe=&kdgLinkYn=&srchType=all_type&max_trng=&totTraingTime=A&tranRegister=&trng_type=A&mberId=&i2=A&pageId=2&areaSearchKeyword=&noTrngPay=Y&programMenuIdentification=EBG020000000310&endDate_datepicker=2027-10-22&min_trng=&monthGubun=&pageOrder=2ASC&pageIndex=1&chkNoTrngPay=Y&bgrlInstYn=&startTrngPay=&startDate=20261022&endTrngPay=&crseTracseSe=&crseTracseSeKDT=&ncs=&gvrnInstt=&selectNCSKeyword=&compareArgArr=&action=trnnCrsInfPost.do"
         },
         {
             "id": "bim-interior",
             "label": "BIM / INTERIOR",
-            "title": "[과정평가형] 실내건축기능사 취득과정 (캐드, 스케치업)",
-            "types": ["국가기간전략직종", "과정평가형"],
-            "tuition": "3,214,640원",
-            "copayment": "본인 부담금 300,000원",
-            "period": "2026-10-20 ~ 2027-02-24 (1회차)",
-            "duration": "88일, 총 440시간",
+            "title": "[BIM] 스마트 건축 설계&실내인테리어 3D디자이너 양성과정(캐드,스케치업,레빗) A",
+            "types": ["국가기간전략직종"],
+            "tuition": "6,151,860원",
+            "copayment": "본인 부담금 400,000원",
+            "period": "2026-11-23 ~ 2027-04-09 (2회차)",
+            "duration": "95일, 총 660시간",
             "location": "대전 서구",
             "phone": "042-716-7449",
-            "url": "https://www.work24.go.kr/"
+            "url": "https://www.work24.go.kr/hr/a/a/1100/trnnCrsInf.do?dghtSe=A&traingMthCd=A&tracseTme=1&endDate=20271022&keyword1=&trng_prd=A&keyword2=&pageSize=10&orderBy=ASC&startDate_datepicker=2026-10-22&currentTab=1&topMenuYn=&pop=&tracseId=AIG20260000545340&pageRow=10&totamtSuptYn=A&ncsSearchKeyword=&keywordTrngNm=SBS%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8AIX%ED%95%99%EC%9B%90&crseTracseSeNum=&keywordType=1&gb=&keyword=&kDgtlYn=&area=30%7C%EB%8C%80%EC%A0%84+%EC%A0%84%EC%B2%B4&orderKey=2&mberSe=&kdgLinkYn=&srchType=all_type&max_trng=&totTraingTime=A&tranRegister=&trng_type=A&mberId=&i2=A&pageId=2&areaSearchKeyword=&noTrngPay=Y&programMenuIdentification=EBG020000000310&endDate_datepicker=2027-10-22&min_trng=&monthGubun=&pageOrder=2ASC&pageIndex=1&chkNoTrngPay=Y&bgrlInstYn=&startTrngPay=&startDate=20261022&endTrngPay=&crseTracseSe=&crseTracseSeKDT=&ncs=&gvrnInstt=&selectNCSKeyword=&compareArgArr=&action=trnnCrsInfPost.do"
         }
     ],
     "notices": {
